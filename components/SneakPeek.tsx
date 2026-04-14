@@ -45,14 +45,13 @@ export default function SneakPeek() {
   const items = [...artefacts, ...artefacts, ...artefacts];
 
   return (
-    <section className="py-24 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 mb-12 text-center">
+    <section className="pt-2 pb-12 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 mb-6 text-center">
         <h2
           style={{
             fontFamily: "var(--font-unbounded), sans-serif",
-            
             fontWeight: 400,
-            fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
+            fontSize: "clamp(1rem, 1.8vw, 1.4rem)",
             color: "var(--color-text)",
           }}
         >

@@ -53,7 +53,7 @@ const links = [
 
 export default function LetsTalk() {
   return (
-    <section className="py-24 px-6" style={{ backgroundColor: "var(--color-card)" }}>
+    <section id="lets-talk" className="py-24 px-6" style={{ backgroundColor: "var(--color-card)" }}>
       <div className="max-w-xl mx-auto text-center">
         <h2
           className="mb-3"

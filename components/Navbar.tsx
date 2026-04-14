@@ -21,14 +21,12 @@ export default function Navbar() {
         borderBottom: scrolled ? "1px solid var(--color-border)" : "none",
       }}
     >
-      {/* All three items centred as a tight group */}
       <div className="flex items-center justify-center gap-8 px-6 py-4">
-        <Link
-          href="/works"
-          className="text-sm font-medium transition-opacity hover:opacity-50"
-          style={{ color: "var(--color-text)" }}
-        >
-          Works
+        <Link href="/#projects" className="text-sm font-medium transition-opacity hover:opacity-50" style={{ color: "var(--color-text)" }}>
+          Projects
+        </Link>
+        <Link href="/#about-me" className="text-sm font-medium transition-opacity hover:opacity-50" style={{ color: "var(--color-text)" }}>
+          About me
         </Link>
 
         <Link
@@ -44,12 +42,11 @@ export default function Navbar() {
           Livia Yeung
         </Link>
 
-        <Link
-          href="/wall-of-love"
-          className="text-sm font-medium transition-opacity hover:opacity-50"
-          style={{ color: "var(--color-text)" }}
-        >
+        <Link href="/#wall-of-love" className="text-sm font-medium transition-opacity hover:opacity-50" style={{ color: "var(--color-text)" }}>
           Wall of Love
+        </Link>
+        <Link href="/#lets-talk" className="text-sm font-medium transition-opacity hover:opacity-50" style={{ color: "var(--color-text)" }}>
+          Download CV
         </Link>
       </div>
     </nav>

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 
 const quotes = [
   {
@@ -107,15 +106,6 @@ export default function WallOfLove() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Link
-            href="/wall-of-love"
-            className="text-sm font-medium hover:underline"
-            style={{ color: "var(--color-text-muted)" }}
-          >
-            See all testimonials →
-          </Link>
-        </div>
       </div>
     </section>
   );

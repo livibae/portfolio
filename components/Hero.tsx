@@ -5,19 +5,19 @@ import { useEffect, useRef, useState } from "react";
 const floatingCards = [
   {
     src: "/artefacts/sidekicks.mp4",
-    style: { top: "10%", left: "1%", width: "200px", height: "130px", rotate: "-7deg" },
+    style: { top: "14%", left: "1%", width: "200px", height: "130px", rotate: "-7deg" },
   },
   {
     src: "/artefacts/enterprise_trial.mp4",
-    style: { top: "8%", right: "2%", width: "210px", height: "135px", rotate: "6deg" },
+    style: { top: "12%", right: "2%", width: "210px", height: "135px", rotate: "6deg" },
   },
   {
     src: "/artefacts/flows.mp4",
-    style: { bottom: "12%", left: "3%", width: "185px", height: "120px", rotate: "5deg" },
+    style: { bottom: "6%", left: "3%", width: "185px", height: "120px", rotate: "5deg" },
   },
   {
     src: "/artefacts/spotify_connect.mp4",
-    style: { bottom: "10%", right: "3%", width: "100px", height: "175px", rotate: "-5deg" },
+    style: { bottom: "4%", right: "3%", width: "100px", height: "175px", rotate: "-5deg" },
   },
 ];
 
@@ -146,8 +146,8 @@ export default function Hero() {
       `}</style>
 
       <section
-        className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden"
-        style={{ paddingTop: "80px" }}
+        className="relative flex flex-col items-center justify-center px-6 text-center overflow-hidden"
+        style={{ paddingTop: "80px", minHeight: "75vh" }}
       >
         {floatingCards.map((card, i) => (
           <FloatingCard key={i} card={card} />
@@ -205,9 +205,7 @@ export default function Hero() {
 
           {/* CTA */}
           <a
-            href="https://www.linkedin.com/in/livia-yeung/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#projects"
             className="inline-flex items-center gap-2 text-sm font-semibold px-8 py-3.5 rounded-full mt-2"
             style={{
               backgroundColor: "var(--color-primary)",
@@ -223,7 +221,7 @@ export default function Hero() {
               (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
             }}
           >
-            Connect with me
+            See my projects
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

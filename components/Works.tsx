@@ -8,7 +8,7 @@ const projects = [
     title: "Generating $1M ARR in 3 months for Miro Prototypes",
     description:
       "Enabling product-led sales through Enterprise trials and a Self-serve feature request flow",
-    chips: ["XFN Collaboration", "Data Analysis", "Snowflake", "SQL", "Lifecycle Marketing"],
+    chips: ["XFN", "Snowflake", "SQL", "Lifecycle"],
     coverBg: "#E8E0CC",
     company: "Miro",
   },
@@ -17,8 +17,9 @@ const projects = [
     title: "Activating 12M new Spotify TV users",
     description:
       "Increasing adoption of Spotify Connect through an in-app messaging campaign promoting listening on TV from mobile",
-    chips: ["Experimentation", "UX Research", "Messaging", "Copywriting"],
+    chips: ["A/B testing", "UX research", "Messaging"],
     coverBg: "#D4EDD4",
+    coverImg: "/case-studies/spotify/cover.png",
     company: "Spotify",
   },
   {
@@ -26,7 +27,7 @@ const projects = [
     title: "Decreasing bad parking by 22% for Lime",
     description:
       "Improving parking compliance of Lime users by leveraging review insights and A/B test results",
-    chips: ["User Research", "Data Analysis", "XFN Collaboration"],
+    chips: ["User research", "Data analysis", "XFN collaboration"],
     coverBg: "#E8EDD4",
     company: "Captur / Lime",
   },
@@ -35,15 +36,15 @@ const projects = [
 function Chip({ label }: { label: string }) {
   return (
     <span
-      className="text-xs font-medium px-3 py-1 rounded-full uppercase tracking-wide"
-      style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)", letterSpacing: "0.04em" }}
+      className="text-xs font-medium px-3 py-1 rounded-full"
+      style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
     >
       {label}
     </span>
   );
 }
 
-function ProjectCard({ project }: { project: typeof projects[0] }) {
+function ProjectCard({ project }: { project: typeof projects[0] & { coverImg?: string } }) {
   return (
     <Link
       href={`/works/${project.slug}`}
@@ -64,15 +65,19 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
     >
       {/* Cover */}
       <div
-        className="w-full flex items-center justify-center text-sm font-medium"
+        className="w-full flex items-center justify-center text-sm font-medium overflow-hidden"
         style={{
           height: "200px",
           backgroundColor: project.coverBg,
           color: "var(--color-text-muted)",
         }}
       >
-        {/* Add cover image: /public/covers/{project.slug}.png */}
-        <span className="opacity-50 text-xs">{project.company} — add cover image</span>
+        {project.coverImg ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img src={project.coverImg} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+        ) : (
+          <span className="opacity-50 text-xs">{project.company} — add cover image</span>
+        )}
       </div>
 
       {/* Content */}
@@ -98,7 +103,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
 
 export default function Works() {
   return (
-    <section id="works" className="py-24 px-6">
+    <section id="projects" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <h2
           className="text-center mb-16"
