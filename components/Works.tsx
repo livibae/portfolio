@@ -10,6 +10,7 @@ const projects = [
       "Enabling product-led sales through Enterprise trials and a Self-serve feature request flow",
     chips: ["XFN", "Snowflake", "SQL", "Lifecycle"],
     coverBg: "#E8E0CC",
+    coverImg: "/case-studies/miro-prototypes/cover.png",
     company: "Miro",
   },
   {

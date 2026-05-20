@@ -5,9 +5,9 @@ import Navbar from "@/components/Navbar";
 import { useState, useEffect } from "react";
 
 const metrics = [
-  { value: "$1M+", label: "ARR generated in 3 months" },
-  { value: "2×", label: "Trial-to-paid conversion rate" },
-  { value: "↑18%", label: "Self-serve feature requests" },
+  { value: "$800K+", label: "ARR generated in 3 months", align: "left" as const },
+  { value: "2×", label: "add-on purchase conversion", align: "center" as const },
+  { value: "219", label: "orgs influenced to purchase Prototypes", align: "center" as const },
 ];
 
 const chips = ["XFN", "Snowflake", "SQL", "Lifecycle"];
@@ -54,10 +54,10 @@ export default function MiroPrototypes() {
                   color: "var(--color-text)",
                 }}
               >
-                Generating $1M ARR in 3 months for Miro Prototypes
+                Generating $800K ARR in 3 months for Miro Prototypes
               </h1>
               <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-text-muted)" }}>
-                Enabling product-led sales through Enterprise trials and a Self-serve feature request flow
+                Enabling product-led sales through a feature request flow
               </p>
               <div className="flex flex-wrap gap-2">
                 {chips.map(chip => (
@@ -101,9 +101,9 @@ export default function MiroPrototypes() {
         {/* Metrics bar */}
         <div style={{ backgroundColor: "var(--color-primary)" }}>
           <div className="max-w-6xl mx-auto px-6 py-10">
-            <div className="grid grid-cols-3 gap-8 text-center">
+            <div className="grid grid-cols-3 gap-8">
               {metrics.map(m => (
-                <div key={m.label}>
+                <div key={m.label} style={{ textAlign: m.align }}>
                   <p
                     className="font-semibold mb-1"
                     style={{
@@ -123,17 +123,6 @@ export default function MiroPrototypes() {
           </div>
         </div>
 
-        {/* Coming soon banner */}
-        <div className="max-w-6xl mx-auto px-6 pt-12">
-          <div
-            className="flex items-center gap-3 px-5 py-4 rounded-2xl text-sm font-medium"
-            style={{ backgroundColor: "var(--color-card)", border: "1px solid var(--color-border)", color: "var(--color-text-muted)" }}
-          >
-            <span style={{ fontSize: "1.1rem" }}>🚧</span>
-            Full case study is being written — check back soon!
-          </div>
-        </div>
-
         {/* Body + sticky nav */}
         <div className="max-w-6xl mx-auto px-6 pb-16 pt-12">
           <div className="flex gap-16 items-start">
@@ -150,31 +139,53 @@ export default function MiroPrototypes() {
 
               <section id="problem">
                 <SectionLabel>💥 Problem</SectionLabel>
-                <Placeholder label="Problem overview image" />
+                <CaseImage src="/case-studies/miro-prototypes/problem-1.jpg" alt="Problem overview" />
               </section>
 
               <section id="opportunity">
                 <SectionLabel>💡 Opportunity</SectionLabel>
-                <Placeholder label="Opportunity analysis image" />
+                <div className="flex flex-col gap-6">
+                  <CaseImage src="/case-studies/miro-prototypes/opportunity-1.jpg" alt="Opportunity analysis 1" />
+                  <CaseImage src="/case-studies/miro-prototypes/opportunity-2.jpg" alt="Opportunity analysis 2" />
+                  <CaseImage src="/case-studies/miro-prototypes/opportunity-3.jpg" alt="Opportunity analysis 3" />
+                  <CaseImage src="/case-studies/miro-prototypes/opportunity-4.jpg" alt="Opportunity analysis 4" />
+                </div>
               </section>
 
               <section id="experiment">
                 <SectionLabel>🧪 Solution</SectionLabel>
-                <div className="flex flex-col gap-6">
-                  <Placeholder label="Experiment design image" />
-                  <Placeholder label="Experiment results image" />
-                </div>
+                <CaseVideo src="/case-studies/miro-prototypes/solution-1.mp4" />
               </section>
 
               <section id="outcome">
                 <SectionLabel>🌟 Outcome</SectionLabel>
-                <Placeholder label="Outcome / results image" />
+                <CaseImage src="/case-studies/miro-prototypes/outcome-1.jpg" alt="Outcome" />
               </section>
 
               <section id="next-steps">
                 <SectionLabel>👣 Next Steps</SectionLabel>
-                <div className="flex flex-col gap-4">
-                  <Placeholder label="Next steps image" />
+                <div className="flex flex-col gap-10">
+                  <CaseImage src="/case-studies/miro-prototypes/nextsteps-1.jpg" alt="Next steps overview" />
+                  <NextStep
+                    number="1"
+                    text="Add-on Request Weekly Summary email"
+                    status="launched"
+                    imgSrc="/case-studies/miro-prototypes/nextsteps-2.jpg"
+                    imgAlt="Next steps 1"
+                  />
+                  <NextStep
+                    number="2"
+                    text="Centralizing add-on requests in Admin System"
+                    status="handed over"
+                    imgSrc="/case-studies/miro-prototypes/nextsteps-3.jpg"
+                    imgAlt="Next steps 2"
+                  />
+                  <NextStep
+                    number="3"
+                    text="Personalized Business Case Builder"
+                    status="Figma & Replit prototype"
+                    loomId="479c5403c8c847278add27db1d226cd0"
+                  />
                 </div>
               </section>
 
@@ -230,18 +241,87 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Placeholder({ label }: { label: string }) {
+function CaseImage({ src, alt }: { src: string; alt: string }) {
   return (
-    <div
-      className="w-full rounded-xl flex items-center justify-center text-sm"
-      style={{
-        height: "220px",
-        border: "2px dashed var(--color-border)",
-        color: "var(--color-text-muted)",
-        backgroundColor: "var(--color-card)",
-      }}
-    >
-      {label}
+    <div className="rounded-xl overflow-hidden" style={{ border: "1px solid var(--color-border)" }}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt={alt} className="w-full h-auto" loading="lazy" />
+    </div>
+  );
+}
+
+function NextStep({
+  number,
+  text,
+  status,
+  imgSrc,
+  imgAlt,
+  loomId,
+}: {
+  number: string;
+  text: string;
+  status?: string;
+  imgSrc?: string;
+  imgAlt?: string;
+  loomId?: string;
+}) {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex items-start gap-4">
+        <span
+          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold"
+          style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+        >
+          {number}
+        </span>
+        <p className="text-lg font-bold leading-snug flex flex-wrap items-center gap-2" style={{ color: "var(--color-text)" }}>
+          <span>{text}</span>
+          {status && (
+            <span
+              className="text-xs font-medium px-3 py-1 rounded-full"
+              style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+            >
+              {status}
+            </span>
+          )}
+        </p>
+      </div>
+      {loomId ? (
+        <LoomEmbed loomId={loomId} />
+      ) : imgSrc ? (
+        <CaseImage src={imgSrc} alt={imgAlt ?? ""} />
+      ) : null}
+    </div>
+  );
+}
+
+function LoomEmbed({ loomId }: { loomId: string }) {
+  return (
+    <div className="rounded-xl overflow-hidden" style={{ border: "1px solid var(--color-border)" }}>
+      <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+        <iframe
+          src={`https://www.loom.com/embed/${loomId}`}
+          allow="fullscreen"
+          allowFullScreen
+          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
+        />
+      </div>
+    </div>
+  );
+}
+
+function CaseVideo({ src }: { src: string }) {
+  return (
+    <div className="rounded-xl overflow-hidden" style={{ border: "1px solid var(--color-border)" }}>
+      <video
+        src={src}
+        className="w-full h-auto block"
+        autoPlay
+        muted
+        loop
+        playsInline
+        controls
+      />
     </div>
   );
 }
