@@ -155,23 +155,33 @@ export default function Hero() {
 
         <div ref={contentRef} className="relative z-10 flex flex-col items-center gap-5">
 
-          {/* Curved "This is Livia" */}
-          <svg viewBox="0 0 260 48" width="260" aria-label="This is Livia" style={{ overflow: "visible" }}>
+          {/* Curved "Heya, I am Livia" — same size as subtitle */}
+          <svg
+            viewBox="0 0 420 78"
+            aria-label="Heya, I am Livia"
+            style={{
+              width: "min(420px, 92vw)",
+              height: "auto",
+              overflow: "visible",
+              fontSize: "clamp(1rem, 2vw, 1.25rem)",
+            }}
+          >
             <defs>
-              <path id="arc" d="M 10,38 Q 130,2 250,38" />
+              <path id="arc" d="M 24,58 Q 210,10 396,58" />
             </defs>
+
             <text
               style={{
-                fontSize: "11px",
+                fontSize: "1em",
                 fontFamily: "var(--font-nunito), Nunito, sans-serif",
                 fontWeight: 500,
-                fill: "var(--color-text-muted)",
-                letterSpacing: "0.18em",
+                letterSpacing: "0.16em",
                 textTransform: "uppercase",
               }}
             >
               <textPath href="#arc" startOffset="50%" textAnchor="middle">
-                This is Livia
+                <tspan fill="var(--color-text-muted)">Heya, I am </tspan>
+                <tspan fill="var(--color-primary)">Livia</tspan>
               </textPath>
             </text>
           </svg>
@@ -188,7 +198,7 @@ export default function Hero() {
               color: "var(--color-text)",
             }}
           >
-            The AI-native<br />Product Manager
+            The AI-fluent<br />Growth PM
           </h1>
 
           {/* Typing subtitle */}

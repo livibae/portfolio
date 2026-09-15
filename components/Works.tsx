@@ -5,9 +5,9 @@ import Link from "next/link";
 const projects = [
   {
     slug: "miro-prototypes",
-    title: "Generating $1M ARR in 3 months for Miro Prototypes",
+    title: "Generating $800K ARR in 3 months for Miro Prototypes",
     description:
-      "Enabling product-led sales through Enterprise trials and a Self-serve feature request flow",
+      "Enabling product-led sales through a feature request flow",
     chips: ["XFN", "Snowflake", "SQL", "Lifecycle"],
     coverBg: "#E8E0CC",
     coverImg: "/case-studies/miro-prototypes/cover.png",
@@ -24,13 +24,13 @@ const projects = [
     company: "Spotify",
   },
   {
-    slug: "lime",
-    title: "Decreasing bad parking by 22% for Lime",
+    slug: "winback-offer",
+    title: "Retaining $600K at-risk ARR with 1-month winback offer",
     description:
-      "Improving parking compliance of Lime users by leveraging review insights and A/B test results",
-    chips: ["User research", "Data analysis", "XFN collaboration"],
+      "Using discounts as a last-resort save for price-sensitive teams at cancelation moment",
+    chips: ["Post-launch analysis", "Lifecycle", "SQL", "Retention"],
     coverBg: "#E8EDD4",
-    company: "Captur / Lime",
+    company: "Miro",
   },
 ];
 
