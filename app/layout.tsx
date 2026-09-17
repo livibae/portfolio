@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito, Unbounded, Great_Vibes, Nabla } from "next/font/google";
+import { Nunito, Unbounded, Great_Vibes, Nabla, Caveat } from "next/font/google";
 import "./globals.css";
 
 const nunito = Nunito({
@@ -27,6 +27,13 @@ const nabla = Nabla({
   display: "swap",
 });
 
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-caveat",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Livia Yeung — Product Manager",
   description:
@@ -39,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${nunito.variable} ${unbounded.variable} ${greatVibes.variable} ${nabla.variable}`}>
+    <html lang="en" className={`${nunito.variable} ${unbounded.variable} ${greatVibes.variable} ${nabla.variable} ${caveat.variable}`}>
       <body style={{ fontFamily: "var(--font-nunito), Nunito, sans-serif" }}>
         {children}
       </body>

@@ -76,7 +76,7 @@ function ProjectCard({ project }: { project: typeof projects[0] & { coverImg?: s
       >
         {project.coverImg ? (
           /* eslint-disable-next-line @next/next/no-img-element */
-          <img src={project.coverImg} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+          <img src={project.coverImg} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
         ) : (
           <span className="opacity-50 text-xs">{project.company} — add cover image</span>
         )}

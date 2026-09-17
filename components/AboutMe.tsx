@@ -3,108 +3,72 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const timeline = [
-  { org: "Miro",    role: "Associate Product Manager",          years: "2025 – now" },
-  { org: "Captur",  role: "Associate Product Manager",          years: "2024 – 2025" },
-  { org: "Spotify", role: "Product Intern",                     years: "2023" },
-  { org: "Spotify", role: "Equity & Impact Intern",             years: "2021 – 2022" },
-  { org: "Oxford",  role: "MSc Social Science of the Internet", years: "2022 – 2023" },
-  { org: "UCL",     role: "BSc Psychology",                     years: "2019 – 2022" },
-];
-
 const photos = [
   {
-    src: null,
-    alt: "Placeholder",
-    tooltip: "📍 Add your photo here",
-    rotate: "-6deg",
-    hoverRotate: "-2deg",
+    src: "/grad.jpeg",
+    alt: "Graduation at Oxford",
+    rotate: "-7deg",
+    hoverRotate: "-3deg",
     width: "200px",
-    aspectRatio: "4/3",
-  },
-  {
-    src: "/profile.jpg",
-    alt: "Livia Yeung at Miro Amsterdam office",
-    tooltip: "This is me! 👋",
-    rotate: "2deg",
-    hoverRotate: "5deg",
-    width: "220px",
     aspectRatio: "3/4",
   },
   {
-    src: null,
-    alt: "Placeholder",
-    tooltip: "📍 Add your photo here",
-    rotate: "7deg",
+    src: "/profile.jpg",
+    alt: "Livia at Miro Amsterdam office",
+    rotate: "1deg",
+    hoverRotate: "3deg",
+    width: "240px",
+    aspectRatio: "3/4",
+  },
+  {
+    src: "/yoga.jpeg",
+    alt: "Practicing yoga",
+    rotate: "8deg",
     hoverRotate: "11deg",
     width: "200px",
-    aspectRatio: "4/3",
+    aspectRatio: "3/4",
   },
 ];
 
-function TimelineRow({ item }: { item: typeof timeline[0] }) {
-  const [hovered, setHovered] = useState(false);
-
-  return (
-    <div
-      className="flex items-center pb-4 relative"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{ cursor: "default" }}
-    >
-      {/* Year — left of line */}
-      <div className="flex-shrink-0 text-right pr-3" style={{ width: "5.5rem" }}>
-        <span style={{ fontSize: "11px", fontWeight: 500, color: "var(--color-text-muted)" }}>
-          {item.years}
-        </span>
-      </div>
-
-      {/* Dot */}
-      <div
-        className="flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center z-10"
-        style={{ backgroundColor: hovered ? "var(--color-text)" : "var(--color-primary)", transition: "background-color 0.2s" }}
-      >
-        <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: hovered ? "var(--color-primary)" : "var(--color-text)" }} />
-      </div>
-
-      {/* Company name + tooltip — right of line */}
-      <div className="relative pl-3">
-        <p style={{ fontSize: "13px", fontWeight: 600, color: "var(--color-text)" }}>{item.org}</p>
-
-        {/* Tooltip */}
-        <div style={{
-          position: "absolute",
-          left: "calc(100% + 10px)",
-          top: "50%",
-          transform: "translateY(-50%)",
-          backgroundColor: "var(--color-text)",
-          color: "var(--color-bg)",
-          fontSize: "11px",
-          fontWeight: 500,
-          padding: "5px 10px",
-          borderRadius: "20px",
-          whiteSpace: "nowrap",
-          opacity: hovered ? 1 : 0,
-          transition: "opacity 0.2s ease",
-          pointerEvents: "none",
-          zIndex: 20,
-        }}>
-          {item.role}
-          <span style={{
-            position: "absolute",
-            left: "-5px",
-            top: "50%",
-            transform: "translateY(-50%)",
-            width: 0, height: 0,
-            borderTop: "5px solid transparent",
-            borderBottom: "5px solid transparent",
-            borderRight: `5px solid var(--color-text)`,
-          }} />
-        </div>
-      </div>
-    </div>
-  );
-}
+/** Notes grouped by photo. Left: HK sits left of UK; both point at grad. */
+const columns = [
+  {
+    photoIndex: 0,
+    notes: [
+      {
+        text: "🇭🇰 Born and raised in Hong Kong",
+        // from left, curl down-right into the photo
+        path: "M 20 8 C 10 35, 25 60, 55 78 C 70 88, 82 92, 92 96",
+      },
+      {
+        text: "🇬🇧 Studied in the UK for 8 years from High school to Masters!",
+        // from above-right of HK, curl down into the photo
+        path: "M 55 4 C 80 20, 75 50, 45 72 C 35 82, 42 90, 48 96",
+      },
+    ],
+    notesSideBySide: true,
+  },
+  {
+    photoIndex: 1,
+    notes: [
+      {
+        text: "🇳🇱 Most recently, I worked at Miro in Amsterdam!",
+        path: "M 52 2 C 22 14, 18 42, 48 68 C 60 80, 50 90, 48 96",
+      },
+    ],
+    notesSideBySide: false,
+  },
+  {
+    photoIndex: 2,
+    notes: [
+      {
+        text: "🧘‍♀️ I am a yogi at heart. In my free time, you will find me practising my vinyasas, hand/head/chin stands, and splits.",
+        path: "M 68 2 C 35 8, 12 34, 34 62 C 46 76, 28 88, 22 96",
+      },
+    ],
+    notesSideBySide: false,
+  },
+];
 
 function PhotoCard({ photo }: { photo: typeof photos[0] }) {
   const [hovered, setHovered] = useState(false);
@@ -115,7 +79,7 @@ function PhotoCard({ photo }: { photo: typeof photos[0] }) {
       style={{
         width: photo.width,
         transform: hovered
-          ? `rotate(${photo.hoverRotate}) scale(1.06)`
+          ? `rotate(${photo.hoverRotate}) scale(1.05)`
           : `rotate(${photo.rotate}) scale(1)`,
         transition: "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
         cursor: "default",
@@ -124,47 +88,11 @@ function PhotoCard({ photo }: { photo: typeof photos[0] }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Tooltip */}
-      <div
-        style={{
-          position: "absolute",
-          top: "-42px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          backgroundColor: "var(--color-text)",
-          color: "var(--color-bg)",
-          fontSize: "12px",
-          fontWeight: 500,
-          padding: "6px 12px",
-          borderRadius: "20px",
-          whiteSpace: "nowrap",
-          opacity: hovered ? 1 : 0,
-          transition: "opacity 0.2s ease",
-          pointerEvents: "none",
-          zIndex: 20,
-        }}
-      >
-        {photo.tooltip}
-        {/* Arrow */}
-        <span style={{
-          position: "absolute",
-          bottom: "-5px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: 0,
-          height: 0,
-          borderLeft: "5px solid transparent",
-          borderRight: "5px solid transparent",
-          borderTop: `5px solid var(--color-text)`,
-        }} />
-      </div>
-
-      {/* Card */}
       <div
         style={{
           width: "100%",
           aspectRatio: photo.aspectRatio,
-          borderRadius: "16px",
+          borderRadius: "14px",
           overflow: "hidden",
           border: "2px solid var(--color-border)",
           boxShadow: hovered
@@ -175,93 +103,132 @@ function PhotoCard({ photo }: { photo: typeof photos[0] }) {
           backgroundColor: "#2a2a2a",
         }}
       >
-        {photo.src ? (
-          <Image
-            src={photo.src}
-            alt={photo.alt}
-            fill
-            className="object-cover object-top"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center" style={{ color: "#555", fontSize: "13px" }}>
-            add photo
-          </div>
-        )}
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          fill
+          className="object-cover object-top"
+        />
       </div>
+    </div>
+  );
+}
+
+function NoteWithArrow({
+  text,
+  path,
+  markerId,
+}: {
+  text: string;
+  path: string;
+  markerId: string;
+}) {
+  return (
+    <div className="flex flex-col items-center text-center relative z-10" style={{ minWidth: 0 }}>
+      <p
+        style={{
+          fontFamily: "var(--font-caveat), Caveat, cursive",
+          fontSize: "clamp(1.05rem, 1.6vw, 1.3rem)",
+          fontWeight: 400,
+          lineHeight: 1.15,
+          color: "var(--color-text)",
+          margin: 0,
+          maxWidth: "100%",
+        }}
+      >
+        {text}
+      </p>
+      <svg
+        viewBox="0 0 100 100"
+        fill="none"
+        aria-hidden
+        style={{
+          width: "64px",
+          height: "52px",
+          marginTop: "2px",
+          marginBottom: "10px",
+          overflow: "visible",
+          flexShrink: 0,
+        }}
+      >
+        <defs>
+          <marker id={markerId} markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+            <path d="M 1 1.5 L 5 5 L 1 8.5" stroke="var(--color-text)" strokeWidth="1.6" fill="none" strokeLinecap="round" />
+          </marker>
+        </defs>
+        <path
+          d={path}
+          stroke="var(--color-text)"
+          strokeWidth="1.85"
+          strokeLinecap="round"
+          fill="none"
+          markerEnd={`url(#${markerId})`}
+        />
+      </svg>
     </div>
   );
 }
 
 export default function AboutMe() {
   return (
-    <section id="about-me" style={{ backgroundColor: "var(--color-card)" }}>
-      {/* Top: bio + timeline */}
-      <div className="pt-24 pb-8 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2
-            className="text-center mb-16"
-            style={{
-              fontFamily: "var(--font-unbounded), sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-              color: "var(--color-text)",
-            }}
-          >
-            Allow me to introduce myself 😁
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-            {/* Left: bio text */}
-            <div className="flex flex-col gap-6">
-              <div>
-                <h3 className="font-semibold mb-2 text-sm uppercase tracking-widest" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>
-                  My Background
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-text)" }}>
-                  Born and raised in Hong Kong, I&apos;m a product person with experience building and monetising AI products at both start-ups and scale-ups.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2 text-sm uppercase tracking-widest" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>
-                  My Approach
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-text)" }}>
-                  I think of great product work like a well-made cake. The base is an unwavering commitment to impact — no job too small, no detail too operational. The middle is structured but adaptable: data-driven by training (Psychology, Oxford statistics), but not afraid of creative bets. And the cherry on top is customer obsession — hands-on experience helping customers understand AI, advising on implementation, and setting go-to-market strategy to sell and scale it.
-                </p>
-              </div>
-            </div>
-
-            {/* Right: timeline */}
-            <div>
-              <h3 className="font-semibold mb-8 text-sm uppercase tracking-widest" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>
-                Career
-              </h3>
-              <div className="relative flex flex-col">
-                {/* Timeline vertical line — centred on the dot column */}
-                <div className="absolute top-2 bottom-2 w-px" style={{ left: "calc(5.5rem + 10px)", backgroundColor: "var(--color-border)" }} />
-                {timeline.map((item, i) => (
-                  <TimelineRow key={i} item={item} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom: dark photo strip */}
-      <div
-        className="px-6 pb-16 pt-0"
-        style={{
-          backgroundColor: "var(--color-card)",
-        }}
-      >
-        <div
-          className="max-w-3xl mx-auto flex items-end justify-center"
-          style={{ gap: "2rem" }}
+    <section id="about-me" className="py-24 px-6" style={{ backgroundColor: "var(--color-card)" }}>
+      <div className="max-w-5xl mx-auto flex flex-col items-center">
+        <h2
+          className="text-center mb-14"
+          style={{
+            fontFamily: "var(--font-unbounded), sans-serif",
+            fontWeight: 400,
+            fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
+            color: "var(--color-text)",
+          }}
         >
-          {photos.map((photo, i) => (
-            <PhotoCard key={i} photo={photo} />
-          ))}
+          Allow me to introduce myself 😁
+        </h2>
+
+        <div
+          className="w-full flex flex-col md:flex-row items-end justify-center gap-8 md:gap-6"
+          style={{ maxWidth: "900px" }}
+        >
+          {/* Grad column — HK left of UK, both point at grad */}
+          <div className="flex flex-col items-center" style={{ width: "280px" }}>
+            <div className="flex items-end justify-center gap-3 w-full" style={{ marginBottom: 0 }}>
+              <div style={{ flex: "1 1 0", minWidth: 0 }}>
+                <NoteWithArrow
+                  text={columns[0].notes[0].text}
+                  path={columns[0].notes[0].path}
+                  markerId="about-arrow-hk"
+                />
+              </div>
+              <div style={{ flex: "1 1 0", minWidth: 0 }}>
+                <NoteWithArrow
+                  text={columns[0].notes[1].text}
+                  path={columns[0].notes[1].path}
+                  markerId="about-arrow-uk"
+                />
+              </div>
+            </div>
+            <PhotoCard photo={photos[0]} />
+          </div>
+
+          {/* Profile column */}
+          <div className="flex flex-col items-center" style={{ width: "240px" }}>
+            <NoteWithArrow
+              text={columns[1].notes[0].text}
+              path={columns[1].notes[0].path}
+              markerId="about-arrow-nl"
+            />
+            <PhotoCard photo={photos[1]} />
+          </div>
+
+          {/* Yoga column */}
+          <div className="flex flex-col items-center" style={{ width: "240px" }}>
+            <NoteWithArrow
+              text={columns[2].notes[0].text}
+              path={columns[2].notes[0].path}
+              markerId="about-arrow-yoga"
+            />
+            <PhotoCard photo={photos[2]} />
+          </div>
         </div>
       </div>
     </section>
