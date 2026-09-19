@@ -41,26 +41,17 @@ export default function WinbackOffer() {
         <header className="max-w-6xl mx-auto px-6 pt-10 pb-12">
           <div className="grid md:grid-cols-[1fr_300px] gap-12 items-start">
             <div>
-              <h1
-                className="leading-tight mb-4"
-                style={{
-                  fontFamily: "var(--font-unbounded), sans-serif",
-                  fontWeight: 500,
-                  fontSize: "clamp(2.4rem, 5vw, 4rem)",
-                  color: "var(--color-text)",
-                }}
-              >
+              <h1 className="mb-4 max-w-4xl font-sans text-4xl font-semibold leading-tight tracking-tight text-gray-900 md:text-6xl">
                 Retaining $600K at-risk ARR with 1-month winback offer
               </h1>
-              <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-text-muted)" }}>
+              <p className="mb-6 max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
                 Using discounts as a last-resort save for price-sensitive teams at cancelation moment
               </p>
               <div className="flex flex-wrap gap-2">
                 {chips.map(chip => (
                   <span
                     key={chip}
-                    className="text-xs font-medium px-3 py-1 rounded-full"
-                    style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+                    className="glass-tag"
                   >
                     {chip}
                   </span>
@@ -70,41 +61,34 @@ export default function WinbackOffer() {
 
             <div className="flex flex-col gap-6 pt-2">
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Company</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Miro</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Company</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Miro</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Period</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>May 2026 – July 2026</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Period</p>
+                <p className="font-sans text-sm font-medium text-gray-900">May 2026 – July 2026</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Role</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Associate Product Manager</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Role</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Associate Product Manager</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Team</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>1 Designer · 1 Data Analyst · 2 Engineers · 1 Lifecycle marketer</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Team</p>
+                <p className="font-sans text-sm font-medium text-gray-900">1 Designer · 1 Data Analyst · 2 Engineers · 1 Lifecycle marketer</p>
               </div>
             </div>
           </div>
         </header>
 
-        <div style={{ backgroundColor: "var(--color-primary)" }}>
+        <div className="glass-strip">
           <div className="max-w-6xl mx-auto px-6 py-10">
             <div className="grid grid-cols-3 gap-8">
               {metrics.map(m => (
                 <div key={m.label} style={{ textAlign: m.align }}>
-                  <p
-                    className="font-semibold mb-1"
-                    style={{
-                      fontFamily: "var(--font-unbounded), sans-serif",
-                      fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)",
-                      color: "var(--color-text)",
-                    }}
-                  >
+                  <p className="mb-1 font-sans text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
                     {m.value}
                   </p>
-                  <p className="text-xs uppercase tracking-widest" style={{ color: "var(--color-text)", opacity: 0.65, letterSpacing: "0.1em" }}>
+                  <p className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
                     {m.label}
                   </p>
                 </div>
@@ -117,19 +101,19 @@ export default function WinbackOffer() {
           <div className="flex gap-16 items-start">
             <article className="flex-1 min-w-0 flex flex-col gap-16">
 
-              <section id="context">
-                <SectionLabel>🖼️ Context</SectionLabel>
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="context">
+                <SectionLabel>Context</SectionLabel>
+                <p className="font-sans text-base leading-relaxed text-gray-600">
                   Churn from self-serve customers has been accelerating, hemorrhaging $3–4M ARR every month. The disbanded Expansion &amp; Retention team successfully reduced churn by giving a one-month free offer to Starter &amp; Business plan customers canceling within their first 3 months. I was responsible for rolling out the winning tactic to 100% of users, making improvements based on experiment results, and monitoring its long-term impact on retention.
                 </p>
               </section>
 
-              <section id="opportunity">
-                <SectionLabel>💡 Opportunity</SectionLabel>
-                <p className="text-base leading-relaxed mb-6" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="opportunity">
+                <SectionLabel>Opportunity</SectionLabel>
+                <p className="font-sans text-base leading-relaxed mb-6 text-gray-600">
                   Opportunities for improvement post-experiment:
                 </p>
-                <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc" style={{ color: "var(--color-text)" }}>
+                <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                   <li>The original UX included a questionnaire that was later deprecated.</li>
                   <li>
                     Only 66% of teams who accepted the offer successfully applied the coupon at plan renewal — likely because users did not know that canceling their subscription again before renewal automatically removes the discount.
@@ -141,9 +125,9 @@ export default function WinbackOffer() {
                 </ul>
               </section>
 
-              <section id="solution">
-                <SectionLabel>🧪 Solution</SectionLabel>
-                <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="solution">
+                <SectionLabel>Solution</SectionLabel>
+                <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
                   <li>
                     Simplified UX with a new screen promoting the most valuable paid plan features (based on Max Diff research) and a CTA directing users back to the product after they accept the offer.
                   </li>
@@ -158,9 +142,9 @@ export default function WinbackOffer() {
                 <CaseImage src="/case-studies/winback-offer/solution-1.jpg" alt="Post-GA solution changes: eligibility criteria, winback flow, and confirmation email" />
               </section>
 
-              <section id="outcome">
-                <SectionLabel>🌟 Outcome</SectionLabel>
-                <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="outcome">
+                <SectionLabel>Outcome</SectionLabel>
+                <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
                   <li>
                     <strong>$600K</strong> retained ARR per year; retention after the 2nd invoice is stable at <strong>51%</strong>.
                   </li>
@@ -180,8 +164,8 @@ export default function WinbackOffer() {
                 <CaseImage src="/case-studies/winback-offer/outcome-1.jpg" alt="Overall impact and funnel metrics post-GA" />
               </section>
 
-              <section id="next-steps">
-                <SectionLabel>👣 Next Steps</SectionLabel>
+              <section className="scroll-mt-28" id="next-steps">
+                <SectionLabel>Next Steps</SectionLabel>
                 <div className="flex flex-col gap-10">
                   <NextStep
                     number="1"
@@ -217,8 +201,7 @@ export default function WinbackOffer() {
               href="https://www.linkedin.com/in/livia-yeung/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold px-5 py-2.5 rounded-full"
-              style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+              className="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white"
             >
               Connect with me
             </a>
@@ -231,15 +214,7 @@ export default function WinbackOffer() {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h2
-      className="mb-8"
-      style={{
-        fontFamily: "var(--font-unbounded), sans-serif",
-        fontWeight: 500,
-        fontSize: "clamp(1.3rem, 2.5vw, 1.75rem)",
-        color: "var(--color-text)",
-      }}
-    >
+    <h2 className="mb-6 font-sans text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">
       {children}
     </h2>
   );
@@ -271,16 +246,15 @@ function NextStep({
     <div className="flex flex-col gap-4">
       <div className="flex items-start gap-4">
         <span
-          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold"
-          style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+          className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm font-semibold text-white"
         >
           {number}
         </span>
-        <p className="text-lg font-bold leading-snug" style={{ color: "var(--color-text)" }}>
+        <p className="font-sans text-lg font-semibold tracking-tight leading-snug text-gray-900">
           {text}
         </p>
       </div>
-      <p className="text-base leading-relaxed pl-12" style={{ color: "var(--color-text)" }}>
+      <p className="font-sans text-base leading-relaxed pl-12 text-gray-600">
         {body}
       </p>
       {imgSrc && <CaseImage src={imgSrc} alt={imgAlt ?? ""} />}

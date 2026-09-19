@@ -45,26 +45,17 @@ export default function MiroPrototypes() {
           <div className="grid md:grid-cols-[1fr_300px] gap-12 items-start">
             {/* Left */}
             <div>
-              <h1
-                className="leading-tight mb-4"
-                style={{
-                  fontFamily: "var(--font-unbounded), sans-serif",
-                  fontWeight: 500,
-                  fontSize: "clamp(2.4rem, 5vw, 4rem)",
-                  color: "var(--color-text)",
-                }}
-              >
+              <h1 className="mb-4 max-w-4xl font-sans text-4xl font-semibold leading-tight tracking-tight text-gray-900 md:text-6xl">
                 Generating $800K ARR in 3 months for Miro Prototypes
               </h1>
-              <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-text-muted)" }}>
+              <p className="mb-6 max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
                 Enabling product-led sales through a feature request flow
               </p>
               <div className="flex flex-wrap gap-2">
                 {chips.map(chip => (
                   <span
                     key={chip}
-                    className="text-xs font-medium px-3 py-1 rounded-full"
-                    style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+                    className="glass-tag"
                   >
                     {chip}
                   </span>
@@ -75,46 +66,39 @@ export default function MiroPrototypes() {
             {/* Right: meta */}
             <div className="flex flex-col gap-6 pt-2">
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Company</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Miro</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Company</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Miro</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Period</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>November 2025 – January 2026</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Period</p>
+                <p className="font-sans text-sm font-medium text-gray-900">November 2025 – January 2026</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Role</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Associate Product Manager</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Role</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Associate Product Manager</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Team</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>1 Designer · 1 Data Analyst · 6 Engineers</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Team</p>
+                <p className="font-sans text-sm font-medium text-gray-900">1 Designer · 1 Data Analyst · 6 Engineers</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Stakeholders</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Go-to-market · Product Marketing · Lifecycle · Customer Support</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Stakeholders</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Go-to-market · Product Marketing · Lifecycle · Customer Support</p>
               </div>
             </div>
           </div>
         </header>
 
         {/* Metrics bar */}
-        <div style={{ backgroundColor: "var(--color-primary)" }}>
+        <div className="glass-strip">
           <div className="max-w-6xl mx-auto px-6 py-10">
             <div className="grid grid-cols-3 gap-8">
               {metrics.map(m => (
                 <div key={m.label} style={{ textAlign: m.align }}>
-                  <p
-                    className="font-semibold mb-1"
-                    style={{
-                      fontFamily: "var(--font-unbounded), sans-serif",
-                      fontSize: "clamp(2rem, 4vw, 2.8rem)",
-                      color: "var(--color-text)",
-                    }}
-                  >
+                  <p className="mb-1 font-sans text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
                     {m.value}
                   </p>
-                  <p className="text-xs uppercase tracking-widest" style={{ color: "var(--color-text)", opacity: 0.65, letterSpacing: "0.1em" }}>
+                  <p className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
                     {m.label}
                   </p>
                 </div>
@@ -130,20 +114,20 @@ export default function MiroPrototypes() {
             {/* Article */}
             <article className="flex-1 min-w-0 flex flex-col gap-16">
 
-              <section id="context">
-                <SectionLabel>🖼️ Context</SectionLabel>
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="context">
+                <SectionLabel>Context</SectionLabel>
+                <p className="font-sans text-base leading-relaxed text-gray-600">
                   Miro Prototypes is an interactive prototyping tool built into Miro, enabling design and product teams to create and share clickable flows without leaving the canvas. The objective was to monetise the feature by converting free and Starter users into paid plans through a combination of trials and upgrade moments.
                 </p>
               </section>
 
-              <section id="problem">
-                <SectionLabel>💥 Problem</SectionLabel>
+              <section className="scroll-mt-28" id="problem">
+                <SectionLabel>Problem</SectionLabel>
                 <CaseImage src="/case-studies/miro-prototypes/problem-1.jpg" alt="Problem overview" />
               </section>
 
-              <section id="opportunity">
-                <SectionLabel>💡 Opportunity</SectionLabel>
+              <section className="scroll-mt-28" id="opportunity">
+                <SectionLabel>Opportunity</SectionLabel>
                 <div className="flex flex-col gap-6">
                   <CaseImage src="/case-studies/miro-prototypes/opportunity-1.jpg" alt="Opportunity analysis 1" />
                   <CaseImage src="/case-studies/miro-prototypes/opportunity-2.jpg" alt="Opportunity analysis 2" />
@@ -152,18 +136,18 @@ export default function MiroPrototypes() {
                 </div>
               </section>
 
-              <section id="experiment">
-                <SectionLabel>🧪 Solution</SectionLabel>
+              <section className="scroll-mt-28" id="experiment">
+                <SectionLabel>Solution</SectionLabel>
                 <CaseVideo src="/case-studies/miro-prototypes/solution-1.mp4" />
               </section>
 
-              <section id="outcome">
-                <SectionLabel>🌟 Outcome</SectionLabel>
+              <section className="scroll-mt-28" id="outcome">
+                <SectionLabel>Outcome</SectionLabel>
                 <CaseImage src="/case-studies/miro-prototypes/outcome-1.jpg" alt="Outcome" />
               </section>
 
-              <section id="next-steps">
-                <SectionLabel>👣 Next Steps</SectionLabel>
+              <section className="scroll-mt-28" id="next-steps">
+                <SectionLabel>Next Steps</SectionLabel>
                 <div className="flex flex-col gap-10">
                   <CaseImage src="/case-studies/miro-prototypes/nextsteps-1.jpg" alt="Next steps overview" />
                   <NextStep
@@ -211,8 +195,7 @@ export default function MiroPrototypes() {
               href="https://www.linkedin.com/in/livia-yeung/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold px-5 py-2.5 rounded-full"
-              style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+              className="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white"
             >
               Connect with me
             </a>
@@ -227,15 +210,7 @@ export default function MiroPrototypes() {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h2
-      className="mb-8"
-      style={{
-        fontFamily: "var(--font-unbounded), sans-serif",
-        fontWeight: 500,
-        fontSize: "clamp(1.3rem, 2.5vw, 1.75rem)",
-        color: "var(--color-text)",
-      }}
-    >
+    <h2 className="mb-6 font-sans text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">
       {children}
     </h2>
   );
@@ -269,17 +244,15 @@ function NextStep({
     <div className="flex flex-col gap-4">
       <div className="flex items-start gap-4">
         <span
-          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold"
-          style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+          className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm font-semibold text-white"
         >
           {number}
         </span>
-        <p className="text-lg font-bold leading-snug flex flex-wrap items-center gap-2" style={{ color: "var(--color-text)" }}>
+        <p className="font-sans text-lg font-semibold tracking-tight leading-snug flex flex-wrap items-center gap-2 text-gray-900">
           <span>{text}</span>
           {status && (
             <span
-              className="text-xs font-medium px-3 py-1 rounded-full"
-              style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+              className="glass-tag"
             >
               {status}
             </span>

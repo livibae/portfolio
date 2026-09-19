@@ -1,5 +1,7 @@
 "use client";
 
+// Archived off the homepage. Not mounted. Restore by rendering this from app/page.tsx when the animation is ready.
+
 import Image from "next/image";
 import { useState } from "react";
 

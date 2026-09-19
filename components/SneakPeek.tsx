@@ -1,49 +1,109 @@
 "use client";
 
+import Link from "next/link";
+import { useState } from "react";
+
 type Artefact = {
   src: string;
-  alt: string;
+  title: string;
+  href: string;
   portrait?: boolean;
 };
 
-// Order: sidekicks, enterprise_trial, spotify_connect, flows, request_admin, downgrade
 const artefacts: Artefact[] = [
-  { src: "/artefacts/sidekicks.mp4",        alt: "Miro Sidekicks AI" },
-  { src: "/artefacts/enterprise_trial.mp4", alt: "Enterprise trial flow" },
-  { src: "/artefacts/spotify_connect.mp4",  alt: "Spotify Connect campaign", portrait: true },
-  { src: "/artefacts/flows.mp4",            alt: "Miro Flows demo" },
-  { src: "/artefacts/request_admin.mp4",    alt: "Request admin flow" },
-  { src: "/case-studies/downgrade-experiment/solution1.mp4", alt: "Downgrade experiment flow" },
+  {
+    src: "/artefacts/spotify_connect.mp4",
+    title: "Activating 12M new Spotify TV users",
+    href: "/works/spotify-connect",
+    portrait: true,
+  },
+  {
+    src: "/case-studies/miro-prototypes/solution-1.mp4",
+    title: "Generating $800K ARR in 3 months for Miro Prototypes",
+    href: "/works/miro-prototypes",
+  },
+  {
+    src: "/case-studies/downgrade-experiment/solution1.mp4",
+    title: "Retaining $400k ARR with downgrade alternatives",
+    href: "/works/downgrade-experiment",
+  },
+  {
+    src: "/case-studies/paywall-plantag/solution.mp4",
+    title: "Driving $310K ARR with plan recommendation tags on paywalls",
+    href: "/works/paywall-plantag",
+  },
 ];
 
 function VideoCard({ item }: { item: Artefact }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <div
+    <Link
+      href={item.href}
+      aria-label={item.title}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       style={{
+        position: "relative",
         width: item.portrait ? "115px" : "300px",
         height: "200px",
         flexShrink: 0,
-        borderRadius: "12px",
-        overflow: "hidden",
-        border: "1px solid var(--color-border)",
-        backgroundColor: "var(--color-card)",
+        zIndex: hovered ? 2 : 1,
+        textDecoration: "none",
+        cursor: "pointer",
       }}
     >
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          borderRadius: "12px",
+          overflow: "hidden",
+          border: "1px solid var(--color-border)",
+          backgroundColor: "var(--color-card)",
+          transform: hovered ? "scale(1.08)" : "scale(1)",
+          transformOrigin: "center",
+          transition: "transform 0.22s ease",
+        }}
       >
-        <source src={item.src} />
-      </video>
-    </div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        >
+          <source src={item.src} />
+        </video>
+      </div>
+      <span
+        style={{
+          position: "absolute",
+          left: "50%",
+          bottom: "10px",
+          transform: "translateX(-50%)",
+          width: "max-content",
+          maxWidth: item.portrait ? "160px" : "240px",
+          padding: "6px 10px",
+          borderRadius: "8px",
+          backgroundColor: "#111",
+          color: "#fff",
+          fontSize: "12px",
+          lineHeight: 1.35,
+          textAlign: "center",
+          opacity: hovered ? 1 : 0,
+          pointerEvents: "none",
+          transition: "opacity 0.15s ease",
+        }}
+      >
+        {item.title}
+      </span>
+    </Link>
   );
 }
 
 export default function SneakPeek() {
-  const items = [...artefacts, ...artefacts, ...artefacts];
+  const items = [...artefacts, ...artefacts];
 
   return (
     <section className="pt-2 pb-12 overflow-hidden">

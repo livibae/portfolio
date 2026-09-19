@@ -41,26 +41,17 @@ export default function DowngradeExperiment() {
         <header className="max-w-6xl mx-auto px-6 pt-10 pb-12">
           <div className="grid md:grid-cols-[1fr_300px] gap-12 items-start">
             <div>
-              <h1
-                className="leading-tight mb-4"
-                style={{
-                  fontFamily: "var(--font-unbounded), sans-serif",
-                  fontWeight: 500,
-                  fontSize: "clamp(2.4rem, 5vw, 4rem)",
-                  color: "var(--color-text)",
-                }}
-              >
+              <h1 className="mb-4 max-w-4xl font-sans text-4xl font-semibold leading-tight tracking-tight text-gray-900 md:text-6xl">
                 Retaining $400k ARR with downgrade alternatives
               </h1>
-              <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-text-muted)" }}>
+              <p className="mb-6 max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
                 Offering yearly-to-monthly and Business-to-Starter plan downgrades in cancelation flow to reduce churn
               </p>
               <div className="flex flex-wrap gap-2">
                 {chips.map(chip => (
                   <span
                     key={chip}
-                    className="text-xs font-medium px-3 py-1 rounded-full"
-                    style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+                    className="glass-tag"
                   >
                     {chip}
                   </span>
@@ -70,41 +61,34 @@ export default function DowngradeExperiment() {
 
             <div className="flex flex-col gap-6 pt-2">
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Company</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Miro</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Company</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Miro</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Period</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>July – September 2026</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Period</p>
+                <p className="font-sans text-sm font-medium text-gray-900">July – September 2026</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Role</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Associate Product Manager</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Role</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Associate Product Manager</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Team</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>1 Designer · 1 Data Analyst · 1 Engineer</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Team</p>
+                <p className="font-sans text-sm font-medium text-gray-900">1 Designer · 1 Data Analyst · 1 Engineer</p>
               </div>
             </div>
           </div>
         </header>
 
-        <div style={{ backgroundColor: "var(--color-primary)" }}>
+        <div className="glass-strip">
           <div className="max-w-6xl mx-auto px-6 py-10">
             <div className="grid grid-cols-2 gap-8">
               {metrics.map(m => (
                 <div key={m.label} style={{ textAlign: m.align }}>
-                  <p
-                    className="font-semibold mb-1"
-                    style={{
-                      fontFamily: "var(--font-unbounded), sans-serif",
-                      fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)",
-                      color: "var(--color-text)",
-                    }}
-                  >
+                  <p className="mb-1 font-sans text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
                     {m.value}
                   </p>
-                  <p className="text-xs uppercase tracking-widest" style={{ color: "var(--color-text)", opacity: 0.65, letterSpacing: "0.1em" }}>
+                  <p className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
                     {m.label}
                   </p>
                 </div>
@@ -117,25 +101,25 @@ export default function DowngradeExperiment() {
           <div className="flex gap-16 items-start">
             <article className="flex-1 min-w-0 flex flex-col gap-16">
 
-              <section id="context">
-                <SectionLabel>🖼️ Context</SectionLabel>
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="context">
+                <SectionLabel>Context</SectionLabel>
+                <p className="font-sans text-base leading-relaxed text-gray-600">
                   Miro&apos;s churn from self-serve customers has been accelerating, with $3–4M ARR worth of customers entering the cancelation flow to cancel their subscription. In this experiment, <strong>I offered new and improved downgrade alternatives in the cancelation flow, retaining $400K ARR/year</strong>.
                 </p>
               </section>
 
-              <section id="problem">
-                <SectionLabel>💥 Problem &amp; Data insights</SectionLabel>
+              <section className="scroll-mt-28" id="problem">
+                <SectionLabel>Problem &amp; Data insights</SectionLabel>
 
                 <div className="flex flex-col gap-10 mb-8">
                   <div>
-                    <h3 className="text-lg font-bold mb-4" style={{ color: "var(--color-text)" }}>
+                    <h3 className="font-sans text-lg font-semibold tracking-tight mb-4 text-gray-900">
                       1. Benefits and implications of Business → Starter downgrade could be improved
                     </h3>
-                    <p className="text-base leading-relaxed mb-4" style={{ color: "var(--color-text)" }}>
+                    <p className="font-sans text-base leading-relaxed mb-4 text-gray-600">
                       Business Plan customers can currently choose to downgrade to Starter in the cancelation flow. However, the benefits and implications of that path were unclear.
                     </p>
-                    <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc" style={{ color: "var(--color-text)" }}>
+                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                       <li>
                         <strong>Data:</strong> 25% of customers who saw the modal continued to the next implications screen, even after we removed the $$ saved tag.
                         <br />
@@ -150,10 +134,10 @@ export default function DowngradeExperiment() {
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-bold mb-4" style={{ color: "var(--color-text)" }}>
+                    <h3 className="font-sans text-lg font-semibold tracking-tight mb-4 text-gray-900">
                       2. Starter Plan customers have no alternative to canceling
                     </h3>
-                    <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc" style={{ color: "var(--color-text)" }}>
+                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                       <li>
                         <strong>Data:</strong> ~10% of Business customers entering the cancelation flow chose to downgrade instead of canceling (65% cancel). In contrast, ~88% of Starter customers entering the flow continue to cancel because they have no alternative options.
                         <br />
@@ -170,9 +154,9 @@ export default function DowngradeExperiment() {
                 <CaseImage src="/case-studies/downgrade-experiment/problem1.jpg" alt="Problem and data insights for the downgrade experiment" />
               </section>
 
-              <section id="opportunity">
-                <SectionLabel>💡 Opportunity</SectionLabel>
-                <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="opportunity">
+                <SectionLabel>Opportunity</SectionLabel>
+                <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
                   <li>
                     If we make the benefits and implications of Downgrade clearer and more digestible, we can reduce #orgs confirming cancelation by guiding them towards plan downgrade.
                   </li>
@@ -186,12 +170,12 @@ export default function DowngradeExperiment() {
                 <CaseVideo src="/case-studies/downgrade-experiment/opportunity_1.mp4" />
               </section>
 
-              <section id="solution">
-                <SectionLabel>🧪 Solution</SectionLabel>
+              <section className="scroll-mt-28" id="solution">
+                <SectionLabel>Solution</SectionLabel>
                 <div className="mb-8">
                   <CaseVideo src="/case-studies/downgrade-experiment/solution1.mp4" />
                 </div>
-                <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8" style={{ color: "var(--color-text)" }}>
+                <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
                   <li>
                     <strong>Offer a new Yearly → Monthly downgrade alternative</strong> in the cancelation flow for <strong>Starter and Business Yearly</strong> customers seeking more payment flexibility.
                   </li>
@@ -205,10 +189,10 @@ export default function DowngradeExperiment() {
                 <CaseImage src="/case-studies/downgrade-experiment/solution1.jpg" alt="Downgrade experiment solution and decision matrix" compact />
               </section>
 
-              <section id="outcome">
-                <SectionLabel>🌟 Outcome</SectionLabel>
+              <section className="scroll-mt-28" id="outcome">
+                <SectionLabel>Outcome</SectionLabel>
                 <div className="flex flex-col gap-8">
-                  <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc" style={{ color: "var(--color-text)" }}>
+                  <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                     <li>
                       Treatment shows a <strong>directionally positive decrease</strong> in cancelled ARR (&gt;60% of confidence intervals fall below zero), retaining ~<strong>$400K ARR/year</strong>.
                     </li>
@@ -218,7 +202,7 @@ export default function DowngradeExperiment() {
                   </ul>
                   <CaseImage src="/case-studies/downgrade-experiment/outcome1.jpg" alt="Outcome analysis by team size" />
 
-                  <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc" style={{ color: "var(--color-text)" }}>
+                  <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                     <li>
                       <strong>Analysis by plan and billing period:</strong>
                       <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
@@ -235,9 +219,9 @@ export default function DowngradeExperiment() {
                 </div>
               </section>
 
-              <section id="next-steps">
-                <SectionLabel>👣 Next Steps</SectionLabel>
-                <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="next-steps">
+                <SectionLabel>Next Steps</SectionLabel>
+                <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                   <li>
                     Experiment <strong>rolled out to 100% Starter and Business cancelling customers</strong>
                   </li>
@@ -272,8 +256,7 @@ export default function DowngradeExperiment() {
               href="https://www.linkedin.com/in/livia-yeung/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold px-5 py-2.5 rounded-full"
-              style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+              className="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white"
             >
               Connect with me
             </a>
@@ -286,15 +269,7 @@ export default function DowngradeExperiment() {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h2
-      className="mb-8"
-      style={{
-        fontFamily: "var(--font-unbounded), sans-serif",
-        fontWeight: 500,
-        fontSize: "clamp(1.3rem, 2.5vw, 1.75rem)",
-        color: "var(--color-text)",
-      }}
-    >
+    <h2 className="mb-6 font-sans text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">
       {children}
     </h2>
   );

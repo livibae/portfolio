@@ -41,26 +41,17 @@ export default function PaywallPlantag() {
         <header className="max-w-6xl mx-auto px-6 pt-10 pb-12">
           <div className="grid md:grid-cols-[1fr_300px] gap-12 items-start">
             <div>
-              <h1
-                className="leading-tight mb-4"
-                style={{
-                  fontFamily: "var(--font-unbounded), sans-serif",
-                  fontWeight: 500,
-                  fontSize: "clamp(2.4rem, 5vw, 4rem)",
-                  color: "var(--color-text)",
-                }}
-              >
+              <h1 className="mb-4 max-w-4xl font-sans text-4xl font-semibold leading-tight tracking-tight text-gray-900 md:text-6xl">
                 Driving $310K ARR with plan recommendation tags on paywalls
               </h1>
-              <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-text-muted)" }}>
+              <p className="mb-6 max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
                 Adding plan recommendation tags on paywalls to help users choose the right plan on pricing page with less cognitive load
               </p>
               <div className="flex flex-wrap gap-2">
                 {chips.map(chip => (
                   <span
                     key={chip}
-                    className="text-xs font-medium px-3 py-1 rounded-full"
-                    style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+                    className="glass-tag"
                   >
                     {chip}
                   </span>
@@ -70,41 +61,34 @@ export default function PaywallPlantag() {
 
             <div className="flex flex-col gap-6 pt-2">
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Company</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Miro</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Company</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Miro</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Period</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>May – June 2026</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Period</p>
+                <p className="font-sans text-sm font-medium text-gray-900">May – June 2026</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Role</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Associate Product Manager</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Role</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Associate Product Manager</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Team</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>1 Designer · 1 Data Analyst · 1 Engineer</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Team</p>
+                <p className="font-sans text-sm font-medium text-gray-900">1 Designer · 1 Data Analyst · 1 Engineer</p>
               </div>
             </div>
           </div>
         </header>
 
-        <div style={{ backgroundColor: "var(--color-primary)" }}>
+        <div className="glass-strip">
           <div className="max-w-6xl mx-auto px-6 py-10">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {metrics.map(m => (
                 <div key={m.label} style={{ textAlign: m.align }}>
-                  <p
-                    className="font-semibold mb-1"
-                    style={{
-                      fontFamily: "var(--font-unbounded), sans-serif",
-                      fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)",
-                      color: "var(--color-text)",
-                    }}
-                  >
+                  <p className="mb-1 font-sans text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
                     {m.value}
                   </p>
-                  <p className="text-xs uppercase tracking-widest" style={{ color: "var(--color-text)", opacity: 0.65, letterSpacing: "0.1em" }}>
+                  <p className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
                     {m.label}
                   </p>
                 </div>
@@ -117,21 +101,21 @@ export default function PaywallPlantag() {
           <div className="flex gap-16 items-start">
             <article className="flex-1 min-w-0 flex flex-col gap-16">
 
-              <section id="problem">
-                <SectionLabel>💥 Problem</SectionLabel>
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="problem">
+                <SectionLabel>Problem</SectionLabel>
+                <p className="font-sans text-base leading-relaxed text-gray-600">
                   User research suggests that <strong>users often find the in-app pricing page overwhelming and are unsure which plan to choose</strong>. There is also evidence that some users buy the wrong plan for some features (e.g. data tables on Starter).
                 </p>
               </section>
 
-              <section id="hypothesis">
-                <SectionLabel>💡 Hypothesis &amp; Success Metrics</SectionLabel>
-                <p className="text-base leading-relaxed mb-8" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="hypothesis">
+                <SectionLabel>Hypothesis &amp; Success Metrics</SectionLabel>
+                <p className="font-sans text-base leading-relaxed mb-8 text-gray-600">
                   Adding an <strong>&quot;available on X Plan&quot; tag on feature paywalls</strong> with a GIF will have <strong>no negative impact</strong> on monetization metrics (free-to-paid conversion and new ARR for Free plan, Starter to Business conversion and expansion ARR for Starter Plan). Non-inferiority test.
                 </p>
                 <div className="flex flex-col gap-6">
                   <CaseImage src="/case-studies/paywall-plantag/hypotheses1.jpg" alt="Hypothesis and success metrics for plan tags on paywalls" />
-                  <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc" style={{ color: "var(--color-text)" }}>
+                  <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                     <li>
                       Scoped experiment to 20+ GIF paywalls as MVP scope to validate hypothesis before expanding to 200+ upgrade triggers
                     </li>
@@ -140,17 +124,17 @@ export default function PaywallPlantag() {
                 </div>
               </section>
 
-              <section id="solution">
-                <SectionLabel>🧪 Solution</SectionLabel>
+              <section className="scroll-mt-28" id="solution">
+                <SectionLabel>Solution</SectionLabel>
                 <div className="flex flex-col gap-6">
                   <CaseVideo src="/case-studies/paywall-plantag/solution.mp4" />
                   <CaseImage src="/case-studies/paywall-plantag/solution1.jpg" alt="Plan recommendation tags on feature paywalls" />
                 </div>
               </section>
 
-              <section id="outcome">
-                <SectionLabel>🌟 Outcome</SectionLabel>
-                <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="outcome">
+                <SectionLabel>Outcome</SectionLabel>
+                <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                   <li>
                     Directional increase on Free monetization metrics (<strong>+3% free-to-paid conversion, +12.5% new ARR</strong>). This suggests that helping users understand which paid plan package includes the feature they are interested in more easily has no significant negative impact on key monetization metrics.
                   </li>
@@ -163,9 +147,9 @@ export default function PaywallPlantag() {
                 </ul>
               </section>
 
-              <section id="next-steps">
-                <SectionLabel>👣 Next Steps</SectionLabel>
-                <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="next-steps">
+                <SectionLabel>Next Steps</SectionLabel>
+                <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
                   <li>
                     <strong>Roll out experiment to 100%</strong> Free, Starter and Business plan users
                   </li>
@@ -195,8 +179,7 @@ export default function PaywallPlantag() {
               href="https://www.linkedin.com/in/livia-yeung/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold px-5 py-2.5 rounded-full"
-              style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+              className="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white"
             >
               Connect with me
             </a>
@@ -209,15 +192,7 @@ export default function PaywallPlantag() {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h2
-      className="mb-8"
-      style={{
-        fontFamily: "var(--font-unbounded), sans-serif",
-        fontWeight: 500,
-        fontSize: "clamp(1.3rem, 2.5vw, 1.75rem)",
-        color: "var(--color-text)",
-      }}
-    >
+    <h2 className="mb-6 font-sans text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">
       {children}
     </h2>
   );

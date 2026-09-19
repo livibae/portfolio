@@ -36,26 +36,17 @@ export default function SpotifyConnect() {
           <div className="grid md:grid-cols-[1fr_300px] gap-12 items-start">
             {/* Left: title + subtitle + chips */}
             <div>
-              <h1
-                className="leading-tight mb-4"
-                style={{
-                  fontFamily: "var(--font-unbounded), sans-serif",
-                  fontWeight: 500,
-                  fontSize: "clamp(2.4rem, 5vw, 4rem)",
-                  color: "var(--color-text)",
-                }}
-              >
+              <h1 className="mb-4 max-w-4xl font-sans text-4xl font-semibold leading-tight tracking-tight text-gray-900 md:text-6xl">
                 Activating 12M new Spotify TV users
               </h1>
-              <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-text-muted)" }}>
+              <p className="mb-6 max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
                 Increasing adoption of Spotify Connect through an in-app messaging campaign promoting listening on TV from mobile
               </p>
               <div className="flex flex-wrap gap-2">
                 {chips.map(chip => (
                   <span
                     key={chip}
-                    className="text-xs font-medium px-3 py-1 rounded-full"
-                    style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+                    className="glass-tag"
                   >
                     {chip}
                   </span>
@@ -66,19 +57,19 @@ export default function SpotifyConnect() {
             {/* Right: project meta — no box, plain */}
             <div className="flex flex-col gap-6 pt-2">
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Company</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Spotify</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Company</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Spotify</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Period</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>June – September 2023</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Period</p>
+                <p className="font-sans text-sm font-medium text-gray-900">June – September 2023</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Role</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Product Intern</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Role</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Product Intern</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Showcase</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Showcase</p>
                 <a
                   href="https://docs.google.com/document/d/1zFMw8wiQoGABKjA_MVI76-FVQzDnASIn4jrQdDXSYMM/edit?usp=sharing"
                   target="_blank"
@@ -90,30 +81,23 @@ export default function SpotifyConnect() {
                 </a>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Team</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>1 Designer · 1 Data Scientist · 1 Researcher</p>
+                <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Team</p>
+                <p className="font-sans text-sm font-medium text-gray-900">1 Designer · 1 Data Scientist · 1 Researcher</p>
               </div>
             </div>
           </div>
         </header>
 
         {/* Key metrics bar */}
-        <div style={{ backgroundColor: "var(--color-primary)" }}>
+        <div className="glass-strip">
           <div className="max-w-6xl mx-auto px-6 py-10">
             <div className="grid grid-cols-3 gap-8 text-center">
               {metrics.map(m => (
                 <div key={m.label}>
-                  <p
-                    className="font-semibold mb-1"
-                    style={{
-                      fontFamily: "var(--font-unbounded), sans-serif",
-                      fontSize: "clamp(2rem, 4vw, 2.8rem)",
-                      color: "var(--color-text)",
-                    }}
-                  >
+                  <p className="mb-1 font-sans text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
                     {m.value}
                   </p>
-                  <p className="text-xs uppercase tracking-widest" style={{ color: "var(--color-text)", opacity: 0.65, letterSpacing: "0.1em" }}>
+                  <p className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
                     {m.label}
                   </p>
                 </div>
@@ -148,23 +132,23 @@ export default function SpotifyConnect() {
             <article className="flex-1 min-w-0 flex flex-col gap-16">
 
               {/* Context */}
-              <section id="context">
-                <SectionLabel>🖼️ Context</SectionLabel>
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="context">
+                <SectionLabel>Context</SectionLabel>
+                <p className="font-sans text-base leading-relaxed text-gray-600">
                   Spotify Connect is a feature that enables users to <strong>listen and control audio seamlessly across different devices</strong>. One of the most common use cases is when users use their mobile phones to control music on Bluetooth speakers. The objective of this project was to increase the adoption rate of Spotify Connect among new users.
                 </p>
               </section>
 
               {/* Problem */}
-              <section id="problem">
-                <SectionLabel>💥 Problem</SectionLabel>
+              <section className="scroll-mt-28" id="problem">
+                <SectionLabel>Problem</SectionLabel>
                 <CaseImage src="/case-studies/spotify/problem-1.png" alt="Problem overview" />
               </section>
 
               {/* Opportunity */}
-              <section id="opportunity">
-                <SectionLabel>💡 Opportunity</SectionLabel>
-                <p className="text-base leading-relaxed mb-10" style={{ color: "var(--color-text)" }}>
+              <section className="scroll-mt-28" id="opportunity">
+                <SectionLabel>Opportunity</SectionLabel>
+                <p className="font-sans text-base leading-relaxed mb-10 text-gray-600">
                   I identified the <strong>mobile-to-smart-TV use case</strong> as the highest-leverage opportunity based on three signals:
                 </p>
 
@@ -193,8 +177,8 @@ export default function SpotifyConnect() {
               </section>
 
               {/* Solution */}
-              <section id="solution">
-                <SectionLabel>🧪 Experiment</SectionLabel>
+              <section className="scroll-mt-28" id="solution">
+                <SectionLabel>Experiment</SectionLabel>
                 <div className="flex flex-col gap-6">
                   <CaseImage
                     src="/case-studies/spotify/experiment-1.png"
@@ -210,8 +194,8 @@ export default function SpotifyConnect() {
               </section>
 
               {/* Outcome */}
-              <section id="outcome">
-                <SectionLabel>🌟 Outcome</SectionLabel>
+              <section className="scroll-mt-28" id="outcome">
+                <SectionLabel>Outcome</SectionLabel>
                 <CaseImage
                   src="/case-studies/spotify/outcome-1.png"
                   alt="Research and data findings"
@@ -220,8 +204,8 @@ export default function SpotifyConnect() {
               </section>
 
               {/* Next Steps */}
-              <section id="next-steps">
-                <SectionLabel>👣 Next Steps</SectionLabel>
+              <section className="scroll-mt-28" id="next-steps">
+                <SectionLabel>Next Steps</SectionLabel>
                 <div className="flex flex-col gap-4">
                   {[
                     { local: "/case-studies/spotify/next-1.png", fallback: "https://cdn.prod.website-files.com/67c1050ee5ab90dec058420c/67cf605ef66e0db272075ef2_AD_4nXfBkJzwhcwR4Tc3W0kDQXtAVbUUh3VvqsPtU0JfhStGAl5DGoyr0QOUgnRCRxPx1_eGpgTRZJbGLOmy8L2lzUWTEwWftZvRlRWfM4AXfRXKsZZvXn1zMZwTl3iHeb9UI7gFBuPAKA.png" },
@@ -259,8 +243,7 @@ export default function SpotifyConnect() {
               href="https://www.linkedin.com/in/livia-yeung/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold px-5 py-2.5 rounded-full"
-              style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+              className="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white"
             >
               Connect with me
             </a>
@@ -275,15 +258,7 @@ export default function SpotifyConnect() {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h2
-      className="mb-8"
-      style={{
-        fontFamily: "var(--font-unbounded), sans-serif",
-        fontWeight: 500,
-        fontSize: "clamp(1.3rem, 2.5vw, 1.75rem)",
-        color: "var(--color-text)",
-      }}
-    >
+    <h2 className="mb-6 font-sans text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">
       {children}
     </h2>
   );
@@ -297,17 +272,16 @@ function ProblemCard({ number, title, points }: { number: string; title: string;
     >
       <div className="flex items-center gap-3">
         <span
-          className="text-xs font-semibold px-2 py-0.5 rounded"
-          style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+          className="glass-tag"
         >
           {number}
         </span>
-        <h3 className="font-semibold text-sm" style={{ color: "var(--color-text)" }}>{title}</h3>
+        <h3 className="font-sans font-semibold text-sm text-gray-900">{title}</h3>
       </div>
       <ul className="flex flex-col gap-2">
         {points.map((p, i) => (
           <li key={i} className="flex gap-2 text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-            <span style={{ color: "var(--color-primary)" }}>·</span>
+            <span className="text-gray-400">·</span>
             {p}
           </li>
         ))}
@@ -335,13 +309,12 @@ function OpportunityBlock({
     <div className="flex flex-col gap-4">
       <div className="flex items-start gap-4">
         <span
-          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold"
-          style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
+          className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm font-semibold text-white"
         >
           {number}
         </span>
         <div>
-          <h3 className="font-semibold mb-2" style={{ color: "var(--color-text)" }}>{title}</h3>
+          <h3 className="font-sans font-semibold mb-2 text-gray-900">{title}</h3>
           <p className="text-base leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{body}</p>
         </div>
       </div>

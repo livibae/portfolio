@@ -29,6 +29,18 @@ body {
   100% { transform: translateX(-50%); }
 }
 
+@keyframes scroll-cue-jump {
+  0%, 18% { transform: translateY(-4px); }
+  42% { transform: translateY(8px); }
+  58% { transform: translateY(-4px); }
+  78% { transform: translateY(8px); }
+  100% { transform: translateY(-4px); }
+}
+
+.scroll-cue-arrow {
+  animation: scroll-cue-jump 1.5s ease-in-out infinite;
+}
+
 .animate-marquee {
   animation: marquee 35s linear infinite;
   will-change: transform;
@@ -57,4 +69,72 @@ body {
 .projects-gallery::-webkit-scrollbar-thumb {
   background: var(--color-border);
   border-radius: 999px;
+}
+
+.glass-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(26, 23, 19, 0.1);
+  background: rgba(255, 255, 255, 0.42);
+  color: var(--color-text);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 0.35rem 0.75rem;
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 1px 2px rgba(26, 23, 19, 0.05);
+}
+
+.glass-strip {
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(26, 23, 19, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.28));
+  backdrop-filter: blur(18px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 10px 30px rgba(26, 23, 19, 0.05);
+}
+
+/* Card fan carousel */
+.fan-layout {
+  height: 38rem;
+}
+
+.fan-card {
+  position: absolute;
+  width: 15rem;
+  height: 20rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(26, 23, 19, 0.14);
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+@media (max-width: 1023px) {
+  .fan-layout { height: 34rem; }
+  .fan-card { width: 12rem; height: 16rem; }
+}
+
+@media (max-width: 767px) {
+  .fan-layout { height: 28rem; }
+  .fan-card { width: 9rem; height: 12.5rem; }
+}
+
+@media (max-width: 639px) {
+  .fan-layout { height: 26rem; }
+  .fan-card { width: 7.5rem; height: 10.5rem; }
+}
+
+@media (max-width: 479px) {
+  .fan-layout { height: 22rem; }
+  .fan-card { width: 6rem; height: 8.5rem; }
+}
+
+.hero-fan .fan-layout {
+  height: min(32rem, 48vh);
+}
+
+.hero-fan .fan-card {
+  width: min(13rem, 18vw);
+  height: min(17rem, 28vh);
 }

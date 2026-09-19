@@ -1,52 +1,39 @@
-"use client";
-
-const links = [
+const socials = [
   {
-    label: "Email",
-    value: "livia.yeung@gmail.com",
-    href: "mailto:livia.yeung@gmail.com",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/livia-yeung/",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="4" width="20" height="16" rx="2"/>
-        <path d="M2 7l10 7 10-7"/>
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden>
+        <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.1c.5-1 1.8-2.1 3.8-2.1 4.1 0 4.8 2.7 4.8 6.2V24h-4v-7.7c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V24h-4V8.5z" />
       </svg>
     ),
   },
   {
-    label: "LinkedIn",
-    value: "linkedin.com/in/livia-yeung",
-    href: "https://www.linkedin.com/in/livia-yeung/",
-    target: "_blank",
+    label: "GitHub",
+    href: "https://github.com/livibae",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-        <rect x="2" y="9" width="4" height="12"/>
-        <circle cx="4" cy="4" r="2"/>
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden>
+        <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58 0-.28-.01-1.04-.02-2.04-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.29 0 .32.22.69.83.57A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Email",
+    href: "mailto:livia.yeung@gmail.com",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="M3 7l9 7 9-7" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
   {
     label: "Website",
-    value: "liviayeung.vercel.app",
     href: "https://liviayeung.vercel.app",
-    target: "_blank",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-      </svg>
-    ),
-  },
-  {
-    label: "Download my CV",
-    value: "",
-    href: "/livia-yeung-cv.pdf",
-    download: true,
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-        <polyline points="7 10 12 15 17 10"/>
-        <line x1="12" y1="15" x2="12" y2="3"/>
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -54,59 +41,45 @@ const links = [
 
 export default function LetsTalk() {
   return (
-    <section id="lets-talk" className="py-24 px-6" style={{ backgroundColor: "var(--color-card)" }}>
-      <div className="max-w-xl mx-auto text-center">
-        <h2
-          className="mb-3"
-          style={{
-            fontFamily: "var(--font-unbounded), sans-serif",
-            
-            fontWeight: 400,
-            fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-            color: "var(--color-text)",
-          }}
-        >
-          Let&apos;s talk
+    <section id="lets-talk" className="border-t px-6 py-24" style={{ borderColor: "var(--color-border)" }}>
+      <div className="mx-auto flex max-w-xl flex-col items-center text-center">
+        <h2 className="font-sans text-2xl font-semibold leading-snug tracking-tight text-gray-900 md:text-4xl">
+          Connect with me
         </h2>
-        <p className="mb-12 text-sm" style={{ color: "var(--color-text-muted)" }}>
-          I&apos;d love to connect with you!
-        </p>
 
-        <div className="flex flex-col gap-3">
-          {links.map(link => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.target}
-              rel={link.target ? "noopener noreferrer" : undefined}
-              download={link.download ? true : undefined}
-              className="flex items-center justify-between px-6 py-4 rounded-2xl transition-all"
-              style={{
-                backgroundColor: "var(--color-bg)",
-                border: "1px solid var(--color-border)",
-                color: "var(--color-text)",
-                textDecoration: "none",
-                transition: "box-shadow 0.2s, transform 0.2s",
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 16px rgba(26,23,19,0.08)";
-                (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-              }}
-            >
-              <span className="text-sm font-medium" style={{ color: "var(--color-text)" }}>
-                {link.label}
-              </span>
-              <div className="flex items-center gap-2" style={{ color: "var(--color-text-muted)" }}>
-                {link.value && <span className="text-sm">{link.value}</span>}
-                {link.icon}
-              </div>
-            </a>
-          ))}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="/livia-yeung-cv.pdf"
+            download
+            className="rounded-full border bg-white/50 px-6 py-3 font-sans text-sm font-semibold text-gray-900 backdrop-blur-md transition-opacity hover:opacity-70"
+            style={{ borderColor: "var(--color-border)" }}
+          >
+            Download my CV
+          </a>
+          <a
+            href="mailto:livia.yeung@gmail.com"
+            className="rounded-full px-6 py-3 font-sans text-sm font-semibold text-white transition-opacity hover:opacity-80"
+            style={{ backgroundColor: "var(--color-text)" }}
+          >
+            Email me
+          </a>
         </div>
+
+        <ul className="mt-12 flex items-center justify-center gap-8">
+          {socials.map((item) => (
+            <li key={item.label}>
+              <a
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                aria-label={item.label}
+                className="text-gray-900 transition-opacity hover:opacity-50"
+              >
+                {item.icon}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
