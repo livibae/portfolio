@@ -5,28 +5,26 @@ import Navbar from "@/components/Navbar";
 import { useState, useEffect } from "react";
 
 const metrics = [
-  { value: "$800K+", label: "ARR generated in 3 months", align: "left" as const },
-  { value: "2×", label: "add-on purchase conversion", align: "center" as const },
-  { value: "219", label: "orgs influenced to purchase Prototypes", align: "center" as const },
+  { value: "$310K", label: "ARR generated", align: "left" as const },
+  { value: "+3%", label: "uplift in free-to-paid conversion", align: "center" as const },
+  { value: "+12.5%", label: "new ARR uplift", align: "center" as const },
 ];
 
-const chips = ["Working with GTM", "Lifecycle", "SQL", "Replit prototype"];
+const chips = ["Monetization", "Paywalls", "A/B testing"];
 
 const navItems = [
-  { label: "Context", id: "context" },
   { label: "Problem", id: "problem" },
-  { label: "Opportunity", id: "opportunity" },
-  { label: "Solution", id: "experiment" },
+  { label: "Hypothesis & Metrics", id: "hypothesis" },
+  { label: "Solution", id: "solution" },
   { label: "Outcome", id: "outcome" },
   { label: "Next Steps", id: "next-steps" },
 ];
 
-export default function MiroPrototypes() {
+export default function PaywallPlantag() {
   return (
     <>
       <Navbar />
       <main style={{ paddingTop: "80px" }}>
-        {/* Back link */}
         <div className="max-w-6xl mx-auto px-6 pt-10">
           <Link
             href="/#projects"
@@ -40,10 +38,8 @@ export default function MiroPrototypes() {
           </Link>
         </div>
 
-        {/* Header */}
         <header className="max-w-6xl mx-auto px-6 pt-10 pb-12">
           <div className="grid md:grid-cols-[1fr_300px] gap-12 items-start">
-            {/* Left */}
             <div>
               <h1
                 className="leading-tight mb-4"
@@ -54,10 +50,10 @@ export default function MiroPrototypes() {
                   color: "var(--color-text)",
                 }}
               >
-                Generating $800K ARR in 3 months for Miro Prototypes
+                Driving $310K ARR with plan recommendation tags on paywalls
               </h1>
               <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--color-text-muted)" }}>
-                Enabling product-led sales through a feature request flow
+                Adding plan recommendation tags on paywalls to help users choose the right plan on pricing page with less cognitive load
               </p>
               <div className="flex flex-wrap gap-2">
                 {chips.map(chip => (
@@ -72,7 +68,6 @@ export default function MiroPrototypes() {
               </div>
             </div>
 
-            {/* Right: meta */}
             <div className="flex flex-col gap-6 pt-2">
               <div>
                 <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Company</p>
@@ -80,7 +75,7 @@ export default function MiroPrototypes() {
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Period</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>November 2025 – January 2026</p>
+                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>May – June 2026</p>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Role</p>
@@ -88,27 +83,22 @@ export default function MiroPrototypes() {
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Team</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>1 Designer · 1 Data Analyst · 6 Engineers</p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--color-text-muted)", letterSpacing: "0.12em" }}>Stakeholders</p>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>Go-to-market · Product Marketing · Lifecycle · Customer Support</p>
+                <p className="text-sm font-semibold" style={{ color: "var(--color-text)" }}>1 Designer · 1 Data Analyst · 1 Engineer</p>
               </div>
             </div>
           </div>
         </header>
 
-        {/* Metrics bar */}
         <div style={{ backgroundColor: "var(--color-primary)" }}>
           <div className="max-w-6xl mx-auto px-6 py-10">
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {metrics.map(m => (
                 <div key={m.label} style={{ textAlign: m.align }}>
                   <p
                     className="font-semibold mb-1"
                     style={{
                       fontFamily: "var(--font-unbounded), sans-serif",
-                      fontSize: "clamp(2rem, 4vw, 2.8rem)",
+                      fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)",
                       color: "var(--color-text)",
                     }}
                   >
@@ -123,81 +113,75 @@ export default function MiroPrototypes() {
           </div>
         </div>
 
-        {/* Body + sticky nav */}
         <div className="max-w-6xl mx-auto px-6 pb-16 pt-12">
           <div className="flex gap-16 items-start">
-
-            {/* Article */}
             <article className="flex-1 min-w-0 flex flex-col gap-16">
-
-              <section id="context">
-                <SectionLabel>🖼️ Context</SectionLabel>
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-text)" }}>
-                  Miro Prototypes is an interactive prototyping tool built into Miro, enabling design and product teams to create and share clickable flows without leaving the canvas. The objective was to monetise the feature by converting free and Starter users into paid plans through a combination of trials and upgrade moments.
-                </p>
-              </section>
 
               <section id="problem">
                 <SectionLabel>💥 Problem</SectionLabel>
-                <CaseImage src="/case-studies/miro-prototypes/problem-1.jpg" alt="Problem overview" />
+                <p className="text-base leading-relaxed" style={{ color: "var(--color-text)" }}>
+                  User research suggests that <strong>users often find the in-app pricing page overwhelming and are unsure which plan to choose</strong>. There is also evidence that some users buy the wrong plan for some features (e.g. data tables on Starter).
+                </p>
               </section>
 
-              <section id="opportunity">
-                <SectionLabel>💡 Opportunity</SectionLabel>
+              <section id="hypothesis">
+                <SectionLabel>💡 Hypothesis &amp; Success Metrics</SectionLabel>
+                <p className="text-base leading-relaxed mb-8" style={{ color: "var(--color-text)" }}>
+                  Adding an <strong>&quot;available on X Plan&quot; tag on feature paywalls</strong> with a GIF will have <strong>no negative impact</strong> on monetization metrics (free-to-paid conversion and new ARR for Free plan, Starter to Business conversion and expansion ARR for Starter Plan). Non-inferiority test.
+                </p>
                 <div className="flex flex-col gap-6">
-                  <CaseImage src="/case-studies/miro-prototypes/opportunity-1.jpg" alt="Opportunity analysis 1" />
-                  <CaseImage src="/case-studies/miro-prototypes/opportunity-2.jpg" alt="Opportunity analysis 2" />
-                  <CaseImage src="/case-studies/miro-prototypes/opportunity-3.jpg" alt="Opportunity analysis 3" />
-                  <CaseImage src="/case-studies/miro-prototypes/opportunity-4.jpg" alt="Opportunity analysis 4" />
+                  <CaseImage src="/case-studies/paywall-plantag/hypotheses1.jpg" alt="Hypothesis and success metrics for plan tags on paywalls" />
+                  <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc" style={{ color: "var(--color-text)" }}>
+                    <li>
+                      Scoped experiment to 20+ GIF paywalls as MVP scope to validate hypothesis before expanding to 200+ upgrade triggers
+                    </li>
+                  </ul>
+                  <CaseImage src="/case-studies/paywall-plantag/solution2.jpg" alt="Plan recommendation tags solution details" />
                 </div>
               </section>
 
-              <section id="experiment">
+              <section id="solution">
                 <SectionLabel>🧪 Solution</SectionLabel>
-                <CaseVideo src="/case-studies/miro-prototypes/solution-1.mp4" />
+                <div className="flex flex-col gap-6">
+                  <CaseVideo src="/case-studies/paywall-plantag/solution.mp4" />
+                  <CaseImage src="/case-studies/paywall-plantag/solution1.jpg" alt="Plan recommendation tags on feature paywalls" />
+                </div>
               </section>
 
               <section id="outcome">
                 <SectionLabel>🌟 Outcome</SectionLabel>
-                <CaseImage src="/case-studies/miro-prototypes/outcome-1.jpg" alt="Outcome" />
+                <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc" style={{ color: "var(--color-text)" }}>
+                  <li>
+                    Directional increase on Free monetization metrics (<strong>+3% free-to-paid conversion, +12.5% new ARR</strong>). This suggests that helping users understand which paid plan package includes the feature they are interested in more easily has no significant negative impact on key monetization metrics.
+                  </li>
+                  <li>
+                    Insufficient sample size for Starter and Legacy Business plans
+                  </li>
+                  <li>
+                    No significant decrease on Guardrail metrics
+                  </li>
+                </ul>
               </section>
 
               <section id="next-steps">
                 <SectionLabel>👣 Next Steps</SectionLabel>
-                <div className="flex flex-col gap-10">
-                  <CaseImage src="/case-studies/miro-prototypes/nextsteps-1.jpg" alt="Next steps overview" />
-                  <NextStep
-                    number="1"
-                    text="Add-on Request Weekly Summary email"
-                    status="launched"
-                    imgSrc="/case-studies/miro-prototypes/nextsteps-2.jpg"
-                    imgAlt="Next steps 1"
-                  />
-                  <NextStep
-                    number="2"
-                    text="Centralizing add-on requests in Admin System"
-                    status="handed over"
-                    imgSrc="/case-studies/miro-prototypes/nextsteps-3.jpg"
-                    imgAlt="Next steps 2"
-                  />
-                  <NextStep
-                    number="3"
-                    text="Personalized Business Case Builder"
-                    status="Figma & Replit prototype"
-                    loomId="479c5403c8c847278add27db1d226cd0"
-                  />
-                </div>
+                <ul className="flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8" style={{ color: "var(--color-text)" }}>
+                  <li>
+                    <strong>Roll out experiment to 100%</strong> Free, Starter and Business plan users
+                  </li>
+                  <li>
+                    <strong>Implement similar plan recommendation to other upgrade triggers</strong> in Settings, Marketplace, and all future paywalls to ensure coherent user experience across all upgrade paths
+                  </li>
+                </ul>
+                <CaseImage src="/case-studies/paywall-plantag/next-step1.jpg" alt="Next steps for plan tags on paywalls" />
               </section>
 
             </article>
 
-            {/* Sticky nav */}
             <SectionNav />
-
           </div>
         </div>
 
-        {/* Footer */}
         <div className="border-t py-12 px-6" style={{ borderColor: "var(--color-border)" }}>
           <div className="max-w-6xl mx-auto flex justify-between items-center">
             <Link
@@ -222,8 +206,6 @@ export default function MiroPrototypes() {
     </>
   );
 }
-
-// ── Sub-components ────────────────────────────────────────────────────────────
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -250,66 +232,6 @@ function CaseImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-function NextStep({
-  number,
-  text,
-  status,
-  imgSrc,
-  imgAlt,
-  loomId,
-}: {
-  number: string;
-  text: string;
-  status?: string;
-  imgSrc?: string;
-  imgAlt?: string;
-  loomId?: string;
-}) {
-  return (
-    <div className="flex flex-col gap-4">
-      <div className="flex items-start gap-4">
-        <span
-          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold"
-          style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
-        >
-          {number}
-        </span>
-        <p className="text-lg font-bold leading-snug flex flex-wrap items-center gap-2" style={{ color: "var(--color-text)" }}>
-          <span>{text}</span>
-          {status && (
-            <span
-              className="text-xs font-medium px-3 py-1 rounded-full"
-              style={{ backgroundColor: "var(--color-primary)", color: "var(--color-text)" }}
-            >
-              {status}
-            </span>
-          )}
-        </p>
-      </div>
-      {loomId ? (
-        <LoomEmbed loomId={loomId} />
-      ) : imgSrc ? (
-        <CaseImage src={imgSrc} alt={imgAlt ?? ""} />
-      ) : null}
-    </div>
-  );
-}
-
-function LoomEmbed({ loomId }: { loomId: string }) {
-  return (
-    <div className="rounded-xl overflow-hidden" style={{ border: "1px solid var(--color-border)" }}>
-      <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
-        <iframe
-          src={`https://www.loom.com/embed/${loomId}`}
-          allow="fullscreen"
-          allowFullScreen
-          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
-        />
-      </div>
-    </div>
-  );
-}
-
 function CaseVideo({ src }: { src: string }) {
   return (
     <div className="rounded-xl overflow-hidden" style={{ border: "1px solid var(--color-border)" }}>
@@ -327,7 +249,7 @@ function CaseVideo({ src }: { src: string }) {
 }
 
 function SectionNav() {
-  const [active, setActive] = useState("context");
+  const [active, setActive] = useState("problem");
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];

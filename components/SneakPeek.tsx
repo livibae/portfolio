@@ -6,13 +6,14 @@ type Artefact = {
   portrait?: boolean;
 };
 
-// Order specified: sidekicks, enterprise_trial, spotify_connect, flows, request_admin
+// Order: sidekicks, enterprise_trial, spotify_connect, flows, request_admin, downgrade
 const artefacts: Artefact[] = [
   { src: "/artefacts/sidekicks.mp4",        alt: "Miro Sidekicks AI" },
   { src: "/artefacts/enterprise_trial.mp4", alt: "Enterprise trial flow" },
   { src: "/artefacts/spotify_connect.mp4",  alt: "Spotify Connect campaign", portrait: true },
   { src: "/artefacts/flows.mp4",            alt: "Miro Flows demo" },
   { src: "/artefacts/request_admin.mp4",    alt: "Request admin flow" },
+  { src: "/case-studies/downgrade-experiment/solution1.mp4", alt: "Downgrade experiment flow" },
 ];
 
 function VideoCard({ item }: { item: Artefact }) {

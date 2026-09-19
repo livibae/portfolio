@@ -10,7 +10,7 @@ const metrics = [
   { value: "51%", label: "2-month retention", align: "center" as const },
 ];
 
-const chips = ["Post-launch analysis", "Lifecycle", "SQL", "Retention"];
+const chips = ["Churn & retention", "A/B testing"];
 
 const navItems = [
   { label: "Context", id: "context" },
