@@ -70,7 +70,7 @@ export default function PaywallPlantag() {
               </div>
               <div>
                 <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Role</p>
-                <p className="font-sans text-sm font-medium text-gray-900">Associate Product Manager</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Associate Product Manager, Growth</p>
               </div>
               <div>
                 <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Team</p>

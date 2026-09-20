@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import { useState, useEffect } from "react";
 
 const metrics = [
-  { value: "$800K+", label: "ARR generated in 3 months", align: "left" as const },
+  { value: "$820K", label: "influenced ARR in 7 months", align: "left" as const },
   { value: "2×", label: "add-on purchase conversion", align: "center" as const },
   { value: "219", label: "orgs influenced to purchase Prototypes", align: "center" as const },
 ];
@@ -46,7 +46,7 @@ export default function MiroPrototypes() {
             {/* Left */}
             <div>
               <h1 className="mb-4 max-w-4xl font-sans text-4xl font-semibold leading-tight tracking-tight text-gray-900 md:text-6xl">
-                Generating $800K ARR in 3 months for Miro Prototypes
+                Generating $820K influenced ARR in 7 months for Miro Prototypes
               </h1>
               <p className="mb-6 max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
                 Enabling product-led sales through a feature request flow
@@ -75,7 +75,7 @@ export default function MiroPrototypes() {
               </div>
               <div>
                 <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Role</p>
-                <p className="font-sans text-sm font-medium text-gray-900">Associate Product Manager</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Associate Product Manager, Growth</p>
               </div>
               <div>
                 <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Team</p>

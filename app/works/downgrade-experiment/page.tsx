@@ -42,7 +42,7 @@ export default function DowngradeExperiment() {
           <div className="grid md:grid-cols-[1fr_300px] gap-12 items-start">
             <div>
               <h1 className="mb-4 max-w-4xl font-sans text-4xl font-semibold leading-tight tracking-tight text-gray-900 md:text-6xl">
-                Retaining $400k ARR with downgrade alternatives
+                Retaining $400K ARR with downgrade alternatives
               </h1>
               <p className="mb-6 max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
                 Offering yearly-to-monthly and Business-to-Starter plan downgrades in cancelation flow to reduce churn
@@ -70,7 +70,7 @@ export default function DowngradeExperiment() {
               </div>
               <div>
                 <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Role</p>
-                <p className="font-sans text-sm font-medium text-gray-900">Associate Product Manager</p>
+                <p className="font-sans text-sm font-medium text-gray-900">Associate Product Manager, Growth</p>
               </div>
               <div>
                 <p className="mb-1 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Team</p>

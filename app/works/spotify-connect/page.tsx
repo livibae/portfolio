@@ -10,7 +10,7 @@ const metrics = [
   { value: "↑6%", label: "Weekly active listening time" },
 ];
 
-const chips = ["Engagement", "UX research", "A/B testing"];
+const chips = ["Engagement", "In-app campaign", "UX research", "A/B testing"];
 
 export default function SpotifyConnect() {
   return (

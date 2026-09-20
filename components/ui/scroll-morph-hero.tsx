@@ -31,7 +31,7 @@ const CASES: CaseCard[] = [
   },
   {
     src: "/artefacts/downgrade.png",
-    title: "Retaining $400k ARR with downgrade alternatives",
+    title: "Retaining $400K ARR with downgrade alternatives",
     subtitle: "Offering yearly-to-monthly and Business-to-Starter downgrades in the cancelation flow to reduce churn",
     href: "/works/downgrade-experiment",
     logo: MIRO_LOGO,
@@ -45,11 +45,11 @@ const CASES: CaseCard[] = [
     href: "/works/spotify-connect",
     logo: SPOTIFY_LOGO,
     status: "🧪 Successful experiment",
-    chips: ["Engagement", "UX research", "A/B testing"],
+    chips: ["Engagement", "In-app campaign", "UX research", "A/B testing"],
   },
   {
     src: "/artefacts/miro_prototypes.png",
-    title: "Generating $800K ARR in 3 months for Miro Prototypes",
+    title: "Generating $820K influenced ARR in 7 months for Miro Prototypes",
     subtitle: "Enabling product-led sales through a feature request flow",
     href: "/works/miro-prototypes",
     logo: MIRO_LOGO,
@@ -235,7 +235,14 @@ export default function IntroAnimation() {
     const container = containerRef.current;
     if (!container) return;
 
+    const projectsPinned = () => {
+      const section = container.parentElement;
+      if (!section) return true;
+      return section.getBoundingClientRect().top >= -1;
+    };
+
     const applyDelta = (deltaY: number) => {
+      if (!projectsPinned()) return false;
       const next = scrollRef.current + deltaY;
       const atStart = scrollRef.current <= 0 && deltaY < 0;
       const atEnd = scrollRef.current >= MAX_SCROLL && deltaY > 0;
@@ -417,7 +424,7 @@ export default function IntroAnimation() {
             I obsess over bringing value to users, then turning that value into revenue.
           </h2>
           <p className="max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
-            Currently APM @Miro. Generated $1.3M ARR from 15 experiments across acquisition, monetization, activation and retention.
+            Currently APM, Growth @Miro. Across 15 experiments in acquisition, monetization, activation and retention: $310K ARR generated, $820K influenced, and $1M at-risk ARR retained.
           </p>
           <ScrollCue label="Explore my proudest projects" />
         </div>

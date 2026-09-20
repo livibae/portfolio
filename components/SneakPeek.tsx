@@ -19,12 +19,12 @@ const artefacts: Artefact[] = [
   },
   {
     src: "/case-studies/miro-prototypes/solution-1.mp4",
-    title: "Generating $800K ARR in 3 months for Miro Prototypes",
+    title: "Generating $820K influenced ARR in 7 months for Miro Prototypes",
     href: "/works/miro-prototypes",
   },
   {
     src: "/case-studies/downgrade-experiment/solution1.mp4",
-    title: "Retaining $400k ARR with downgrade alternatives",
+    title: "Retaining $400K ARR with downgrade alternatives",
     href: "/works/downgrade-experiment",
   },
   {

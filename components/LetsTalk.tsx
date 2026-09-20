@@ -44,7 +44,7 @@ export default function LetsTalk() {
     <section id="lets-talk" className="border-t px-6 py-24" style={{ borderColor: "var(--color-border)" }}>
       <div className="mx-auto flex max-w-xl flex-col items-center text-center">
         <h2 className="font-sans text-2xl font-semibold leading-snug tracking-tight text-gray-900 md:text-4xl">
-          Connect with me
+          Let's talk
         </h2>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
