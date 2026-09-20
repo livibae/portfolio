@@ -324,6 +324,7 @@ export default function IntroAnimation() {
   const [morphValue, setMorphValue] = useState(0);
   const [fanValue, setFanValue] = useState(0);
   const [hoveredSlot, setHoveredSlot] = useState<number | null>(null);
+  const [pinnedSlot, setPinnedSlot] = useState<number | null>(null);
   const [parallaxValue, setParallaxValue] = useState(0);
 
   useEffect(() => {
@@ -364,7 +365,8 @@ export default function IntroAnimation() {
   const introShift = lerp(0, -28, ease(Math.min(1, fanValue / 0.38)));
   const projectOpacity = ease(Math.min(1, Math.max(0, (fanValue - 0.78) / 0.18)));
   const interactive = fanValue > 0.94;
-  const activeCase = CASES[FAN_ORDER[hoveredSlot ?? 2]];
+  const focusSlot = hoveredSlot ?? pinnedSlot;
+  const activeCase = CASES[FAN_ORDER[focusSlot ?? 2]];
   const fanT = ease(fanValue);
 
   const centerPose = fanPose(2, containerSize.width || 1, containerSize.height || 1);
@@ -379,6 +381,21 @@ export default function IntroAnimation() {
   const selectedTop = containerSize.height
     ? Math.max(12, containerSize.height / 2 + centerPose.y - (IMG_HEIGHT * centerPose.scale) / 2 - 28)
     : 0;
+  const rightPose = fanPose(4, containerSize.width || 1, containerSize.height || 1);
+  const fanRight =
+    (containerSize.width || 0) / 2 + rightPose.x + (IMG_WIDTH * rightPose.scale) / 2;
+  const arrowLeft = Math.min(
+    Math.max(fanRight - 56, 8),
+    Math.max((containerSize.width || 0) - 64, 8),
+  );
+
+  const shiftSlot = (direction: number) => {
+    setPinnedSlot((current) => {
+      const base = current ?? 2;
+      return (base + direction + FAN_ORDER.length) % FAN_ORDER.length;
+    });
+    setHoveredSlot(null);
+  };
 
   return (
     <div
@@ -498,13 +515,13 @@ export default function IntroAnimation() {
                 let rotation = pose.rotation;
                 let scale = pose.scale;
 
-                if (interactive && hoveredSlot !== null) {
-                  if (slot === hoveredSlot) {
+                if (interactive && focusSlot !== null) {
+                  if (slot === focusSlot) {
                     y -= 14;
                     scale *= 1.05;
                   } else {
-                    const dir = slot < hoveredSlot ? -1 : 1;
-                    const distance = Math.abs(slot - hoveredSlot);
+                    const dir = slot < focusSlot ? -1 : 1;
+                    const distance = Math.abs(slot - focusSlot);
                     x += dir * 18 * (1 + 0.2 * Math.max(0, 3 - distance)) * mult;
                     rotation += dir * 2;
                   }
@@ -516,7 +533,7 @@ export default function IntroAnimation() {
                   rotation: lerp(arcTarget.rotation, rotation, fanT),
                   scale: lerp(arcTarget.scale, scale, fanT),
                   opacity: 1,
-                  z: pose.z,
+                  z: focusSlot !== null && slot === focusSlot ? 20 : pose.z,
                 };
               }
             }
@@ -540,12 +557,39 @@ export default function IntroAnimation() {
           })}
         </div>
 
-        <p
-          className="pointer-events-none absolute inset-x-0 z-40 text-center font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500"
-          style={{ top: selectedTop, opacity: projectOpacity }}
+        <div
+          className="absolute inset-x-0 z-40"
+          style={{ top: selectedTop, opacity: projectOpacity, pointerEvents: "none" }}
         >
-          Selected projects
-        </p>
+          <p className="text-center font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
+            Selected projects
+          </p>
+          <div
+            className="absolute top-1/2 flex -translate-y-1/2 items-center gap-0.5"
+            style={{ left: arrowLeft, pointerEvents: interactive ? "auto" : "none" }}
+          >
+            <button
+              type="button"
+              aria-label="Previous project"
+              onClick={() => shiftSlot(-1)}
+              className="flex h-7 w-7 items-center justify-center text-gray-500 transition-opacity hover:opacity-50"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M15 6l-6 6 6 6" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-label="Next project"
+              onClick={() => shiftSlot(1)}
+              className="flex h-7 w-7 items-center justify-center text-gray-500 transition-opacity hover:opacity-50"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
 
         <div
           className="pointer-events-none absolute inset-x-0 z-40 px-6 text-center"
