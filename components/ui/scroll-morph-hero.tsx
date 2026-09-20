@@ -428,7 +428,7 @@ export default function IntroAnimation() {
             }
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <ScrollCue label="Who am I" />
+            <ScrollCue label="Scroll to explore more about me" />
           </motion.div>
         </div>
 
@@ -442,7 +442,7 @@ export default function IntroAnimation() {
           <p className="max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
             Currently Associate Product Manager (APM), Growth @Miro. $1.3M ARR generated from 15 experiments across acquisition, activation, monetization and retention.
           </p>
-          <ScrollCue label="Explore my proudest projects" />
+          <ScrollCue label="Scroll to explore my proudest projects" />
         </div>
 
         <div
@@ -629,7 +629,7 @@ export default function IntroAnimation() {
               <span key={chip} className="glass-tag">{chip}</span>
             ))}
           </div>
-          <ScrollCue label="Don't just take my word..." />
+          <ScrollCue label="Scroll to explore what it's like working with me" />
         </div>
       </div>
     </div>

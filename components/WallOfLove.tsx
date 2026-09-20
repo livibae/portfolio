@@ -135,7 +135,7 @@ function KeepScrollingArrow() {
       aria-hidden
     >
       <p className="font-sans text-xs font-bold uppercase tracking-[0.2em]">
-        Explore all testimonials
+        Scroll to explore all testimonials
       </p>
       <svg
         className="scroll-cue-arrow h-6 w-6"
