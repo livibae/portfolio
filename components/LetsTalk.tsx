@@ -61,7 +61,7 @@ export default function LetsTalk() {
             className="rounded-full px-6 py-3 font-sans text-sm font-semibold text-white transition-opacity hover:opacity-80"
             style={{ backgroundColor: "var(--color-text)" }}
           >
-            Email me
+            Connect with me
           </a>
         </div>
 

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import LetsTalk from "@/components/LetsTalk";
 import { useState, useEffect } from "react";
 
 const metrics = [
@@ -104,7 +105,7 @@ export default function WinbackOffer() {
               <section className="scroll-mt-28" id="context">
                 <SectionLabel>Context</SectionLabel>
                 <p className="font-sans text-base leading-relaxed text-gray-600">
-                  Churn from self-serve customers has been accelerating, hemorrhaging $3–4M ARR every month. The disbanded Expansion &amp; Retention team successfully reduced churn by giving a one-month free offer to Starter &amp; Business plan customers canceling within their first 3 months. I was responsible for rolling out the winning tactic to 100% of users, making improvements based on experiment results, and monitoring its long-term impact on retention.
+                  Churn from self-service customers has been accelerating, with $3–4M ARR entering the cancellation flow every month. The expansion and retention team successfully reduced churn by giving a <strong>1-month free offer to Starter and Business monthly plan customers canceling within their first 3 months</strong>. I was responsible for <strong>rolling out the winning tactic to 100% of canceling customers, making improvements based on experiment results, monitoring its impact on longer-term retention and identify future opportunities</strong>.
                 </p>
               </section>
 
@@ -114,14 +115,14 @@ export default function WinbackOffer() {
                   Opportunities for improvement post-experiment:
                 </p>
                 <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
-                  <li>The original UX included a questionnaire that was later deprecated.</li>
+                  <li>The original UX included a <strong>questionnaire that was later deprecated</strong>.</li>
                   <li>
-                    Only 66% of teams who accepted the offer successfully applied the coupon at plan renewal — likely because users did not know that canceling their subscription again before renewal automatically removes the discount.
+                    <strong>Only 66% of teams who accepted the offer successfully applied the coupon and enjoyed the free month at plan renewal.</strong>
                   </li>
                   <li>
-                    There were a handful of suspected abuse cases: teams canceling within days of starting a paid subscription, subscribing with a card with insufficient funds, or accepting the offer with existing unpaid invoices.
+                    There were a handful of <strong>suspected abuse cases</strong>: teams canceling within days of starting a paid subscription, subscribing with a card with insufficient funds, or accepting the offer with existing unpaid invoices.
                   </li>
-                  <li>No confirmation email after the user accepts the offer.</li>
+                  <li><strong>No confirmation email</strong> after the user accepts the offer.</li>
                 </ul>
               </section>
 
@@ -129,14 +130,14 @@ export default function WinbackOffer() {
                 <SectionLabel>Solution</SectionLabel>
                 <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
                   <li>
-                    Simplified UX with a new screen promoting the most valuable paid plan features (based on Max Diff research) and a CTA directing users back to the product after they accept the offer.
+                    Simplified UX with a <strong>new screen promoting most valued paid plan features</strong> (based on Max Diff research) and a CTA directing users back to the product after they accept the offer.
                   </li>
                   <li>
-                    Added a yellow call-out warning users they will lose the free month offer if they cancel before the renewal date.
+                    If users accepted the offer and re-entered the cancellation flow before the free month starts, they see a new <strong>yellow call-out warning them that they will lose the free month</strong> if they cancel.
                   </li>
                   <li>Added exclusion criteria to reduce incidents of suspected abuse.</li>
                   <li>
-                    Implemented a transactional email to confirm the in-product behavior of accepting the offer.
+                    Sent a <strong>confirmation email</strong> after users accepted the offer.
                   </li>
                 </ul>
                 <CaseImage src="/case-studies/winback-offer/solution-1.jpg" alt="Post-GA solution changes: eligibility criteria, winback flow, and confirmation email" />
@@ -149,13 +150,13 @@ export default function WinbackOffer() {
                     <strong>$600K</strong> retained ARR per year; retention after the 2nd invoice is stable at <strong>51%</strong>.
                   </li>
                   <li>
-                    The tactic only captures ~1% of ARR entering the cancelation flow, and mainly saves smaller, lower-value teams with higher price sensitivity. The winback offer is a useful final resort for smaller customers — but not a churn solution.
+                    The tactic <strong>only captures ~1% of ARR entering the cancellation flow</strong>, and <strong>mainly saves smaller, lower-value teams with higher price sensitivity</strong>. The winback offer is a useful final resort for smaller customers — but <strong>not a churn solution</strong>.
                   </li>
                   <li>
-                    Conversion from offer accepted to coupon applied at renewal increased from <strong>66%</strong> (exp) to <strong>84%</strong> (post-GA).
+                    Adding the yellow call-out increased conversion from offer accepted to coupon applied at renewal from <strong>66%</strong> (exp) to <strong>84%</strong> (post-GA).
                   </li>
                   <li>
-                    Confirmation email has a strong open rate (<strong>57%</strong>) but weak click-through rate (<strong>2%</strong>), suggesting it mainly serves as a transactional confirmation of user action — not a surface for re-engaging users with new features.
+                    Confirmation email has a strong open rate (<strong>57%</strong>) but weak click-through rate (<strong>2%</strong>), suggesting it mainly serves as a <strong>transactional email confirming user action, not a surface for re-engaging users with new features</strong>.
                   </li>
                   <li>
                     Engagement of retained vs. cancelled cohorts looked similar and cannot explain the difference.
@@ -188,25 +189,16 @@ export default function WinbackOffer() {
           </div>
         </div>
 
-        <div className="border-t py-12 px-6" style={{ borderColor: "var(--color-border)" }}>
-          <div className="max-w-6xl mx-auto flex justify-between items-center">
-            <Link
-              href="/#projects"
-              className="text-sm font-medium hover:opacity-60 transition-opacity"
-              style={{ color: "var(--color-text-muted)" }}
-            >
-              ← Back to Projects
-            </Link>
-            <a
-              href="https://www.linkedin.com/in/livia-yeung/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white"
-            >
-              Connect with me
-            </a>
-          </div>
+        <div className="max-w-6xl mx-auto px-6 pb-4">
+          <Link
+            href="/#projects"
+            className="text-sm font-medium hover:opacity-60 transition-opacity"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            ← Back to Projects
+          </Link>
         </div>
+        <LetsTalk />
       </main>
     </>
   );

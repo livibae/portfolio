@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import LetsTalk from "@/components/LetsTalk";
 import { useState, useEffect } from "react";
 
 const metrics = [
@@ -164,7 +165,7 @@ export default function DowngradeExperiment() {
                     If we provide a new alternative option that offers more payment flexibility by changing from Yearly to Monthly billing, we can reduce #orgs confirming cancelation.
                   </li>
                   <li>
-                    Create a <strong>Claude Design prototype with problems, design principles, and 3 design directions</strong> to kickstart and stimulate discussion with the Designer.
+                    Created a <strong>Claude design prototype with problems, design principles, and 3 design directions</strong> to kickstart and stimulate discussion with the Designer.
                   </li>
                 </ul>
                 <CaseVideo src="/case-studies/downgrade-experiment/opportunity_1.mp4" />
@@ -197,7 +198,7 @@ export default function DowngradeExperiment() {
                       Treatment shows a <strong>directionally positive decrease</strong> in cancelled ARR (&gt;60% of confidence intervals fall below zero), retaining ~<strong>$400K ARR/year</strong>.
                     </li>
                     <li>
-                      <strong>Analysis by team size:</strong> Subscriptions with 6+ members are the main driver of impact, showing a <strong>6–8% drop</strong> in cancelled ARR consistently across 2 months.
+                      <strong>Analysis by team size:</strong> <strong>Subscriptions with 6+ members</strong> are the main driver of impact, showing a <strong>6–8% drop</strong> in cancelled ARR consistently across 2 months.
                     </li>
                   </ul>
                   <CaseImage src="/case-studies/downgrade-experiment/outcome1.jpg" alt="Outcome analysis by team size" />
@@ -210,7 +211,7 @@ export default function DowngradeExperiment() {
                           Cancelled ARR <strong>decreased by 4pp</strong> in <strong>Starter Yearly</strong> (eligible to downgrade to Monthly) and <strong>9pp</strong> in <strong>Business Monthly</strong> (eligible to downgrade to Starter). This supports the hypotheses that offering more payment flexibility and clearer Starter downgrade implications reduce cancelations.
                         </li>
                         <li>
-                          Cancelled ARR <strong>did not increase</strong> in <strong>Business Yearly</strong>, even though they are eligible for both Monthly and Starter downgrades. Offering multiple downgrade alternatives in one flow may increase cognitive load and cause choice paralysis — a risk to watch.
+                          Cancelled ARR <strong>did not increase in Business Yearly</strong>, even though they are eligible for both Monthly and Starter downgrades. Just that offering multiple downgrade alternatives in one flow might have increased cognitive load and caused choice paralysis, backfiring and led to higher cancellations.
                         </li>
                       </ul>
                     </li>
@@ -243,25 +244,16 @@ export default function DowngradeExperiment() {
           </div>
         </div>
 
-        <div className="border-t py-12 px-6" style={{ borderColor: "var(--color-border)" }}>
-          <div className="max-w-6xl mx-auto flex justify-between items-center">
-            <Link
-              href="/#projects"
-              className="text-sm font-medium hover:opacity-60 transition-opacity"
-              style={{ color: "var(--color-text-muted)" }}
-            >
-              ← Back to Projects
-            </Link>
-            <a
-              href="https://www.linkedin.com/in/livia-yeung/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white"
-            >
-              Connect with me
-            </a>
-          </div>
+        <div className="max-w-6xl mx-auto px-6 pb-4">
+          <Link
+            href="/#projects"
+            className="text-sm font-medium hover:opacity-60 transition-opacity"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            ← Back to Projects
+          </Link>
         </div>
+        <LetsTalk />
       </main>
     </>
   );

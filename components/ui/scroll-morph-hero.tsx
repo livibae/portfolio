@@ -124,6 +124,7 @@ function FlipCard({
 }) {
   const router = useRouter();
   const revealTop = card.src.includes("downgrade");
+  const canInteract = interactive && target.opacity > 0.6;
 
   return (
     <motion.div
@@ -144,14 +145,14 @@ function FlipCard({
         width: IMG_WIDTH,
         height: IMG_HEIGHT,
         zIndex: target.z,
-        pointerEvents: interactive && target.opacity > 0.6 ? "auto" : "none",
+        pointerEvents: canInteract ? "auto" : "none",
       }}
-      className={interactive ? "cursor-pointer" : undefined}
-      role={interactive ? "link" : undefined}
+      className={canInteract ? "cursor-pointer" : undefined}
+      role={canInteract ? "link" : undefined}
       aria-label={card.title}
-      onMouseEnter={onHover}
+      onPointerEnter={onHover}
       onClick={() => {
-        if (interactive) router.push(card.href);
+        if (canInteract) router.push(card.href);
       }}
     >
       <div className="relative h-full w-full overflow-hidden rounded-xl shadow-lg" style={{ backgroundColor: "var(--color-card)" }}>
@@ -258,10 +259,16 @@ export default function IntroAnimation() {
     };
 
     let touchStartY = 0;
+    let touchOnNav = false;
+    const isProjectNav = (target: EventTarget | null) =>
+      target instanceof Element && Boolean(target.closest("[data-project-nav]"));
+
     const handleTouchStart = (e: TouchEvent) => {
+      touchOnNav = isProjectNav(e.target);
       touchStartY = e.touches[0].clientY;
     };
     const handleTouchMove = (e: TouchEvent) => {
+      if (touchOnNav) return;
       const touchY = e.touches[0].clientY;
       const deltaY = touchStartY - touchY;
       touchStartY = touchY;
@@ -364,9 +371,9 @@ export default function IntroAnimation() {
   const introCopyOpacity = introIn * (1 - ease(Math.min(1, fanValue / 0.38)));
   const introShift = lerp(0, -28, ease(Math.min(1, fanValue / 0.38)));
   const projectOpacity = ease(Math.min(1, Math.max(0, (fanValue - 0.78) / 0.18)));
-  const interactive = fanValue > 0.94;
-  const focusSlot = hoveredSlot ?? pinnedSlot;
-  const activeCase = CASES[FAN_ORDER[focusSlot ?? 2]];
+  const interactive = fanValue > 0.9;
+  const focusSlot = hoveredSlot ?? pinnedSlot ?? 2;
+  const activeCase = CASES[FAN_ORDER[focusSlot]];
   const fanT = ease(fanValue);
 
   const centerPose = fanPose(2, containerSize.width || 1, containerSize.height || 1);
@@ -381,20 +388,12 @@ export default function IntroAnimation() {
   const selectedTop = containerSize.height
     ? Math.max(12, containerSize.height / 2 + centerPose.y - (IMG_HEIGHT * centerPose.scale) / 2 - 28)
     : 0;
-  const rightPose = fanPose(4, containerSize.width || 1, containerSize.height || 1);
-  const fanRight =
-    (containerSize.width || 0) / 2 + rightPose.x + (IMG_WIDTH * rightPose.scale) / 2;
-  const arrowLeft = Math.min(
-    Math.max(fanRight - 56, 8),
-    Math.max((containerSize.width || 0) - 64, 8),
-  );
-
   const shiftSlot = (direction: number) => {
+    setHoveredSlot(null);
     setPinnedSlot((current) => {
       const base = current ?? 2;
       return (base + direction + FAN_ORDER.length) % FAN_ORDER.length;
     });
-    setHoveredSlot(null);
   };
 
   return (
@@ -407,7 +406,7 @@ export default function IntroAnimation() {
         className="flex h-full w-full flex-col items-center justify-center"
         style={{ perspective: "1000px" }}
       >
-        <div className="pointer-events-none absolute top-1/2 z-0 flex -translate-y-1/2 flex-col items-center justify-center px-6 text-center">
+        <div className="pointer-events-none absolute top-1/2 z-0 flex -translate-y-1/2 flex-col items-center justify-center px-6 text-center [&_*]:pointer-events-none">
           <motion.h1
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
             animate={
@@ -434,21 +433,21 @@ export default function IntroAnimation() {
         </div>
 
         <div
-          className="pointer-events-none absolute top-[5%] z-10 flex flex-col items-center justify-center px-4 text-center"
+          className="pointer-events-none absolute top-[5%] z-10 flex flex-col items-center justify-center px-4 text-center [&_*]:pointer-events-none"
           style={{ opacity: introCopyOpacity, transform: `translateY(${introShift}px)` }}
         >
           <h2 className="mb-4 max-w-3xl font-sans text-2xl font-semibold leading-snug tracking-tight text-gray-900 md:text-4xl">
             I obsess over bringing value to users, then turning that value into revenue.
           </h2>
           <p className="max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
-            Currently APM, Growth @Miro. Across 15 experiments in acquisition, monetization, activation and retention: $310K ARR generated, $820K influenced, and $1M at-risk ARR retained.
+            Currently Associate Product Manager (APM), Growth @Miro. $1.3M ARR generated from 15 experiments across acquisition, activation, monetization and retention.
           </p>
           <ScrollCue label="Explore my proudest projects" />
         </div>
 
         <div
-          className="relative flex h-full w-full items-center justify-center"
-          onMouseLeave={() => setHoveredSlot(null)}
+          className="relative z-20 flex h-full w-full items-center justify-center"
+          onPointerLeave={() => setHoveredSlot(null)}
         >
           {CARDS.slice(0, TOTAL_IMAGES).map((card, i) => {
             let target: { x: number; y: number; rotation: number; scale: number; opacity: number; z: number } = {
@@ -533,7 +532,7 @@ export default function IntroAnimation() {
                   rotation: lerp(arcTarget.rotation, rotation, fanT),
                   scale: lerp(arcTarget.scale, scale, fanT),
                   opacity: 1,
-                  z: focusSlot !== null && slot === focusSlot ? 20 : pose.z,
+                  z: slot === focusSlot ? 30 : pose.z,
                 };
               }
             }
@@ -558,41 +557,56 @@ export default function IntroAnimation() {
         </div>
 
         <div
-          className="absolute inset-x-0 z-40"
-          style={{ top: selectedTop, opacity: projectOpacity, pointerEvents: "none" }}
+          className="pointer-events-none absolute inset-x-0 z-30 [&_*]:pointer-events-none"
+          style={{ top: selectedTop, opacity: projectOpacity }}
         >
           <p className="text-center font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
             Selected projects
           </p>
-          <div
-            className="absolute top-1/2 flex -translate-y-1/2 items-center gap-0.5"
-            style={{ left: arrowLeft, pointerEvents: interactive ? "auto" : "none" }}
-          >
-            <button
-              type="button"
-              aria-label="Previous project"
-              onClick={() => shiftSlot(-1)}
-              className="flex h-7 w-7 items-center justify-center text-gray-500 transition-opacity hover:opacity-50"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                <path d="M15 6l-6 6 6 6" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              aria-label="Next project"
-              onClick={() => shiftSlot(1)}
-              className="flex h-7 w-7 items-center justify-center text-gray-500 transition-opacity hover:opacity-50"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                <path d="M9 6l6 6-6 6" />
-              </svg>
-            </button>
-          </div>
         </div>
 
         <div
-          className="pointer-events-none absolute inset-x-0 z-40 px-6 text-center"
+          data-project-nav
+          className="absolute z-[60] flex -translate-y-1/2 items-center"
+          style={{
+            top: Math.max(selectedTop + 8, 56),
+            right: 8,
+            opacity: projectOpacity,
+            pointerEvents: projectOpacity > 0.4 ? "auto" : "none",
+          }}
+        >
+          <button
+            type="button"
+            aria-label="Previous project"
+            onPointerDown={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              shiftSlot(-1);
+            }}
+            className="flex h-12 w-12 touch-manipulation items-center justify-center text-gray-500 transition-opacity hover:opacity-50 active:opacity-40"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M15 6l-6 6 6 6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            aria-label="Next project"
+            onPointerDown={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              shiftSlot(1);
+            }}
+            className="flex h-12 w-12 touch-manipulation items-center justify-center text-gray-500 transition-opacity hover:opacity-50 active:opacity-40"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+          </button>
+        </div>
+
+        <div
+          className="pointer-events-none absolute inset-x-0 z-30 px-6 text-center [&_*]:pointer-events-none"
           style={{ top: titleTop, opacity: projectOpacity }}
         >
           <p className="mb-3 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">

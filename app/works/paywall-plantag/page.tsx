@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import LetsTalk from "@/components/LetsTalk";
 import { useState, useEffect } from "react";
 
 const metrics = [
@@ -111,13 +112,13 @@ export default function PaywallPlantag() {
               <section className="scroll-mt-28" id="hypothesis">
                 <SectionLabel>Hypothesis &amp; Success Metrics</SectionLabel>
                 <p className="font-sans text-base leading-relaxed mb-8 text-gray-600">
-                  Adding an <strong>&quot;available on X Plan&quot; tag on feature paywalls</strong> with a GIF will have <strong>no negative impact</strong> on monetization metrics (free-to-paid conversion and new ARR for Free plan, Starter to Business conversion and expansion ARR for Starter Plan). Non-inferiority test.
+                  <strong>Adding an &quot;available on X Plan&quot; tag on feature paywalls</strong> will have <strong>no negative impact on monetization metrics</strong> (free-to-paid conversion and new ARR for Free plan, Starter to Business conversion and expansion ARR for Starter Plan). Non-inferiority test.
                 </p>
                 <div className="flex flex-col gap-6">
                   <CaseImage src="/case-studies/paywall-plantag/hypotheses1.jpg" alt="Hypothesis and success metrics for plan tags on paywalls" />
                   <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                     <li>
-                      Scoped experiment to 20+ GIF paywalls as MVP scope to validate hypothesis before expanding to 200+ upgrade triggers
+                      <strong>Scoped experiment to 20+ GIF paywalls as MVP scope</strong> to validate hypothesis before expanding to 200+ upgrade triggers
                     </li>
                   </ul>
                   <CaseImage src="/case-studies/paywall-plantag/solution2.jpg" alt="Plan recommendation tags solution details" />
@@ -166,25 +167,16 @@ export default function PaywallPlantag() {
           </div>
         </div>
 
-        <div className="border-t py-12 px-6" style={{ borderColor: "var(--color-border)" }}>
-          <div className="max-w-6xl mx-auto flex justify-between items-center">
-            <Link
-              href="/#projects"
-              className="text-sm font-medium hover:opacity-60 transition-opacity"
-              style={{ color: "var(--color-text-muted)" }}
-            >
-              ← Back to Projects
-            </Link>
-            <a
-              href="https://www.linkedin.com/in/livia-yeung/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white"
-            >
-              Connect with me
-            </a>
-          </div>
+        <div className="max-w-6xl mx-auto px-6 pb-4">
+          <Link
+            href="/#projects"
+            className="text-sm font-medium hover:opacity-60 transition-opacity"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            ← Back to Projects
+          </Link>
         </div>
+        <LetsTalk />
       </main>
     </>
   );

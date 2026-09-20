@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import LetsTalk from "@/components/LetsTalk";
 import { useState, useEffect } from "react";
 
 const metrics = [
@@ -227,28 +228,16 @@ export default function SpotifyConnect() {
         </div>
 
         {/* Footer nav */}
-        <div
-          className="border-t py-12 px-6"
-          style={{ borderColor: "var(--color-border)" }}
-        >
-          <div className="max-w-6xl mx-auto flex justify-between items-center">
-            <Link
-              href="/#projects"
-              className="text-sm font-medium hover:opacity-60 transition-opacity"
-              style={{ color: "var(--color-text-muted)" }}
-            >
-              ← Back to Projects
-            </Link>
-            <a
-              href="https://www.linkedin.com/in/livia-yeung/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white"
-            >
-              Connect with me
-            </a>
-          </div>
+        <div className="max-w-6xl mx-auto px-6 pb-4">
+          <Link
+            href="/#projects"
+            className="text-sm font-medium hover:opacity-60 transition-opacity"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            ← Back to Projects
+          </Link>
         </div>
+        <LetsTalk />
       </main>
     </>
   );
