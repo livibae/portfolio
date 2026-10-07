@@ -18,6 +18,7 @@ type CaseCard = {
 
 const MIRO_LOGO = "/case-studies/Miro_Miro_Icon_1.png";
 const SPOTIFY_LOGO = "/case-studies/Spotify_Symbol_1.png";
+const CAPTUR_LOGO = "/case-studies/captur-logo.png";
 
 const CASES: CaseCard[] = [
   {
@@ -65,16 +66,26 @@ const CASES: CaseCard[] = [
     status: "🧪 Successful experiment",
     chips: ["Churn & retention", "A/B testing"],
   },
+  {
+    src: "/artefacts/captur.png",
+    title: "Improving platform observability and incidence response for Captur mobile SDK",
+    subtitle: "Partnering with ML engineers to diagnose gaps and improve platform observability and alerting systems",
+    href: "/works/captur-incident-alerting",
+    logo: CAPTUR_LOGO,
+    status: "🚀 Launched initiative",
+    chips: ["Platform observability", "Incident response", "Mobile SDK", "SQL"],
+  },
 ];
 
-const CARDS: CaseCard[] = Array.from({ length: 20 }, (_, i) => CASES[i % CASES.length]);
+const CARDS: CaseCard[] = Array.from({ length: 24 }, (_, i) => CASES[i % CASES.length]);
 const TOTAL_IMAGES = CARDS.length;
 const ARC_END = 1100;
 const FAN_END = 2500;
 const MAX_SCROLL = FAN_END;
-// Left to right: Spotify, downgrade, winback, paywall, prototypes.
-const FAN_ORDER = [2, 1, 4, 0, 3];
-const FAN_SOURCE = [7, 11, 9, 10, 13];
+const FAN_CENTER = 2;
+// Left to right: Spotify, winback, downgrade, captur, paywall, prototypes.
+const FAN_ORDER = [2, 4, 1, 5, 0, 3];
+const FAN_SOURCE = [8, 10, 7, 11, 6, 9];
 
 let stickToProjects = false;
 
@@ -99,15 +110,16 @@ function widthMultiplier(width: number) {
 
 function fanPose(slot: number, width: number, height: number) {
   const mult = widthMultiplier(width);
-  const distance = (slot - 2) / 2;
+  const center = (FAN_ORDER.length - 1) / 2;
+  const distance = (slot - center) / Math.max(center, 1);
   const abs = Math.abs(distance);
-  const base = width < 768 ? 2.3 : 3.2;
+  const base = width < 768 ? 2.0 : 2.7;
   return {
-    x: distance * 24 * mult * 16,
-    y: -height * (width < 768 ? 0.16 : 0.22) + abs * abs * 4.6 * mult * 16,
-    rotation: distance * 16,
-    scale: base * (1 - 0.18 * abs * abs),
-    z: 12 - Math.abs(slot - 2),
+    x: distance * 22 * mult * 16,
+    y: -height * (width < 768 ? 0.16 : 0.22) + abs * abs * 4.2 * mult * 16,
+    rotation: distance * 14,
+    scale: base * (1 - 0.14 * abs * abs),
+    z: 12 - Math.round(Math.abs(slot - center)),
   };
 }
 
@@ -372,11 +384,11 @@ export default function IntroAnimation() {
   const introShift = lerp(0, -28, ease(Math.min(1, fanValue / 0.38)));
   const projectOpacity = ease(Math.min(1, Math.max(0, (fanValue - 0.78) / 0.18)));
   const interactive = fanValue > 0.9;
-  const focusSlot = hoveredSlot ?? pinnedSlot ?? 2;
+  const focusSlot = hoveredSlot ?? pinnedSlot ?? FAN_CENTER;
   const activeCase = CASES[FAN_ORDER[focusSlot]];
   const fanT = ease(fanValue);
 
-  const centerPose = fanPose(2, containerSize.width || 1, containerSize.height || 1);
+  const centerPose = fanPose(FAN_CENTER, containerSize.width || 1, containerSize.height || 1);
   const edgePose = fanPose(0, containerSize.width || 1, containerSize.height || 1);
   const lowestCard = Math.max(
     centerPose.y + (IMG_HEIGHT * centerPose.scale) / 2,
@@ -386,12 +398,12 @@ export default function IntroAnimation() {
     ? Math.min(containerSize.height / 2 + lowestCard + 36, containerSize.height - 210)
     : 0;
   const selectedTop = containerSize.height
-    ? Math.max(12, containerSize.height / 2 + centerPose.y - (IMG_HEIGHT * centerPose.scale) / 2 - 28)
+    ? Math.max(12, containerSize.height / 2 + centerPose.y - (IMG_HEIGHT * centerPose.scale) / 2 - 72)
     : 0;
   const shiftSlot = (direction: number) => {
     setHoveredSlot(null);
     setPinnedSlot((current) => {
-      const base = current ?? 2;
+      const base = current ?? FAN_CENTER;
       return (base + direction + FAN_ORDER.length) % FAN_ORDER.length;
     });
   };
