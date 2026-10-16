@@ -37,7 +37,7 @@ export default function SpotifyConnect() {
           <div className="grid md:grid-cols-[1fr_300px] gap-12 items-start">
             {/* Left: title + subtitle + chips */}
             <div>
-              <h1 className="mb-4 max-w-4xl font-sans text-4xl font-semibold leading-tight tracking-tight text-gray-900 md:text-6xl">
+              <h1 className="mb-4 max-w-4xl font-display text-4xl font-semibold leading-tight tracking-tight text-gray-900 md:text-6xl">
                 Activating 12M new Spotify TV users
               </h1>
               <p className="mb-6 max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
@@ -95,7 +95,7 @@ export default function SpotifyConnect() {
             <div className="grid grid-cols-3 gap-8 text-center">
               {metrics.map(m => (
                 <div key={m.label}>
-                  <p className="mb-1 font-sans text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
+                  <p className="mb-1 font-display text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
                     {m.value}
                   </p>
                   <p className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
@@ -247,7 +247,7 @@ export default function SpotifyConnect() {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="mb-6 font-sans text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">
+    <h2 className="mb-6 font-display text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">
       {children}
     </h2>
   );

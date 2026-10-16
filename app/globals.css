@@ -1,22 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  /* ElevenLabs parent brand — monochrome editorial system */
-  --color-bg: #f5f5f5;
+  /* ElevenLabs parent brand — black / white / neutrals (landing page) */
+  --color-bg: #ffffff;
   --color-primary: #000000;
-  --color-text: #0c0a09;
-  --color-text-muted: #78716c;
-  --color-card: #ffffff;
+  --color-text: #000000;
+  --color-text-muted: #6e6e6e;
+  --color-card: #f5f5f5;
   --color-border: #e5e5e5;
-  --color-chrome: #1c1917;
+  --color-chrome: #1c1c1d;
 }
 
 @theme inline {
+  /* Body / UI — Inter (exact match to elevenlabs.io) */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-instrument), "Times New Roman", ui-serif, Georgia, serif;
-  --color-gray-500: #78716c;
-  --color-gray-600: #57534e;
-  --color-gray-900: #0c0a09;
+  /* Display / titles — Inter Tight stand-in for Waldenburg */
+  --font-display: var(--font-inter-tight), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --color-gray-500: #6e6e6e;
+  --color-gray-600: #525252;
+  --color-gray-900: #000000;
 }
 
 * {
@@ -32,15 +34,22 @@ body {
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
 }
 
+/*
+ * Titles: Waldenburg / WaldenburgFH stand-in.
+ * Beats Tailwind font-sans on headings so display type actually applies.
+ */
 h1,
 h2,
-.font-display {
-  font-family: var(--font-instrument), "Times New Roman", ui-serif, Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+h3,
+.font-display,
+h1.font-sans,
+h2.font-sans,
+h3.font-sans {
+  font-family: var(--font-inter-tight), var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.03em;
 }
 
 /* Infinite marquee */
@@ -124,7 +133,7 @@ h2,
   height: 20rem;
   border-radius: 1.25rem;
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(12, 10, 9, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
   transform-origin: center center;
   will-change: transform, opacity;
 }

@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif, Great_Vibes, Nabla, Caveat } from "next/font/google";
+import { Inter, Inter_Tight, Great_Vibes, Nabla, Caveat } from "next/font/google";
 import "./globals.css";
 
+/* Matches ElevenLabs body / UI text */
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
 });
 
-/* Stand-in for proprietary Waldenburg Light (ElevenLabs display) */
-const instrument = Instrument_Serif({
+/*
+ * Stand-in for proprietary Waldenburg / WaldenburgFH (Klim Type Foundry).
+ * Inter Tight is the closest free neo-grotesk condensed match for their
+ * display + heading styles on elevenlabs.io.
+ */
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-instrument",
+  variable: "--font-inter-tight",
   display: "swap",
 });
 
@@ -50,9 +54,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${instrument.variable} ${greatVibes.variable} ${nabla.variable} ${caveat.variable}`}
+      className={`${inter.variable} ${interTight.variable} ${greatVibes.variable} ${nabla.variable} ${caveat.variable}`}
     >
-      <body style={{ fontFamily: "var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif" }}>
+      <body
+        style={{
+          fontFamily: "var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif",
+        }}
+      >
         {children}
       </body>
     </html>

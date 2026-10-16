@@ -427,7 +427,7 @@ export default function IntroAnimation() {
                 : { opacity: 0, filter: "blur(10px)" }
             }
             transition={{ duration: 1 }}
-            className="font-sans text-2xl font-medium tracking-tight text-gray-800 md:text-4xl"
+            className="font-display text-2xl font-medium tracking-tight text-gray-800 md:text-4xl"
           >
             Hi, I am Livia
           </motion.h1>
@@ -448,7 +448,7 @@ export default function IntroAnimation() {
           className="pointer-events-none absolute top-[5%] z-10 flex flex-col items-center justify-center px-4 text-center [&_*]:pointer-events-none"
           style={{ opacity: introCopyOpacity, transform: `translateY(${introShift}px)` }}
         >
-          <h2 className="mb-4 max-w-3xl font-sans text-2xl font-semibold leading-snug tracking-tight text-gray-900 md:text-4xl">
+          <h2 className="mb-4 max-w-3xl font-display text-2xl font-semibold leading-snug tracking-tight text-gray-900 md:text-4xl">
             I obsess over bringing value to users, then turning that value into revenue.
           </h2>
           <p className="max-w-2xl font-sans text-sm leading-relaxed text-gray-600 md:text-base">
@@ -624,7 +624,7 @@ export default function IntroAnimation() {
           <p className="mb-3 font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
             {activeCase.status}
           </p>
-          <h2 className="mx-auto mb-4 max-w-3xl text-center font-sans text-2xl font-semibold leading-snug tracking-tight text-gray-900 md:text-4xl">
+          <h2 className="mx-auto mb-4 max-w-3xl text-center font-display text-2xl font-semibold leading-snug tracking-tight text-gray-900 md:text-4xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={activeCase.logo}

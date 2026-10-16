@@ -110,7 +110,7 @@ export default function SneakPeek() {
       <div className="max-w-6xl mx-auto px-6 mb-6 text-center">
         <h2
           style={{
-            fontFamily: "var(--font-instrument), \"Times New Roman\", serif",
+            fontFamily: "var(--font-inter-tight), var(--font-inter), sans-serif",
             fontWeight: 400,
             fontSize: "clamp(1rem, 1.8vw, 1.4rem)",
             color: "var(--color-text)",

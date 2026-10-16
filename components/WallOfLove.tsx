@@ -182,7 +182,7 @@ export default function WallOfLove() {
     <section id="wall-of-love" className="px-6">
       <ContainerScroll className="h-[400vh]">
         <div className="sticky left-0 top-0 flex h-svh w-full flex-col items-center justify-center py-12">
-          <h2 className="mx-auto max-w-3xl text-center font-sans text-2xl font-semibold leading-snug tracking-tight text-gray-900 md:text-4xl">
+          <h2 className="mx-auto max-w-3xl text-center font-display text-2xl font-semibold leading-snug tracking-tight text-gray-900 md:text-4xl">
             Hear from people who have worked with me
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-center font-sans text-sm leading-relaxed text-gray-600 md:text-base">
