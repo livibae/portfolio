@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Nunito, Unbounded, Great_Vibes, Nabla, Caveat } from "next/font/google";
+import { Inter, Instrument_Serif, Great_Vibes, Nabla, Caveat } from "next/font/google";
 import "./globals.css";
 
-const nunito = Nunito({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-nunito",
+  variable: "--font-inter",
   display: "swap",
 });
 
-const unbounded = Unbounded({
+/* Stand-in for proprietary Waldenburg Light (ElevenLabs display) */
+const instrument = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-unbounded",
+  weight: "400",
+  variable: "--font-instrument",
   display: "swap",
 });
 
@@ -46,8 +48,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${nunito.variable} ${unbounded.variable} ${greatVibes.variable} ${nabla.variable} ${caveat.variable}`}>
-      <body style={{ fontFamily: "var(--font-nunito), Nunito, sans-serif" }}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${instrument.variable} ${greatVibes.variable} ${nabla.variable} ${caveat.variable}`}
+    >
+      <body style={{ fontFamily: "var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif" }}>
         {children}
       </body>
     </html>
