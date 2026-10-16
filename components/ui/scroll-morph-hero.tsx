@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
+import { useBloopJourney } from "@/components/ui/bloop-journey-context";
 
 export type AnimationPhase = "scatter" | "line" | "circle" | "bottom-strip";
 
@@ -198,9 +200,15 @@ function ScrollArrow() {
   );
 }
 
-function ScrollCue({ label }: { label: string }) {
+function ScrollCue({
+  label,
+  className = "mt-6 text-gray-500",
+}: {
+  label: string;
+  className?: string;
+}) {
   return (
-    <div className="mt-6 flex flex-col items-center gap-2 text-gray-500">
+    <div className={`flex flex-col items-center gap-2 ${className}`}>
       <p className="font-sans text-xs font-bold uppercase tracking-[0.2em]">{label}</p>
       <ScrollArrow />
     </div>
@@ -214,6 +222,7 @@ const ease = (t: number) => {
 };
 
 export default function IntroAnimation() {
+  const { setHero } = useBloopJourney();
   const [introPhase, setIntroPhase] = useState<AnimationPhase>("scatter");
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -388,6 +397,33 @@ export default function IntroAnimation() {
   const activeCase = CASES[FAN_ORDER[focusSlot]];
   const fanT = ease(fanValue);
 
+  // Publish hero journey so the fixed ScrollBloop can tween poses.
+  useEffect(() => {
+    const section = containerRef.current?.parentElement;
+    const heroPinned = section ? section.getBoundingClientRect().top >= -8 : true;
+    // Treat pre-circle intro as morph≈0 so the bloop stays in the landing pose.
+    const morphOut =
+      introPhase === "scatter" || introPhase === "line" ? 0 : morphValue;
+    setHero({ morph: morphOut, fan: fanValue, heroPinned });
+  }, [morphValue, fanValue, introPhase, setHero]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const section = containerRef.current?.parentElement;
+      if (!section) return;
+      const heroPinned = section.getBoundingClientRect().top >= -8;
+      setHero((prev) =>
+        prev.heroPinned === heroPinned ? prev : { ...prev, heroPinned },
+      );
+    };
+    // setHero from context isn't a functional updater — sync pin on window scroll separately
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [setHero]);
+
+  const landingCopyVisible =
+    introPhase === "circle" && morphValue < 0.5 && fanValue < 0.02;
+
   const centerPose = fanPose(FAN_CENTER, containerSize.width || 1, containerSize.height || 1);
   const edgePose = fanPose(0, containerSize.width || 1, containerSize.height || 1);
   const lowestCard = Math.max(
@@ -408,34 +444,33 @@ export default function IntroAnimation() {
     });
   };
 
-  return (
-    <div
-      ref={containerRef}
-      className="relative h-full w-full overflow-hidden"
-      style={{ backgroundColor: "var(--color-bg)" }}
-    >
-      <div
-        className="flex h-full w-full flex-col items-center justify-center"
-        style={{ perspective: "1000px" }}
-      >
-        <div className="pointer-events-none absolute top-1/2 z-0 flex -translate-y-1/2 flex-col items-center justify-center px-6 text-center [&_*]:pointer-events-none">
+  // Portal hero copy to <body> so it escapes the hero's perspective/overflow
+  // stacking context and reliably paints above the fixed ScrollBloop.
+  const [portalReady, setPortalReady] = useState(false);
+  useEffect(() => setPortalReady(true), []);
+
+  const heroCopy =
+    portalReady &&
+    createPortal(
+      <>
+        <div className="pointer-events-none fixed left-1/2 top-1/2 z-[40] flex w-[min(28rem,88vw)] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center px-6 text-center [&_*]:pointer-events-none">
           <motion.h1
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
             animate={
-              introPhase === "circle" && morphValue < 0.5 && fanValue < 0.02
-                ? { opacity: 1 - morphValue * 2, y: 0, filter: "blur(0px)" }
+              landingCopyVisible
+                ? { opacity: Math.max(0, 1 - morphValue * 2), y: 0, filter: "blur(0px)" }
                 : { opacity: 0, filter: "blur(10px)" }
             }
             transition={{ duration: 1 }}
-            className="font-display text-2xl font-medium tracking-tight text-gray-800 md:text-4xl"
+            className="font-display text-2xl font-medium tracking-tight text-gray-900 md:text-4xl"
           >
-            Hi, I am Livia
+            Hi Aneri! I am Livia
           </motion.h1>
           <motion.div
             initial={{ opacity: 0 }}
             animate={
-              introPhase === "circle" && morphValue < 0.5 && fanValue < 0.02
-                ? { opacity: 0.55 - morphValue }
+              landingCopyVisible
+                ? { opacity: Math.max(0, 0.7 - morphValue) }
                 : { opacity: 0 }
             }
             transition={{ duration: 1, delay: 0.2 }}
@@ -445,7 +480,7 @@ export default function IntroAnimation() {
         </div>
 
         <div
-          className="pointer-events-none absolute top-[5%] z-10 flex flex-col items-center justify-center px-4 text-center [&_*]:pointer-events-none"
+          className="pointer-events-none fixed inset-x-0 top-[5%] z-[40] flex flex-col items-center justify-center px-4 text-center [&_*]:pointer-events-none"
           style={{ opacity: introCopyOpacity, transform: `translateY(${introShift}px)` }}
         >
           <h2 className="mb-4 max-w-3xl font-display text-2xl font-semibold leading-snug tracking-tight text-gray-900 md:text-4xl">
@@ -456,7 +491,21 @@ export default function IntroAnimation() {
           </p>
           <ScrollCue label="Scroll to explore my proudest projects" />
         </div>
+      </>,
+      document.body,
+    );
 
+  return (
+    <div
+      ref={containerRef}
+      className="relative h-full w-full overflow-hidden"
+      style={{ backgroundColor: "var(--color-bg)" }}
+    >
+      {heroCopy}
+      <div
+        className="flex h-full w-full flex-col items-center justify-center"
+        style={{ perspective: "1000px" }}
+      >
         <div
           className="relative z-20 flex h-full w-full items-center justify-center"
           onPointerLeave={() => setHoveredSlot(null)}

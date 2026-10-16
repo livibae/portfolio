@@ -26,9 +26,10 @@ const TESTIMONIALS = [
     name: "Sofia Secchi",
     profession: "Product Designer @Miro",
     description:
-      "You take initiative beyond the core PM role. You leaned into AI early, producing prototypes that communicate your vision quickly and reduce ambiguity. You've also become skilled at protecting design and content design capacity, stepping in with mockups, ideas, and pre-refinement with engineers; building direct relationships across eng, content, and other teams to source answers and keep work moving even when design can't provide high-fidelity assets immediately, including working in Figma yourself. I really appreciate that initiative.",
+      "I thoroughly enjoyed partnering with her because she truly understands the value of the design-PM partnership. Her decision-making is grounded in data: she defines the right metrics and uses them not only to inform scoping and prioritisation, but also to validate the development strategy. She fosters cross-team alignment, gets leadership buy-in, and keeps momentum and engagement high through every alignment call and milestone.",
     avatarUrl: "/testimonials/sofia-secchi.png",
     linkedIn: "https://www.linkedin.com/in/sofiasecchi/",
+    readMore: "https://www.linkedin.com/in/livia-yeung/details/recommendations/",
   },
   {
     id: "rob-stevenson-leggett",
@@ -47,7 +48,7 @@ const TESTIMONIALS = [
     description:
       "Livia's talent for bringing stakeholders together and aligning them around the identified problem was impressive.",
     linkedIn: "https://www.linkedin.com/in/lisa-steinhaeuser/",
-    fullReview: "https://www.linkedin.com/in/livia-yeung/",
+    readMore: "https://www.linkedin.com/in/livia-yeung/details/recommendations/",
     avatarUrl: "/testimonials/lisa-steinhauser.png",
   },
   {
@@ -204,36 +205,62 @@ export default function WallOfLove() {
                 <FitQuote id={`card-${testimonial.id}-content`}>
                   {testimonial.description}
                 </FitQuote>
-                <div className="relative z-10 flex items-center gap-3">
-                  <Avatar className="size-11 bg-[#fff8e4]">
-                    {testimonial.avatarUrl && (
-                      <AvatarImage
-                        src={testimonial.avatarUrl}
-                        alt={`Portrait of ${testimonial.name}`}
-                        className="object-cover"
-                      />
-                    )}
-                    <AvatarFallback className="bg-[#fff8e4] text-xs font-medium text-[#3d3424]">
-                      {testimonial.name
-                        .split(" ")
-                        .map((part) => part[0])
-                        .join("")}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div id={`card-${testimonial.id}-title`} className="text-sm leading-snug">
-                    {testimonial.linkedIn ? (
-                      <a
-                        href={testimonial.linkedIn}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block hover:underline"
+                <div className="relative z-10 flex w-full flex-col gap-2">
+                  {"readMore" in testimonial && testimonial.readMore ? (
+                    <a
+                      href={testimonial.readMore}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-auto inline-flex items-center gap-1 text-xs font-medium underline underline-offset-2 hover:opacity-80"
+                    >
+                      Read full recommendation
+                      <svg
+                        aria-hidden
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        className="size-3.5 shrink-0"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       >
-                        {testimonial.name},
-                      </a>
-                    ) : (
-                      <span className="block">{testimonial.name},</span>
-                    )}
-                    <span className="block">{testimonial.profession}</span>
+                        <path d="M6.5 3.5H3.5A1 1 0 0 0 2.5 4.5v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-3" />
+                        <path d="M9.5 2.5h4v4" />
+                        <path d="M7.5 8.5l6-6" />
+                      </svg>
+                    </a>
+                  ) : null}
+                  <div className="flex items-center gap-3">
+                    <Avatar className="size-11 bg-[#fff8e4]">
+                      {testimonial.avatarUrl && (
+                        <AvatarImage
+                          src={testimonial.avatarUrl}
+                          alt={`Portrait of ${testimonial.name}`}
+                          className="object-cover"
+                        />
+                      )}
+                      <AvatarFallback className="bg-[#fff8e4] text-xs font-medium text-[#3d3424]">
+                        {testimonial.name
+                          .split(" ")
+                          .map((part) => part[0])
+                          .join("")}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div id={`card-${testimonial.id}-title`} className="text-sm leading-snug">
+                      {testimonial.linkedIn ? (
+                        <a
+                          href={testimonial.linkedIn}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block hover:underline"
+                        >
+                          {testimonial.name},
+                        </a>
+                      ) : (
+                        <span className="block">{testimonial.name},</span>
+                      )}
+                      <span className="block">{testimonial.profession}</span>
+                    </div>
                   </div>
                 </div>
               </CardTransformed>

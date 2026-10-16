@@ -41,7 +41,11 @@ const socials = [
 
 export default function LetsTalk() {
   return (
-    <section id="lets-talk" className="border-t px-6 py-24" style={{ borderColor: "var(--color-border)" }}>
+    <section
+      id="lets-talk"
+      className="flex min-h-svh flex-col justify-end border-t px-6 pb-24 pt-56 md:pb-32 md:pt-72"
+      style={{ borderColor: "var(--color-border)" }}
+    >
       <div className="mx-auto flex max-w-xl flex-col items-center text-center">
         <h2 className="font-display text-2xl font-semibold leading-snug tracking-tight text-gray-900 md:text-4xl">
           Let's talk
