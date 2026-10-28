@@ -75,6 +75,15 @@ const CASES: CaseCard[] = [
     status: "🚀 Launched initiative",
     chips: ["Platform observability", "Incident response", "Mobile SDK", "SQL"],
   },
+  {
+    src: "/case-studies/fomo/cover.png",
+    title: "Improving value reminder in the cancellation flow using personalised data",
+    subtitle: "Using customized data to showcase the value of Miro to cancelling customers",
+    href: "/works/fomo-experiment",
+    logo: MIRO_LOGO,
+    status: "🧪 Unsuccessful experiment",
+    chips: ["Churn & retention", "Stakeholder management", "A/B testing"],
+  },
 ];
 
 const CARDS: CaseCard[] = Array.from({ length: 24 }, (_, i) => CASES[i % CASES.length]);
@@ -82,10 +91,10 @@ const TOTAL_IMAGES = CARDS.length;
 const ARC_END = 1100;
 const FAN_END = 2500;
 const MAX_SCROLL = FAN_END;
-const FAN_CENTER = 2;
-// Left to right: Spotify, winback, downgrade, captur, paywall, prototypes.
-const FAN_ORDER = [2, 4, 1, 5, 0, 3];
-const FAN_SOURCE = [8, 10, 7, 11, 6, 9];
+const FAN_CENTER = 3;
+// Left to right: Spotify, winback, FOMO, downgrade, captur, paywall, prototypes.
+const FAN_ORDER = [2, 4, 6, 1, 5, 0, 3];
+const FAN_SOURCE = [9, 11, 13, 8, 12, 7, 10];
 
 let stickToProjects = false;
 
@@ -136,6 +145,7 @@ function FlipCard({
 }) {
   const router = useRouter();
   const revealTop = card.src.includes("downgrade");
+  const enlargeCover = card.src.includes("fomo/cover");
   const canInteract = interactive && target.opacity > 0.6;
 
   return (
@@ -173,7 +183,13 @@ function FlipCard({
           src={card.src}
           alt=""
           className="h-full w-full object-cover"
-          style={revealTop ? { transform: "translateY(12%)" } : undefined}
+          style={
+            revealTop
+              ? { transform: "translateY(12%)" }
+              : enlargeCover
+                ? { transform: "scale(1.18)", transformOrigin: "center center" }
+                : undefined
+          }
         />
       </div>
     </motion.div>
