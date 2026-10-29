@@ -13,9 +13,9 @@ const metrics = [
 const chips = ["Churn & retention", "Claude Design prototype", "A/B testing"];
 
 const navItems = [
-  { label: "Context", id: "context" },
-  { label: "Problem & Data insights", id: "problem" },
-  { label: "Opportunity", id: "opportunity" },
+  { label: "TL;DR", id: "tldr" },
+  { label: "Problem, data, and opportunities", id: "problem" },
+  { label: "Prototype", id: "prototype" },
   { label: "Solution", id: "solution" },
   { label: "Outcome", id: "outcome" },
   { label: "Next Steps", id: "next-steps" },
@@ -102,18 +102,21 @@ export default function DowngradeExperiment() {
           <div className="flex gap-16 items-start">
             <article className="flex-1 min-w-0 flex flex-col gap-16">
 
-              <section className="scroll-mt-28" id="context">
-                <SectionLabel>Context</SectionLabel>
+              <section className="scroll-mt-28" id="tldr">
+                <SectionLabel>TL;DR</SectionLabel>
                 <p className="font-sans text-base leading-relaxed text-gray-600">
-                  Miro&apos;s churn from self-serve customers has been accelerating, with $3–4M ARR worth of customers entering the cancelation flow to cancel their subscription. In this experiment, <strong>I offered new and improved downgrade alternatives in the cancelation flow, retaining $400K ARR/year</strong>.
+                  Miro&apos;s churn from self-serve customers has been accelerating from Q3 2025, with $3–4M/month worth of customers entering the cancelation flow to cancel their subscription. In this experiment, <strong>I offered new and improved downgrade alternatives in the cancelation flow, retaining $400K ARR/year.</strong> I analyzed the step-by-step funnel performance, identified two drop-offs, and tested 1) improving the existing plan downgrade option and 2) a new billing period change option.
                 </p>
               </section>
 
               <section className="scroll-mt-28" id="problem">
-                <SectionLabel>Problem &amp; Data insights</SectionLabel>
+                <SectionLabel>Problem, data, and opportunities</SectionLabel>
 
-                <div className="flex flex-col gap-10 mb-8">
+                <div className="flex flex-col gap-10">
                   <div>
+                    <div className="mb-6">
+                      <CaseImage src="/case-studies/downgrade-experiment/problem1.jpg" alt="Benefits and implications of Business to Starter downgrade could be improved" />
+                    </div>
                     <h3 className="font-sans text-lg font-semibold tracking-tight mb-4 text-gray-900">
                       1. Benefits and implications of Business → Starter downgrade could be improved
                     </h3>
@@ -130,11 +133,16 @@ export default function DowngradeExperiment() {
                         <strong>Data:</strong> 50% of customers who saw the Downgrade implications screen bounced.
                         <br />
                         <strong>Insight:</strong> Current Downgrade implications are too overwhelming and negatively framed, dissuading users from proceeding (assumption: some of whom cancel instead).
+                        <br />
+                        <strong>Opportunity:</strong> If we make the benefits and implications of Downgrade clearer and more digestible, we can reduce #orgs confirming cancelation by guiding them towards plan downgrade.
                       </li>
                     </ul>
                   </div>
 
                   <div>
+                    <div className="mb-6">
+                      <CaseImage src="/case-studies/downgrade-experiment/problem2.jpg" alt="Starter Plan customers have no alternative to canceling" />
+                    </div>
                     <h3 className="font-sans text-lg font-semibold tracking-tight mb-4 text-gray-900">
                       2. Starter Plan customers have no alternative to canceling
                     </h3>
@@ -148,24 +156,22 @@ export default function DowngradeExperiment() {
                         <strong>Data:</strong> A previous experiment offering Yearly → Monthly change on the Billing page increased retention by +0.8% and retained 102 customers/mo, est. ~$0.5M ARR/year.
                         <br />
                         <strong>Insight:</strong> Allowing customers to change billing period from Yearly to Monthly resonates with customers.
+                        <br />
+                        <strong>Opportunity:</strong> If we provide a new alternative option that offers more payment flexibility by changing from Yearly to Monthly billing, we can reduce #orgs confirming cancelation.
                       </li>
                     </ul>
                   </div>
                 </div>
-                <CaseImage src="/case-studies/downgrade-experiment/problem1.jpg" alt="Problem and data insights for the downgrade experiment" />
               </section>
 
-              <section className="scroll-mt-28" id="opportunity">
-                <SectionLabel>Opportunity</SectionLabel>
+              <section className="scroll-mt-28" id="prototype">
+                <SectionLabel>Prototype</SectionLabel>
+                <div className="mb-8">
+                  <CaseImage src="/case-studies/downgrade-experiment/prototype1.jpg" alt="Claude Design prototype for the downgrade experiment" />
+                </div>
                 <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
                   <li>
-                    If we make the benefits and implications of Downgrade clearer and more digestible, we can reduce #orgs confirming cancelation by guiding them towards plan downgrade.
-                  </li>
-                  <li>
-                    If we provide a new alternative option that offers more payment flexibility by changing from Yearly to Monthly billing, we can reduce #orgs confirming cancelation.
-                  </li>
-                  <li>
-                    Created a <strong>Claude design prototype with problems, design principles, and 3 design directions</strong> to kickstart and stimulate discussion with the Designer.
+                    <strong>Created a Claude design prototype to give feedback on design direction and onboard a new Designer.</strong> I was working with a Senior Designer who created an intial design direction with complex interactional states with 5 CTAs that risks increasing  user&apos;s cognitive load and backfiring. Using Claude Design, I set the design principles and offered 3 design directions for inspiration that focuses on solving the problem without over-complicating the UX.
                   </li>
                 </ul>
                 <CaseVideo src="/case-studies/downgrade-experiment/opportunity_1.mp4" />
@@ -174,49 +180,100 @@ export default function DowngradeExperiment() {
               <section className="scroll-mt-28" id="solution">
                 <SectionLabel>Solution</SectionLabel>
                 <div className="mb-8">
-                  <CaseVideo src="/case-studies/downgrade-experiment/solution1.mp4" />
+                  <CaseImage src="/case-studies/downgrade-experiment/solution1.jpg?v=2" alt="Downgrade experiment solution" />
                 </div>
                 <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
                   <li>
-                    <strong>Offer a new Yearly → Monthly downgrade alternative</strong> in the cancelation flow for <strong>Starter and Business Yearly</strong> customers seeking more payment flexibility.
+                    <strong>New Yearly → Monthly downgrade option for Yearly customers</strong> highlights more flexible billing and lower upfront costs
                   </li>
                   <li>
-                    <strong>Improved Business → Starter Plan downgrade implications</strong> in the cancelation flow for <strong>all Business customers</strong> to reduce bounce rate.
-                  </li>
-                  <li>
-                    Created a <strong>Decision Matrix</strong> that maps out all possible outcome scenarios and next steps to <strong>ensure a clear decision path and prevent confirmation bias</strong> at the end of the experiment.
+                    <strong>Improved Business → Starter downgrade implications screen</strong> with more positive framing:
+                    <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
+                      <li>
+                        re-emphasizes cost savings in green callout at the top
+                      </li>
+                      <li>
+                        changes due to feature loss is more neutral. Only applicable changes are shown (e.g. multiple team orgs merging into 1 team only shown to orgs with multiple teams)
+                      </li>
+                      <li>
+                        &quot;downgrading&quot; changed to &quot;switching&quot;
+                      </li>
+                    </ul>
                   </li>
                 </ul>
-                <CaseImage src="/case-studies/downgrade-experiment/solution1.jpg" alt="Downgrade experiment solution and decision matrix" compact />
+                <CaseVideo src="/case-studies/downgrade-experiment/solution.mp4" />
+                <h3 className="font-sans text-lg font-semibold tracking-tight mb-4 mt-10 text-gray-900">
+                  Experiment metrics
+                </h3>
+                <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
+                  <li>
+                    <strong>Primary metrics:</strong> % confirmed cancelled ARR of ARR entering cancellation flow - contraction from downsell
+                  </li>
+                  <li>
+                    <strong>Learning metrics:</strong> breakdown by plan and billing period, and team size
+                    <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
+                      <li>
+                        Why: to understand whether treatment has differnt effects across customer segments. Starter Yearly customers are only eligible for Yearly to Monthly downgrade, and Business monthly is only eligible for Business to Starter downgrade, so this isolates individual treatment effect. Business yearly is eligible for both downgrade options, and so it test the combined treatment effects.
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </section>
 
               <section className="scroll-mt-28" id="outcome">
                 <SectionLabel>Outcome</SectionLabel>
                 <div className="flex flex-col gap-8">
-                  <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
-                    <li>
-                      Treatment shows a <strong>directionally positive decrease</strong> in cancelled ARR (&gt;60% of confidence intervals fall below zero), retaining ~<strong>$400K ARR/year</strong>.
-                    </li>
-                    <li>
-                      <strong>Analysis by team size:</strong> <strong>Subscriptions with 6+ members</strong> are the main driver of impact, showing a <strong>6–8% drop</strong> in cancelled ARR consistently across 2 months.
-                    </li>
-                  </ul>
-                  <CaseImage src="/case-studies/downgrade-experiment/outcome1.jpg" alt="Outcome analysis by team size" />
+                  <div>
+                    <h3 className="font-sans text-lg font-semibold tracking-tight mb-4 text-gray-900">
+                      Decision matrix
+                    </h3>
+                    <div className="mb-6">
+                      <CaseImage src="/case-studies/downgrade-experiment/decision1.jpg" alt="Decision matrix for the downgrade experiment" />
+                    </div>
+                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
+                      <li>
+                        Created a <strong>Decision Matrix</strong> that maps out possible outcome scenarios and next steps to <strong>ensure a clear decision path and prevent confirmation bias</strong> at the end of the experiment.
+                      </li>
+                    </ul>
+                  </div>
 
-                  <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
-                    <li>
-                      <strong>Analysis by plan and billing period:</strong>
-                      <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
-                        <li>
-                          Cancelled ARR <strong>decreased by 4pp</strong> in <strong>Starter Yearly</strong> (eligible to downgrade to Monthly) and <strong>9pp</strong> in <strong>Business Monthly</strong> (eligible to downgrade to Starter). This supports the hypotheses that offering more payment flexibility and clearer Starter downgrade implications reduce cancelations.
-                        </li>
-                        <li>
-                          Cancelled ARR <strong>did not increase in Business Yearly</strong>, even though they are eligible for both Monthly and Starter downgrades. Just that offering multiple downgrade alternatives in one flow might have increased cognitive load and caused choice paralysis, backfiring and led to higher cancellations.
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <CaseImage src="/case-studies/downgrade-experiment/outcome2.jpg" alt="Outcome analysis by plan and billing period" />
+                  <div>
+                    <h3 className="font-sans text-lg font-semibold tracking-tight mb-4 text-gray-900">
+                      Results
+                    </h3>
+                    <div className="mb-6">
+                      <CaseImage src="/case-studies/downgrade-experiment/results1.jpg" alt="Overall results for the downgrade experiment" />
+                    </div>
+                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
+                      <li>
+                        Overall, treatment <strong>did not have a significant negative impact on cancellations</strong> (directionally negative, -2%, p=0.8)
+                      </li>
+                    </ul>
+                    <div className="mb-6">
+                      <CaseImage src="/case-studies/downgrade-experiment/results2.png" alt="Results by team size for the downgrade experiment" />
+                    </div>
+                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
+                      <li>
+                        However, analysis by team size shows that <strong>subscriptions with 6+ members consistently shows -6% to -8% decrease</strong> across the two months of the experiment
+                      </li>
+                    </ul>
+                    <div className="mb-6">
+                      <CaseImage src="/case-studies/downgrade-experiment/results3.jpg" alt="Results by plan and billing period" />
+                    </div>
+                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
+                      <li>
+                        <strong>Analysis by plan and billing period:</strong>
+                        <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
+                          <li>
+                            Cancelled ARR <strong>decreased by 5%</strong> in <strong>Starter Yearly</strong> (eligible to downgrade to Monthly) and <strong>8.8%</strong> in <strong>Business Monthly</strong> (eligible to downgrade to Starter). This supports the hypotheses that offering more payment flexibility and clearer Starter downgrade implications reduce cancelations.
+                          </li>
+                          <li>
+                            Interestingly, cancelled ARR <strong>did not increase in Business Yearly</strong>, even though they are eligible for both Monthly and Starter downgrades. This suggests that <strong>offering multiple downgrade alternatives in one flow might have increased cognitive load and caused choice paralysis</strong>, backfiring and led to higher cancellations.
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </section>
 
@@ -300,7 +357,7 @@ function CaseVideo({ src }: { src: string }) {
 }
 
 function SectionNav() {
-  const [active, setActive] = useState("context");
+  const [active, setActive] = useState("tldr");
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
