@@ -228,7 +228,7 @@ export default function DowngradeExperiment() {
                       Decision matrix
                     </h3>
                     <div className="mb-6">
-                      <CaseImage src="/case-studies/downgrade-experiment/decision1.jpg" alt="Decision matrix for the downgrade experiment" />
+                      <CaseImage src="/case-studies/downgrade-experiment/decision_matrix.jpg" alt="Decision matrix for the downgrade experiment" />
                     </div>
                     <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                       <li>
@@ -246,7 +246,7 @@ export default function DowngradeExperiment() {
                     </div>
                     <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
                       <li>
-                        Overall, treatment <strong>did not have a significant negative impact on cancellations</strong> (directionally negative, -2%, p=0.8)
+                        Overall, treatment <strong>did not have a significant negative impact on cancellations</strong> (directionally negative, -2pp, p=0.8)
                       </li>
                     </ul>
                     <div className="mb-6">
@@ -254,7 +254,7 @@ export default function DowngradeExperiment() {
                     </div>
                     <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
                       <li>
-                        However, analysis by team size shows that <strong>subscriptions with 6+ members consistently shows -6% to -8% decrease</strong> across the two months of the experiment
+                        However, analysis by team size shows that <strong>subscriptions with 6+ members consistently shows -5pp to -7pp decrease</strong> across the two months of the experiment
                       </li>
                     </ul>
                     <div className="mb-6">
@@ -265,7 +265,7 @@ export default function DowngradeExperiment() {
                         <strong>Analysis by plan and billing period:</strong>
                         <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
                           <li>
-                            Cancelled ARR <strong>decreased by 5%</strong> in <strong>Starter Yearly</strong> (eligible to downgrade to Monthly) and <strong>8.8%</strong> in <strong>Business Monthly</strong> (eligible to downgrade to Starter). This supports the hypotheses that offering more payment flexibility and clearer Starter downgrade implications reduce cancelations.
+                            Cancelled ARR <strong>decreased by 4pp</strong> in <strong>Starter Yearly</strong> (eligible to downgrade to Monthly) and <strong>8.8pp</strong> in <strong>Business Monthly</strong> (eligible to downgrade to Starter). This supports the hypotheses that offering more payment flexibility and clearer Starter downgrade implications reduce cancelations.
                           </li>
                           <li>
                             Interestingly, cancelled ARR <strong>did not increase in Business Yearly</strong>, even though they are eligible for both Monthly and Starter downgrades. This suggests that <strong>offering multiple downgrade alternatives in one flow might have increased cognitive load and caused choice paralysis</strong>, backfiring and led to higher cancellations.

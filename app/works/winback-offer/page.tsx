@@ -104,9 +104,14 @@ export default function WinbackOffer() {
 
               <section className="scroll-mt-28" id="context">
                 <SectionLabel>Context</SectionLabel>
-                <p className="font-sans text-base leading-relaxed text-gray-600">
-                  Churn from self-service customers has been accelerating, with $3–4M ARR entering the cancellation flow every month. The expansion and retention team successfully reduced churn by giving a <strong>1-month free offer to Starter and Business monthly plan customers canceling within their first 3 months</strong>. I was responsible for <strong>rolling out the winning tactic to 100% of canceling customers, making improvements based on experiment results, monitoring its impact on longer-term retention and identify future opportunities</strong>.
-                </p>
+                <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
+                  <li>
+                    The expansion and retention team successfully reduced churn by giving a <strong>1-month free offer to paid monthly plan customers canceling within their first 3 months</strong>, reducing cancellations by 8% (p&lt;0.01, 94% orgs confirming cancellation in control vs 87% treatment) and saving <strong>$600K/year ARR</strong>
+                  </li>
+                  <li>
+                    I was responsible for <strong>making improvements based on experiment results, rolling out the winning tactic to 100% of canceling customers, monitoring its impact on longer-term retention and identify future opportunities</strong>.
+                  </li>
+                </ul>
               </section>
 
               <section className="scroll-mt-28" id="opportunity">
@@ -170,10 +175,10 @@ export default function WinbackOffer() {
                 <div className="flex flex-col gap-10">
                   <NextStep
                     number="1"
-                    text="Extend / reframe the offer for 7mo–1.5yr cohorts"
-                    body="Older (7–12 month) cohorts are more likely to accept the offer (22% vs ~15%) than other cohorts, and are equally likely to retain as younger (1–6 month) cohorts. The offer should be paired with value reinforcement, as older teams are likely to be less price-sensitive."
-                    imgSrc="/case-studies/winback-offer/next-step-1.jpg"
-                    imgAlt="Funnel by subscription age showing older cohorts accept and retain at higher rates"
+                    text="Extend similar discount (20% off) to cancelled customers via email, increase reactivation rate by 13x"
+                    body=""
+                    imgSrc="/case-studies/winback-offer/nextstep1.png"
+                    imgAlt="Email winback discount increasing reactivation rate by 13x"
                   />
                   <NextStep
                     number="2"
@@ -246,10 +251,16 @@ function NextStep({
           {text}
         </p>
       </div>
-      <p className="font-sans text-base leading-relaxed pl-12 text-gray-600">
-        {body}
-      </p>
-      {imgSrc && <CaseImage src={imgSrc} alt={imgAlt ?? ""} />}
+      {body ? (
+        <p className="font-sans text-base leading-relaxed pl-12 text-gray-600">
+          {body}
+        </p>
+      ) : null}
+      {imgSrc && (
+        <div className="pl-12 max-w-xs md:max-w-sm">
+          <CaseImage src={imgSrc} alt={imgAlt ?? ""} />
+        </div>
+      )}
     </div>
   );
 }
