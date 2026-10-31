@@ -207,7 +207,7 @@ export default function DowngradeExperiment() {
                 </h3>
                 <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                   <li>
-                    <strong>Primary metrics:</strong> % confirmed cancelled ARR of ARR entering cancellation flow - contraction from downsell
+                    <strong>Primary metrics:</strong> %orgs confirming cancellation, %confirmed cancelled ARR
                   </li>
                   <li>
                     <strong>Learning metrics:</strong> breakdown by plan and billing period, and team size
@@ -216,6 +216,12 @@ export default function DowngradeExperiment() {
                         Why: to understand whether treatment has differnt effects across customer segments. Starter Yearly customers are only eligible for Yearly to Monthly downgrade, and Business monthly is only eligible for Business to Starter downgrade, so this isolates individual treatment effect. Business yearly is eligible for both downgrade options, and so it test the combined treatment effects.
                       </li>
                     </ul>
+                  </li>
+                  <li>
+                    <strong>Counter metric:</strong> contraction ARR
+                  </li>
+                  <li>
+                    <strong>Net impact:</strong> retained ARR - contraction ARR
                   </li>
                 </ul>
               </section>
@@ -241,36 +247,66 @@ export default function DowngradeExperiment() {
                     <h3 className="font-sans text-lg font-semibold tracking-tight mb-4 text-gray-900">
                       Results
                     </h3>
-                    <div className="mb-6">
-                      <CaseImage src="/case-studies/downgrade-experiment/results1.jpg" alt="Overall results for the downgrade experiment" />
-                    </div>
-                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
-                      <li>
-                        Overall, treatment <strong>did not have a significant negative impact on cancellations</strong> (directionally negative, -2pp, p=0.8)
-                      </li>
-                    </ul>
-                    <div className="mb-6">
+                    <div className="flex flex-col gap-6 mb-8">
+                      <CaseImage src="/case-studies/downgrade-experiment/results1.png" alt="Overall results for the downgrade experiment" />
                       <CaseImage src="/case-studies/downgrade-experiment/results2.png" alt="Results by team size for the downgrade experiment" />
-                    </div>
-                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
-                      <li>
-                        However, analysis by team size shows that <strong>subscriptions with 6+ members consistently shows -5pp to -7pp decrease</strong> across the two months of the experiment
-                      </li>
-                    </ul>
-                    <div className="mb-6">
                       <CaseImage src="/case-studies/downgrade-experiment/results3.jpg" alt="Results by plan and billing period" />
                     </div>
+
+                    <h4 className="font-sans text-base font-semibold tracking-tight mb-3 text-gray-900">
+                      Data
+                    </h4>
+                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
+                      <li>
+                        Overall, treatment <strong>did not have a significant negative impact on % orgs confirming cancellations</strong> (+0.5pp) and confirmed cancellations (2pp, p=0.8)
+                      </li>
+                      <li>
+                        Breakdown by team size shows that <strong>subscriptions with 6+ members consistently shows −5pp to −7pp decrease</strong> across the two months of the experiment
+                      </li>
+                      <li>
+                        Breakdown by plan and billing period shows that cancelled ARR <strong>decreased by 4pp in Starter Yearly</strong> (eligible to downgrade to Monthly) and <strong>8.8pp in Business Monthly</strong> (eligible to downgrade to Starter) but are both non stats sig, but cancelled ARR for <strong>Business Yearly remained flat</strong>
+                      </li>
+                    </ul>
+
+                    <h4 className="font-sans text-base font-semibold tracking-tight mb-3 text-gray-900">
+                      Impact estimates
+                    </h4>
+                    <p className="font-sans text-base leading-relaxed mb-4 text-gray-600">
+                      About <strong>$2M ARR</strong> from 6+ member subscriptions enters the cancellation flow every 2 months. A conservative <strong>5pp drop</strong> in cancelled ARR saves about <strong>$100K every 2 months</strong>, or about <strong>$0.6M a year gross</strong>.
+                    </p>
+                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
+                      <li>
+                        <strong>~50%</strong> of the saves come from <strong>Business Monthly</strong>. These customers downgrade from Business at $20/seat to Starter at $10/seat, so they keep about half their ARR. That leaves about <strong>$0.15M a year</strong>.
+                      </li>
+                      <li>
+                        <strong>~50%</strong> comes from <strong>Starter Yearly</strong>. Switching to monthly billing doesn’t lower ARR, because monthly costs more per seat ($10 vs $8). But monthly customers churn more easily, so I modelled <strong>5 to 10% monthly churn</strong> after the switch. That leaves about <strong>$0.22–0.29M a year</strong>.
+                      </li>
+                      <li>
+                        <strong>Net impact:</strong> about <strong>$0.35–0.45M a year</strong>. I quote <strong>$400K</strong> as a conservative estimate, because it assumes every saved customer took the downgrade option.
+                      </li>
+                    </ul>
+
+                    <h4 className="font-sans text-base font-semibold tracking-tight mb-3 text-gray-900">
+                      Interpretation
+                    </h4>
+                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-8 text-gray-600">
+                      <li>
+                        The <strong>% orgs confirming cancellation was flat</strong> but <strong>% cancelled ARR fell slightly</strong>, and cancelled ARR fell consistently for teams with 6+ members. This could mean the treatment works better for larger teams, or it could be chance.
+                      </li>
+                      <li>
+                        Offering <strong>Business → Starter</strong> and <strong>Yearly → Monthly</strong> works independently, but the <strong>combined treatment was not effective</strong>. This may be because offering multiple alternatives in one flow might have increased cognitive load and caused choice paralysis, or simply noise.
+                      </li>
+                    </ul>
+
+                    <h4 className="font-sans text-base font-semibold tracking-tight mb-3 text-gray-900">
+                      Decision: roll out to 100% cancelling customers
+                    </h4>
                     <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                       <li>
-                        <strong>Analysis by plan and billing period:</strong>
-                        <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
-                          <li>
-                            Cancelled ARR <strong>decreased by 4pp</strong> in <strong>Starter Yearly</strong> (eligible to downgrade to Monthly) and <strong>8.8pp</strong> in <strong>Business Monthly</strong> (eligible to downgrade to Starter). This supports the hypotheses that offering more payment flexibility and clearer Starter downgrade implications reduce cancelations.
-                          </li>
-                          <li>
-                            Interestingly, cancelled ARR <strong>did not increase in Business Yearly</strong>, even though they are eligible for both Monthly and Starter downgrades. This suggests that <strong>offering multiple downgrade alternatives in one flow might have increased cognitive load and caused choice paralysis</strong>, backfiring and led to higher cancellations.
-                          </li>
-                        </ul>
+                        <strong>Best case:</strong> we retain about <strong>$400K ARR a year</strong> and cancelling customers see new and improved downgrade alternatives
+                      </li>
+                      <li>
+                        <strong>Worst case:</strong> no impact on cancellations, and some customers see one extra step in the flow.
                       </li>
                     </ul>
                   </div>
