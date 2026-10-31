@@ -203,9 +203,18 @@ export default function DowngradeExperiment() {
                 </ul>
                 <CaseVideo src="/case-studies/downgrade-experiment/solution.mp4" />
                 <h3 className="font-sans text-lg font-semibold tracking-tight mb-4 mt-10 text-gray-900">
-                  Experiment metrics
+                  Experiment set-up &amp; metrics
                 </h3>
                 <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
+                  <li>
+                    <strong>Expected experiment duration:</strong> 4 weeks and expected <strong>$0.5M/year saved</strong>, based on:
+                    <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
+                      <li>1100 orgs/week, $550K ARR/week</li>
+                      <li>Baseline cancellation confirmation rate = 85%</li>
+                      <li>MDE = 3%</li>
+                      <li>Sample size needed in both groups = 3800 orgs</li>
+                    </ul>
+                  </li>
                   <li>
                     <strong>Primary metrics:</strong> %orgs confirming cancellation, %confirmed cancelled ARR
                   </li>

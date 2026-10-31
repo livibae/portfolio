@@ -179,6 +179,15 @@ export default function FomoExperiment() {
                 </div>
                 <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                   <li>
+                    To avoid reminding low-usage orgs how little they used Miro, I worked with our Analyst to set a threshold for who saw personalised usage data on the FOMO screen. We found that <strong>50% of weekly ARR comes from 20% engaged orgs</strong> with 3+ boards, 4+ months of tenure and 2+ members entering the cancellation flow, and the remaining half comes from 80% orgs with lower engagement.
+                  </li>
+                  <li>
+                    So I split the experiment into two tests. For high-engagement orgs, a <strong>superiority test</strong>, sized to detect a 3% relative drop in cancellation completion (89% to 86.3%), worth about <strong>$0.7M ARR a year</strong>. For everyone else, a <strong>non-inferiority test</strong>, to make sure the change did no harm. Both used 90% confidence and 80% power. With 545 high-engagement orgs entering the flow each week, the superiority test needed ~6 weeks.
+                  </li>
+                  <li>
+                    The non-inferiority test only needed 2 weeks. Since the experiment will run for 6 weeks, it will detect a maximum acceptable loss of <strong>$0.3M ARR/year</strong>.
+                  </li>
+                  <li>
                     <strong>Primary metric</strong>: % of confirmed cancelled ARR over ARR entering the cancellation flow (superiority test)
                   </li>
                   <li>
