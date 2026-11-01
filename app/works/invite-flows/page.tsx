@@ -193,7 +193,7 @@ export default function InviteFlows() {
                       Solution
                     </h3>
                     <CaseImage
-                      src="/case-studies/invite-flows/board-invite/solution.jpg?v=2"
+                      src="/case-studies/invite-flows/board-invite/solution1.jpg"
                       alt="Board invite flow solution"
                     />
                   </div>
