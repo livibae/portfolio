@@ -178,10 +178,6 @@ export default function InviteFlows() {
                         alt="Board invite flow data 1"
                       />
                       <CaseImage
-                        src="/case-studies/invite-flows/board-invite/data2.jpg?v=2"
-                        alt="Board invite flow data 2"
-                      />
-                      <CaseImage
                         src="/case-studies/invite-flows/board-invite/data3.jpg"
                         alt="Board invite flow data 3"
                       />
