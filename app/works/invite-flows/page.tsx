@@ -172,16 +172,10 @@ export default function InviteFlows() {
                     <h3 className="font-sans text-lg font-semibold tracking-tight mb-4 text-gray-900">
                       Data
                     </h3>
-                    <div className="flex flex-col gap-6">
-                      <CaseImage
-                        src="/case-studies/invite-flows/board-invite/data1.jpg?v=2"
-                        alt="Board invite flow data 1"
-                      />
-                      <CaseImage
-                        src="/case-studies/invite-flows/board-invite/data3.jpg"
-                        alt="Board invite flow data 3"
-                      />
-                    </div>
+                    <CaseImage
+                      src="/case-studies/invite-flows/board-invite/data1.jpg?v=2"
+                      alt="Board invite flow data 1"
+                    />
                   </div>
 
                   <div className="scroll-mt-28" id="exp1-competitor">
