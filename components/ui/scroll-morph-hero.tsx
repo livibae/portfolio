@@ -84,6 +84,15 @@ const CASES: CaseCard[] = [
     status: "🧪 Unsuccessful experiment",
     chips: ["Churn & retention", "Stakeholder management", "A/B testing"],
   },
+  {
+    src: "/case-studies/invite-flows/cover.jpg?v=8",
+    title: "Reducing customer support tickets by 90% by improving Miro's invite and license management flow",
+    subtitle: "Bringing transparency back to how Miro adds and removes paid seats, without giving up the growth loop",
+    href: "/works/invite-flows",
+    logo: MIRO_LOGO,
+    status: "🧪 Successful experiment",
+    chips: ["Billing transparency", "Churn & retention", "A/B testing", "Stakeholder management"],
+  },
 ];
 
 const CARDS: CaseCard[] = Array.from({ length: 24 }, (_, i) => CASES[i % CASES.length]);
@@ -92,9 +101,9 @@ const ARC_END = 1100;
 const FAN_END = 2500;
 const MAX_SCROLL = FAN_END;
 const FAN_CENTER = 3;
-// Left to right: Spotify, winback, FOMO, downgrade, captur, paywall, prototypes.
-const FAN_ORDER = [2, 4, 6, 1, 5, 0, 3];
-const FAN_SOURCE = [9, 11, 13, 8, 12, 7, 10];
+// Left to right: Spotify, winback, FOMO, downgrade, invite-flows, captur, paywall, prototypes.
+const FAN_ORDER = [2, 4, 6, 1, 7, 5, 0, 3];
+const FAN_SOURCE = [10, 12, 14, 9, 15, 13, 8, 11];
 
 let stickToProjects = false;
 
@@ -146,6 +155,7 @@ function FlipCard({
   const router = useRouter();
   const revealTop = card.src.includes("downgrade");
   const enlargeCover = card.src.includes("fomo/cover");
+  const fitCover = card.src.includes("invite-flows/cover");
   const canInteract = interactive && target.opacity > 0.6;
 
   return (
@@ -182,7 +192,7 @@ function FlipCard({
         <img
           src={card.src}
           alt=""
-          className="h-full w-full object-cover"
+          className={fitCover ? "h-full w-full object-contain bg-white" : "h-full w-full object-cover"}
           style={
             revealTop
               ? { transform: "translateY(12%)" }
