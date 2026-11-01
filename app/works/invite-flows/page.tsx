@@ -128,15 +128,11 @@ export default function InviteFlows() {
                     <h3 className="font-sans text-lg font-semibold tracking-tight mb-4 text-gray-900">
                       Discovery
                     </h3>
-                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc mb-6 text-gray-600">
+                    <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                       <li>
                         Understand the full breadth of the problem first. I ran a UX audit with our Designer, screenshotting every flow on a Miro board. I added competitor analysis, customer support complaints, and rapid-fire stakeholder interviews to understand why these decisions were made, and what we have tried and failed.
                       </li>
                     </ul>
-                    <CaseImage
-                      src="/case-studies/invite-flows/board-invite/discovery.jpg"
-                      alt="Invite flows UX audit discovery"
-                    />
                   </div>
 
                   <div className="scroll-mt-28" id="prioritization">
