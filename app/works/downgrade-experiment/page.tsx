@@ -288,10 +288,10 @@ export default function DowngradeExperiment() {
                         <strong>~50%</strong> of the saves come from <strong>Business Monthly</strong>. These customers downgrade from Business at $20/seat to Starter at $10/seat, so they keep about half their ARR. That leaves about <strong>$0.15M a year</strong>.
                       </li>
                       <li>
-                        <strong>~50%</strong> comes from <strong>Starter Yearly</strong>. Switching to monthly billing doesn’t lower ARR, because monthly costs more per seat ($10 vs $8). But monthly customers churn more easily, so I modelled <strong>5 to 10% monthly churn</strong> after the switch. That leaves about <strong>$0.22–0.29M a year</strong>.
+                        <strong>~50%</strong> comes from <strong>Starter Yearly</strong>. Switching to monthly billing doesn’t lower ARR, because monthly costs more per seat ($10 vs $8).
                       </li>
                       <li>
-                        <strong>Net impact:</strong> about <strong>$0.35–0.45M a year</strong>. I quote <strong>$400K</strong> as a conservative estimate, because it assumes every saved customer took the downgrade option.
+                        <strong>Net impact:</strong> ~$0.4M
                       </li>
                     </ul>
 
