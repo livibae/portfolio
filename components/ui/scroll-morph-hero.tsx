@@ -93,6 +93,15 @@ const CASES: CaseCard[] = [
     status: "🧪 Successful experiment",
     chips: ["Billing transparency", "Churn & retention", "A/B testing", "Stakeholder management"],
   },
+  {
+    src: "/case-studies/mcp/cover.jpg?v=2",
+    title: "Tripling Miro MCP weekly active users in 3 months",
+    subtitle: "Driving adoption and usage by addressing funnel drop-offs and increasing awareness with in-product entry points",
+    href: "/works/miro-mcp",
+    logo: MIRO_LOGO,
+    status: "🧪 Successful experiment",
+    chips: ["Activation", "Lifecycle email", "In-product entry points", "A/B testing", "User interviews"],
+  },
 ];
 
 const CARDS: CaseCard[] = Array.from({ length: 24 }, (_, i) => CASES[i % CASES.length]);
@@ -100,10 +109,10 @@ const TOTAL_IMAGES = CARDS.length;
 const ARC_END = 1100;
 const FAN_END = 2500;
 const MAX_SCROLL = FAN_END;
-const FAN_CENTER = 3;
-// Left to right: Spotify, winback, FOMO, downgrade, invite-flows, captur, paywall, prototypes.
-const FAN_ORDER = [2, 4, 6, 1, 7, 5, 0, 3];
-const FAN_SOURCE = [10, 12, 14, 9, 15, 13, 8, 11];
+const FAN_CENTER = 4;
+// Left to right: Spotify, winback, FOMO, downgrade, MCP, invite-flows, captur, paywall, prototypes.
+const FAN_ORDER = [2, 4, 6, 1, 8, 7, 5, 0, 3];
+const FAN_SOURCE = [11, 13, 15, 10, 17, 16, 14, 9, 12];
 
 let stickToProjects = false;
 

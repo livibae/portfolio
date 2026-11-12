@@ -4,6 +4,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import LetsTalk from "@/components/LetsTalk";
 import { useState, useEffect } from "react";
+import CaseImage from "@/components/CaseImage";
 
 const metrics = [
   { value: "12M", label: "New users activated" },
@@ -317,14 +318,6 @@ function OpportunityBlock({
   );
 }
 
-function CaseImage({ src, alt, fallback }: { src: string; alt: string; fallback?: string }) {
-  return (
-    <div className="rounded-xl overflow-hidden" style={{ border: "1px solid var(--color-border)" }}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src || fallback} alt={alt} className="w-full h-auto" loading="lazy" />
-    </div>
-  );
-}
 
 const navItems = [
   { label: "Context", id: "context" },

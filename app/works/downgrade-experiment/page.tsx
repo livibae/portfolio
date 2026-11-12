@@ -4,6 +4,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import LetsTalk from "@/components/LetsTalk";
 import { useState, useEffect } from "react";
+import CaseImage from "@/components/CaseImage";
 
 const metrics = [
   { value: "$400K", label: "retained ARR per year", align: "left" as const },
@@ -369,21 +370,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function CaseImage({ src, alt, compact }: { src: string; alt: string; compact?: boolean }) {
-  return (
-    <div
-      className="rounded-xl overflow-hidden"
-      style={{
-        border: "1px solid var(--color-border)",
-        maxWidth: compact ? "640px" : undefined,
-        marginInline: compact ? "auto" : undefined,
-      }}
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt={alt} className="w-full h-auto" loading="lazy" />
-    </div>
-  );
-}
 
 function CaseVideo({ src }: { src: string }) {
   return (
