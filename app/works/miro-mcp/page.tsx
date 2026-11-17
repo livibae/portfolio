@@ -413,6 +413,9 @@ export default function MiroMcp() {
                         Doubling down on the success of the AI tab in the Share window, allow users to directly send board content to connected AI tools. Clicking &quot;Send&quot; opens a new chat in the connected AI tool with user prompt
                       </li>
                     </ul>
+                    <div className="mt-8">
+                      <CaseImage src="/case-studies/mcp/send-to-ai.jpg" alt="Miro Send to AI proposed entry points" />
+                    </div>
                   </div>
                 </div>
               </section>
