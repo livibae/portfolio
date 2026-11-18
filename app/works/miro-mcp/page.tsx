@@ -109,7 +109,7 @@ export default function MiroMcp() {
                     I was promoted to the Extensibility team in August 2026, which looks after our Developer platform (API, SDKs), Apps Marketplace, and Model Context Protocol (MCP). My goal is to drive adoption and usage of Miro MCP.
                   </p>
                   <p>
-                    I spoke to ~40 MCP users in two weeks and analyze the user journey funnel to discover growth opportunities. I prioritized two bets: 1) sending an activation email that increased conversion from authentication to first tool call from 52% to 61% as a quick win, and 2) adding a number of in-product  entry points at high-intent moments lifted new MCP users by 16% (sig.). Overall, MCP weekly active users grew from 28k to 86.5k between August and November 2026 (~3x), with the growth rate increasing from 5% WoW in August to 21% WoW in October.
+                    I spoke to ~40 MCP users in two weeks and analyze the user journey funnel to discover growth opportunities. I prioritized two bets: 1) sending an activation email that increased conversion from authentication to first tool call from <strong>52% to 61%</strong> as a quick win, and 2) adding a number of in-product  entry points at high-intent moments lifted new MCP users by <strong>16% (sig.)</strong>. Overall, MCP weekly active users grew from <strong>28k to 86.5k</strong> between August and November 2026 (<strong>~3x</strong>), with the growth rate increasing from <strong>5% WoW</strong> in August to <strong>21% WoW</strong> in October.
                   </p>
                 </div>
               </section>
@@ -127,7 +127,7 @@ export default function MiroMcp() {
                     </h3>
                     <ul className="flex flex-col gap-4 pl-5 list-disc">
                       <li>
-                        <strong>Data:</strong> 52% of users who completed authentication never reached their first tool call.
+                        <strong>Data:</strong> <strong>52%</strong> of users who completed authentication never reached their first tool call.
                       </li>
                       <li>
                         <strong>User interviews :</strong> Most MCP users found Miro MCP on the marketplace listings inside Claude or ChatGPT. They bulk connect every tool they already use, so they don&apos;t necessarily have a reason to take the first step to try Miro MCP.
@@ -197,7 +197,7 @@ export default function MiroMcp() {
                     </ul>
                   </li>
                   <li>
-                    <strong>Result:</strong> +15% lift in conversion from authentication to first tool call. Rolled out to 100%.
+                    <strong>Result:</strong> <strong>+15% lift</strong> in conversion from authentication to first tool call. Rolled out to 100%.
                   </li>
                   <li>
                     <strong>Learning:</strong> The way the email was built meant we couldn&apos;t track clicks on each use case. So we know the email worked, but not which prompts resonated. I&apos;m fixing that in the next email experiment.
@@ -231,8 +231,8 @@ export default function MiroMcp() {
                   <li>
                     <strong>Result:</strong>
                     <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
-                      <li>AI tab: +24% new MCP orgs (sig.). Rolled out to 100%.</li>
-                      <li>Pop-ups: +16% new MCP users (sig.) and +30% new MCP orgs (sig.). Rolled out to 100%.</li>
+                      <li>AI tab: <strong>+24% new MCP orgs (sig.)</strong>. Rolled out to 100%.</li>
+                      <li>Pop-ups: <strong>+16% new MCP users (sig.)</strong> and <strong>+30% new MCP orgs (sig.)</strong>. Rolled out to 100%.</li>
                     </ul>
                   </li>
                 </ul>
@@ -250,10 +250,10 @@ export default function MiroMcp() {
                         <strong>Data:</strong>
                         <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
                           <li>
-                            experiment data show a 30% drop-off from clicking on the pop-ups to reaching the first tool call.
+                            experiment data show a <strong>30% drop-off</strong> from clicking on the pop-ups to reaching the first tool call.
                           </li>
                           <li>
-                            A previous experiment from the new user onboarding shows a similar drop-off when direct users from Miro to MCP Developer Documentation outside Miro. 70% of MCP users are non-engineers and users have told us that the Developer Documentation is not an intuitive channel for onboarding and discovery in interviews
+                            A previous experiment from the new user onboarding shows a similar drop-off when direct users from Miro to MCP Developer Documentation outside Miro. <strong>70% of MCP users are non-engineers</strong> and users have told us that the Developer Documentation is not an intuitive channel for onboarding and discovery in interviews
                           </li>
                         </ul>
                       </li>
@@ -269,7 +269,7 @@ export default function MiroMcp() {
                         <strong>UX changes:</strong>
                         <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
                           <li>
-                            we build a lightweight in-product destination similar to the AI tab in share window. Conversion increased by ~20% based on pre-/post-analysis
+                            we build a lightweight in-product destination similar to the AI tab in share window. Conversion increased by <strong>~20%</strong> based on pre-/post-analysis
                           </li>
                         </ul>
                       </li>
@@ -302,7 +302,7 @@ export default function MiroMcp() {
                 <SectionLabel>Outcomes</SectionLabel>
                 <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                   <li>
-                    MCP weekly active users grew from 28k to 86.5k between August and November 2026 (~3x), with the growth rate increasing from 5% WoW in August to 21% at peak WoW in October.
+                    MCP weekly active users grew from <strong>28k to 86.5k</strong> between August and November 2026 (<strong>~3x</strong>), with the growth rate increasing from <strong>5% WoW</strong> in August to <strong>21% at peak WoW</strong> in October.
                   </li>
                 </ul>
                 <div className="my-8">
@@ -310,7 +310,7 @@ export default function MiroMcp() {
                 </div>
                 <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                   <li>
-                    Retention did not drop with newly acquired users. Both W1 (32% → 44%) and W2 retention (25% → 36%) both increased by &gt;10pp from August to Oct, suggesting that quality of acquired users maintained and show deeper usage than older cohorts
+                    Retention did not drop with newly acquired users. Both <strong>W1 (32% → 44%)</strong> and <strong>W2 retention (25% → 36%)</strong> both increased by <strong>&gt;10pp</strong> from August to Oct, suggesting that quality of acquired users maintained and show deeper usage than older cohorts
                   </li>
                 </ul>
                 <div className="mt-8">
@@ -327,16 +327,13 @@ export default function MiroMcp() {
                     </h3>
                     <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                       <li>
-                        <strong>Data:</strong> X% of Miro Self-serve organisations only have 1-2 power MCP users.
-                      </li>
-                      <li>
-                        <strong>User interviews:</strong> Many users told us they found out about Miro MCP from their colleagues, and that their organizations often have rituals or channels that share best practices in using AI features, suggesting a strong word-of-mouth effect
+                        <strong>User interviews:</strong> Many users told us they found out about Miro MCP from their colleagues, and that their organizations often have rituals or channels that share best practices in using AI features, suggesting a <strong>strong word-of-mouth effect</strong>
                       </li>
                       <li>
                         <strong>Competitors:</strong> Confluence uses social proof to nudge users in the same organization to integrate with more tools and deepen their usage
                       </li>
                       <li>
-                        <strong>Opportunity:</strong> when a user connects to Miro MCP, if we sent an email to other users in the same org that have not connected to that tool, we can activate more users to install and use MCP through social proof
+                        <strong>Opportunity:</strong> when a user connects to Miro MCP, if we sent an email to other users in the same org that have not connected to that tool, we can activate more users to install and use MCP through <strong>social proof</strong>
                       </li>
                     </ul>
                   </div>
@@ -347,10 +344,10 @@ export default function MiroMcp() {
                     </h3>
                     <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                       <li>
-                        Diagramming is the #1 format created via MCP. Creating diagrams to map technical systems, processes, or architectures via MCP is well-loved by engineering and technical users.
+                        Diagramming is the <strong>#1 format</strong> created via MCP. Creating diagrams to map technical systems, processes, or architectures via MCP is well-loved by engineering and technical users.
                       </li>
                       <li>
-                        However, 90% of diagramming users have not connected to MCP, suggesting a big headroom for growth
+                        However, <strong>90% of diagramming users have not connected to MCP</strong>, suggesting a big headroom for growth
                       </li>
                       <li>
                         <strong>Solution:</strong> 4 new entry points for diagramming users who have not connected to Miro MCP
