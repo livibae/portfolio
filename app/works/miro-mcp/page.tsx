@@ -109,7 +109,7 @@ export default function MiroMcp() {
                     I was promoted to the Extensibility team in August 2026, which looks after our Developer platform (API, SDKs), Apps Marketplace, and Model Context Protocol (MCP). My goal is to drive adoption and usage of Miro MCP.
                   </p>
                   <p>
-                    I spoke to ~40 MCP users in two weeks and analyze the user journey funnel to discover growth opportunities. I prioritized two bets: 1) sending an activation email that increased conversion from authentication to first tool call from <strong>52% to 61%</strong> as a quick win, and 2) adding a number of in-product  entry points at high-intent moments lifted new MCP users by <strong>16% (sig.)</strong>. Overall, MCP weekly active users grew from <strong>28k to 86.5k</strong> between August and November 2026 (<strong>~3x</strong>), with the growth rate increasing from <strong>5% WoW</strong> in August to <strong>21% WoW</strong> in October.
+                    I spoke to ~40 MCP users in two weeks and analyze the user journey funnel to discover growth opportunities. I prioritized two bets: 1) sending an activation email that increased conversion from authentication to first tool call from <strong className="font-bold text-gray-900">52% to 61%</strong> as a quick win, and 2) adding a number of in-product  entry points at high-intent moments lifted new MCP users by <strong className="font-bold text-gray-900">16% (sig.)</strong>. Overall, MCP weekly active users grew from <strong className="font-bold text-gray-900">28k to 86.5k</strong> between August and November 2026 (<strong className="font-bold text-gray-900">~3x</strong>), with the growth rate increasing from <strong className="font-bold text-gray-900">5% WoW</strong> in August to <strong className="font-bold text-gray-900">21% WoW</strong> in October.
                   </p>
                 </div>
               </section>
@@ -197,7 +197,7 @@ export default function MiroMcp() {
                     </ul>
                   </li>
                   <li>
-                    <strong>Result:</strong> <strong>+15% lift</strong> in conversion from authentication to first tool call. Rolled out to 100%.
+                    <strong>Result:</strong> <strong className="font-bold text-gray-900">+15% lift</strong> in conversion from authentication to first tool call. Rolled out to 100%.
                   </li>
                   <li>
                     <strong>Learning:</strong> The way the email was built meant we couldn&apos;t track clicks on each use case. So we know the email worked, but not which prompts resonated. I&apos;m fixing that in the next email experiment.
@@ -231,8 +231,8 @@ export default function MiroMcp() {
                   <li>
                     <strong>Result:</strong>
                     <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
-                      <li>AI tab: <strong>+24% new MCP orgs (sig.)</strong>. Rolled out to 100%.</li>
-                      <li>Pop-ups: <strong>+16% new MCP users (sig.)</strong> and <strong>+30% new MCP orgs (sig.)</strong>. Rolled out to 100%.</li>
+                      <li>AI tab: <strong className="font-bold text-gray-900">+24% new MCP orgs (sig.)</strong>. Rolled out to 100%.</li>
+                      <li>Pop-ups: <strong className="font-bold text-gray-900">+16% new MCP users (sig.)</strong> and <strong className="font-bold text-gray-900">+30% new MCP orgs (sig.)</strong>. Rolled out to 100%.</li>
                     </ul>
                   </li>
                 </ul>
@@ -269,7 +269,7 @@ export default function MiroMcp() {
                         <strong>UX changes:</strong>
                         <ul className="flex flex-col gap-3 mt-3 pl-5 list-disc">
                           <li>
-                            we build a lightweight in-product destination similar to the AI tab in share window. Conversion increased by <strong>~20%</strong> based on pre-/post-analysis
+                            we build a lightweight in-product destination similar to the AI tab in share window. Conversion increased by <strong className="font-bold text-gray-900">~20%</strong> based on pre-/post-analysis
                           </li>
                         </ul>
                       </li>
@@ -299,7 +299,7 @@ export default function MiroMcp() {
                 <SectionLabel>Outcomes</SectionLabel>
                 <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                   <li>
-                    MCP weekly active users grew from <strong>28k to 86.5k</strong> between August and November 2026 (<strong>~3x</strong>), with the growth rate increasing from <strong>5% WoW</strong> in August to <strong>21% at peak WoW</strong> in October.
+                    MCP weekly active users grew from <strong className="font-bold text-gray-900">28k to 86.5k</strong> between August and November 2026 (<strong className="font-bold text-gray-900">~3x</strong>), with the growth rate increasing from <strong className="font-bold text-gray-900">5% WoW</strong> in August to <strong className="font-bold text-gray-900">21% at peak WoW</strong> in October.
                   </li>
                 </ul>
                 <div className="my-8">
@@ -307,7 +307,7 @@ export default function MiroMcp() {
                 </div>
                 <ul className="font-sans flex flex-col gap-4 text-base leading-relaxed pl-5 list-disc text-gray-600">
                   <li>
-                    Retention did not drop with newly acquired users. Both <strong>W1 (32% → 44%)</strong> and <strong>W2 retention (25% → 36%)</strong> both increased by <strong>&gt;10pp</strong> from August to Oct, suggesting that quality of acquired users maintained and show deeper usage than older cohorts
+                    Retention did not drop with newly acquired users. Both <strong className="font-bold text-gray-900">W1 (32% → 44%)</strong> and <strong className="font-bold text-gray-900">W2 retention (25% → 36%)</strong> both increased by <strong className="font-bold text-gray-900">&gt;10pp</strong> from August to Oct, suggesting that quality of acquired users maintained and show deeper usage than older cohorts
                   </li>
                 </ul>
                 <div className="mt-8">
