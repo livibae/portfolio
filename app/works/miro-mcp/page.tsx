@@ -291,9 +291,6 @@ export default function MiroMcp() {
                         we received negative user feedback on the experience when the pop-ups are dismissed, so we removed the countdown and point users to the MCP hub so they can set it up later instead
                       </li>
                     </ul>
-                    <div className="mt-8">
-                      <CaseImage src="/case-studies/mcp/notification-blindness.png" alt="Notification blindness when MCP pop-ups are dismissed" />
-                    </div>
                   </div>
                 </div>
               </section>
